@@ -1,0 +1,522 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="GiaSuBKMessages"
+    targetNamespace="http://cpc1hn.vn/LabManager/Message/v1"
+    elementFormDefault="qualified"
+    xmlns="http://cpc1hn.vn/LabManager/Message/v1"
+    xmlns:mstns="http://cpc1hn.vn/LabManager/Message/v1"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+
+	<xs:import schemaLocation=".\schemas.microsoft.com.2003.10.Serialization.xsd" namespace="http://schemas.microsoft.com/2003/10/Serialization/" id="mss" />
+	<xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" id="msa" schemaLocation=".\schemas.microsoft.com.2003.10.Serialization.Arrays.xsd" />
+
+	<!--Đăng nhập tài khoản-->
+	<xs:complexType name="UserLoginReq">
+		<xs:sequence>
+			<xs:element name="UserName" type="xs:string" />
+			<xs:element name="Password" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="UserLoginRes">
+		<xs:sequence>
+			<xs:element name="RespCode" type="xs:int" />
+			<xs:element name="RespText" type="xs:string" />
+			<xs:element name="Data" type="mstns:UserLabInfo"/>
+			<xs:element name="Token" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	
+
+	<xs:complexType name ="UserLabInfo">
+		<xs:sequence>
+			<xs:element name ="RowID" type="xs:int"/>
+			<xs:element name ="UserID" type="xs:string"/>
+			<xs:element name ="UserName" type="xs:string"/>
+			<xs:element name ="FullName" type="xs:string"/>
+			<xs:element name ="Email" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name ="UserLst">
+		<xs:sequence>
+			<xs:element name ="UserLst" type="mstns:UserLabInfo" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<!--Start my own from here-->
+	
+	<xs:complexType name="AdminLoginReq">
+		<xs:sequence>
+			<xs:element name="UserName" type="xs:string" />
+			<xs:element name="Password" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AdminLoginRes">
+		<xs:sequence>
+			<xs:element name="RespCode" type="xs:int" />
+			<xs:element name="RespText" type="xs:string" />
+			<xs:element name="TokenCode" type="xs:string" />
+			<xs:element name="UserInfo" type="mstns:GSUserInfo"/>
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:complexType name ="GSUserInfo">
+		<xs:sequence>
+			<xs:element name ="RowID" type="xs:int"/>
+			<xs:element name ="UserName" type="xs:string"/>
+			<xs:element name ="FullName" type="xs:string"/>
+			<xs:element name ="PhoneNumber" type="xs:string"/>
+			<xs:element name ="Email" type="xs:string"/>
+			<xs:element name ="Password" type="xs:string"/>
+			<xs:element name ="Status" type="xs:int"/>
+			<xs:element name ="TimeCreate" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<!--API for Parent-->
+	
+	<!--Create new request of parent-->
+	<xs:complexType name="GSCreateParentInfoReq">
+		<xs:sequence>
+			<xs:element name="UserID" type="xs:string" />
+			<xs:element name="Token" type="xs:string" />
+			<xs:element name ="ParentInfo" type ="mstns:GSParentInfo" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GSCreateParentInfoRes">
+		<xs:sequence>
+			<xs:element name="RespCode" type="xs:int" />
+			<xs:element name="RespText" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<!--Update parent request info-->
+	<xs:complexType name="GSUpdateParentInfoReq">
+		<xs:sequence>
+			<xs:element name="UserID" type="xs:string" />
+			<xs:element name="Token" type="xs:string" />
+			<xs:element name="ReqParentID" type="xs:string" />
+			<xs:element name ="ParentInfo" type ="mstns:GSParentInfo" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GSUpdateParentInfoRes">
+		<xs:sequence>
+			<xs:element name="RespCode" type="xs:int" />
+			<xs:element name="RespText" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<!--Get parent request list-->
+	<xs:complexType name="GSGetParentReqInfoReq">
+		<xs:sequence>
+			<xs:element name="UserID" type="xs:string" />
+			<xs:element name="Token" type="xs:string" />
+			<xs:element name="ReqParentID" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GSGetParentReqInfoRes">
+		<xs:sequence>
+			<xs:element name="RespCode" type="xs:int" />
+			<xs:element name="RespText" type="xs:string" />
+			<xs:element name="TotalRows" type="xs:int" />
+			<xs:element name="ParentInfo" type ="mstns:GSParentInfo" /> 
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name ="GSParentInfo">
+		<xs:sequence>
+			<xs:element name ="RowID" type="xs:int"/>
+			<xs:element name ="ReqParentID" type="xs:string"/>
+			<xs:element name ="ParentID" type="xs:string"/>
+			<xs:element name ="NameParent" type="xs:string"/>
+			<xs:element name ="PhoneParent" type="xs:string"/>
+			<xs:element name ="AddressParent" type="xs:string"/>
+			<xs:element name ="FormTeach" type="xs:string"/>
+			<xs:element name ="InfoMore" type="xs:string"/>
+			<xs:element name ="Level" type="xs:string"/>
+			<xs:element name ="NeedMore" type="xs:string"/>
+			<xs:element name ="SexTeacher" type="xs:string"/>
+			<xs:element name ="QuantityStudent" type="xs:string"/>
+			<xs:element name ="SelectSchool" type="xs:string"/>
+			<xs:element name ="ValueClass" type="xs:string"/>
+			<xs:element name ="Status" type="xs:int"/>
+			<xs:element name ="TimeCreate" type="xs:string"/>
+			<xs:element name ="NameSupports" type="xs:string"/>
+			<xs:element name ="Subjects" type="xs:string"/>
+			<xs:element name ="TimeSupport" type="xs:string"/>
+			<xs:element name ="SkillSupport" type="xs:string"/>
+			<xs:element name ="District" type="xs:string"/>
+			<xs:element name ="City" type="xs:string"/>
+			<xs:element name ="Ward" type="xs:string"/>
+			<xs:element name ="TimeModify" type="xs:string"/>
+			<xs:element name ="ModifierID" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<!--Get Parent Request List-->
+	<xs:complexType name="GSGetParentReqListReq">
+		<xs:sequence>
+			<xs:element name="UserID" type="xs:string" />
+			<xs:element name="Token" type="xs:string" />
+			<xs:element name="PageNumber" type="xs:int" />
+			<xs:element name="RowsPage" type="xs:int" />
+			<xs:element name="Search" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GSGetParentReqListRes">
+		<xs:sequence>
+			<xs:element name="RespCode" type="xs:int" />
+			<xs:element name="RespText" type="xs:string" />
+			<xs:element name="TotalRows" type="xs:int" />
+			<xs:element name="ParentList" type="mstns:ParentList"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ParentList">
+		<xs:sequence>
+			<xs:element name="Parent" type="mstns:GSParentInfo" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<!--From here is API for student-->
+	
+	<!--Create student request-->
+	<xs:complexType name="GSCreateStudentInfoReq">
+		<xs:sequence>
+			<xs:element name="UserID" type="xs:string" />
+			<xs:element name="Token" type="xs:string" />
+			<xs:element name ="StudentInfo" type ="mstns:GSStudentInfo" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GSCreateStudentInfoRes">
+		<xs:sequence>
+			<xs:element name="RespCode" type="xs:int" />
+			<xs:element name="RespText" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<!--Update student info-->
+	<xs:complexType name="GSUpdateStudentInfoReq">
+		<xs:sequence>
+			<xs:element name="UserID" type="xs:string" />
+			<xs:element name="Token" type="xs:string" />
+			<xs:element name="StudentID" type="xs:string" />
+			<xs:element name ="StudentInfo" type ="mstns:GSStudentInfo" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GSUpdateStudentInfoRes">
+		<xs:sequence>
+			<xs:element name="RespCode" type="xs:int" />
+			<xs:element name="RespText" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<!--Get Student Request Info-->	
+	<xs:complexType name="GSGetStudentReqInfoReq">
+		<xs:sequence>
+			<xs:element name="UserID" type="xs:string" />
+			<xs:element name="Token" type="xs:string" />
+			<xs:element name="StudentID" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GSGetStudentReqInfoRes">
+		<xs:sequence>
+			<xs:element name="RespCode" type="xs:int" />
+			<xs:element name="RespText" type="xs:string" />
+			<xs:element name="StudentInfo" type ="mstns:GSStudentInfo" /> 
+		</xs:sequence>
+	</xs:complexType>
+	
+	<!--Get student basic Info-->
+	<xs:complexType name="GSGetStudentBasicInfoReq">
+		<xs:sequence>
+			<xs:element name="UserID" type="xs:string" />
+			<xs:element name="Token" type="xs:string" />
+			<xs:element name="StudentID" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GSGetStudentBasicInfoRes">
+		<xs:sequence>
+			<xs:element name="RespCode" type="xs:int" />
+			<xs:element name="RespText" type="xs:string" />
+			<xs:element name="StudentInfo" type ="mstns:GSStudentBasicInfo" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<!--Update student basic Info-->
+	<xs:complexType name="GSUpdateStudentBasicInfoReq">
+		<xs:sequence>
+			<xs:element name="UserID" type="xs:string" />
+			<xs:element name="Token" type="xs:string" />
+			<xs:element name="StudentID" type="xs:string" />
+			<xs:element name="StudentInfo" type ="mstns:GSStudentBasicInfo" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GSUpdateStudentBasicInfoRes">
+		<xs:sequence>
+			<xs:element name="RespCode" type="xs:int" />
+			<xs:element name="RespText" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<!--Get Student List-->
+	<xs:complexType name="GSGetStudentReqListReq">
+		<xs:sequence>
+			<xs:element name="UserID" type="xs:string" />
+			<xs:element name="Token" type="xs:string" />
+			<xs:element name="PageNumber" type="xs:int" />
+			<xs:element name="RowsPage" type="xs:int" />
+			<xs:element name="Search" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GSGetStudentReqListRes">
+		<xs:sequence>
+			<xs:element name="RespCode" type="xs:int" />
+			<xs:element name="RespText" type="xs:string" />
+			<xs:element name="TotalRows" type="xs:int" />
+			<xs:element name="StudentList" type="mstns:StudentList"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="StudentList">
+		<xs:sequence>
+			<xs:element name="Student" type="mstns:GSStudentInfo" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name ="GSStudentBasicInfo">
+		<xs:sequence>
+			<xs:element name ="RowID" type="xs:int"/>
+			<xs:element name ="StudentID" type="xs:string"/>
+			<xs:element name ="StudentName" type="xs:string"/>
+			<xs:element name ="Phone" type="xs:string"/>
+			<xs:element name ="Address" type="xs:string"/>
+			<xs:element name ="FormTeach" type="xs:string"/>
+			<xs:element name ="InfoMore" type="xs:string"/>
+			<xs:element name ="SexStudent" type="xs:string"/>
+			<xs:element name ="Subjects" type="xs:string"/>
+			<xs:element name ="TimeSupport" type="xs:string"/>
+			<xs:element name ="City" type="xs:string"/>
+			<xs:element name ="District" type="xs:string"/>
+			<xs:element name ="Ward" type="xs:string"/>
+			<xs:element name ="Experience" type="xs:string"/>
+			<xs:element name ="Achievement" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	
+
+
+	<xs:complexType name ="GSStudentInfo">
+		<xs:sequence>
+			<xs:element name ="RowID" type="xs:int"/>
+			<xs:element name ="StudentID" type="xs:string"/>
+			<xs:element name ="StudentName" type="xs:string"/>
+			<xs:element name ="Phone" type="xs:string"/>
+			<xs:element name ="Address" type="xs:string"/>
+			<xs:element name ="FormTeach" type="xs:string"/>
+			<xs:element name ="InfoMore" type="xs:string"/>
+			<xs:element name ="Level" type="xs:string"/>
+			<xs:element name ="SexStudent" type="xs:string"/>
+			<xs:element name ="SelectSchool" type="xs:string"/>
+			<xs:element name ="TimeCreate" type="xs:string"/>
+			<xs:element name ="NameSupports" type="xs:string"/>
+			<xs:element name ="Subjects" type="xs:string"/>
+			<xs:element name ="TimeSupport" type="xs:string"/>
+			<xs:element name ="SkillSupport" type="xs:string"/>
+			<xs:element name ="District" type="xs:string"/>
+			<xs:element name ="City" type="xs:string"/>
+			<xs:element name ="Ward" type="xs:string"/>
+			<xs:element name ="Experience" type="xs:string"/>
+			<xs:element name ="Achievement" type="xs:string"/>
+			<xs:element name ="TimeModify" type="xs:string"/>
+			<xs:element name ="ModifierID" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<!--Student apply a class-->
+	<xs:complexType name="GSStudentApplyClassReq">
+		<xs:sequence>
+			<xs:element name="UserID" type="xs:string" />
+			<xs:element name="Token" type="xs:string" />
+			<xs:element name="ClassID" type="xs:string" />
+			<xs:element name="StudentID" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GSStudentApplyClassRes">
+		<xs:sequence>
+			<xs:element name="RespCode" type="xs:int" />
+			<xs:element name="RespText" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<!--API for Classes-->
+	
+	<!--Update class Info-->
+	<xs:complexType name="GSUpdateClassInfoReq">
+		<xs:sequence>
+			<xs:element name="UserID" type="xs:string" />
+			<xs:element name="Token" type="xs:string" />
+			<xs:element name="ClassID" type="xs:string" />
+			<xs:element name="ClassInfo" type="mstns:GSClass" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GSUpdateClassInfoRes">
+		<xs:sequence>
+			<xs:element name="RespCode" type="xs:int" />
+			<xs:element name="RespText" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<!--Get class Info-->
+	<xs:complexType name="GSGetClassInfoReq">
+		<xs:sequence>
+			<xs:element name="UserID" type="xs:string" />
+			<xs:element name="Token" type="xs:string" />
+			<xs:element name="ClassID" type="xs:string" />
+			
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GSGetClassInfoRes">
+		<xs:sequence>
+			<xs:element name="RespCode" type="xs:int" />
+			<xs:element name="RespText" type="xs:string" />
+			<xs:element name="ClassInfo" type="mstns:GSClass" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<!--Get class list-->
+	<xs:complexType name="GSGetClassReqListReq">
+		<xs:sequence>
+			<xs:element name="UserID" type="xs:string" />
+			<xs:element name="Token" type="xs:string" />
+			<xs:element name="PageNumber" type="xs:int" />
+			<xs:element name="RowsPage" type="xs:int" />
+			<xs:element name="Search" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GSGetClassReqListRes">
+		<xs:sequence>
+			<xs:element name="RespCode" type="xs:int" />
+			<xs:element name="RespText" type="xs:string" />
+			<xs:element name="TotalRows" type="xs:int" />
+			<xs:element name="ClassList" type="mstns:ClassList"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ClassList">
+		<xs:sequence>
+			<xs:element name="Class" type="mstns:GSClass" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<!--Create student cmt-->
+	<xs:complexType name="GSStudentCmtReq">
+		<xs:sequence>
+			<xs:element name="UserID" type="xs:string" />
+			<xs:element name="Token" type="xs:string" />
+			<xs:element name="StudentID" type="xs:string" />
+			<xs:element name="ClassID" type="xs:string" />
+			<xs:element name="StudentComment" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GSStudentCmtRes">
+		<xs:sequence>
+			<xs:element name="RespCode" type="xs:int" />
+			<xs:element name="RespText" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<!--Create parent cmt-->
+	<xs:complexType name="GSParentCmtReq">
+		<xs:sequence>
+			<xs:element name="UserID" type="xs:string" />
+			<xs:element name="Token" type="xs:string" />
+			<xs:element name="ParentPhone" type="xs:string" />
+			<xs:element name="ClassID" type="xs:string" />
+			<xs:element name="ParentComment" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GSParentCmtRes">
+		<xs:sequence>
+			<xs:element name="RespCode" type="xs:int" />
+			<xs:element name="RespText" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<!--Create student daily cmt-->
+	<xs:complexType name="GSCreateStudentDailyCmtReq">
+		<xs:sequence>
+			<xs:element name="UserID" type="xs:string" />
+			<xs:element name="Token" type="xs:string" />
+			<xs:element name="StudentID" type="xs:string" />
+			<xs:element name="ClassID" type="xs:string" />
+			<xs:element name="Date" type="xs:string" />
+			<xs:element name="Comment" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GSCreateStudentDailyCmtRes">
+		<xs:sequence>
+			<xs:element name="RespCode" type="xs:int" />	
+			<xs:element name="RespText" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<!--Get student daily cmt-->
+	<xs:complexType name="GSGetStudentDailyCmtReq">
+		<xs:sequence>
+			<xs:element name="UserID" type="xs:string" />
+			<xs:element name="Token" type="xs:string" />
+			<xs:element name="PhoneParent" type="xs:string" />
+			<xs:element name="ClassID" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GSGetStudentDailyCmtRes">
+		<xs:sequence>
+			<xs:element name="RespCode" type="xs:int" />
+			<xs:element name="RespText" type="xs:string" />
+			<xs:element name="Lesson" type="mstns:GSLesson" />
+		</xs:sequence>
+	</xs:complexType>
+	
+
+	<xs:complexType name ="GSClass">
+		<xs:sequence>
+			<xs:element name ="RowID" type="xs:int"/>
+			<xs:element name ="ClassID" type="xs:string" />
+			<xs:element name ="ReqParentID" type="xs:string"/>
+			<xs:element name ="NameParent" type="xs:string"/>
+			<xs:element name ="PhoneParent" type="xs:string"/>
+			<xs:element name ="AddressParent" type="xs:string"/>
+			<xs:element name ="StudentID" type="xs:string"/>
+			<xs:element name ="StudentName" type="xs:string"/>
+			<xs:element name ="PhoneStudent" type="xs:string"/>
+			<xs:element name ="FormTeach" type="xs:string"/>
+			<xs:element name ="InfoMore" type="xs:string"/>
+			<xs:element name ="Level" type="xs:string"/>
+			<xs:element name ="ValueClass" type="xs:string"/>
+			<xs:element name ="Status" type="xs:int"/>
+			<xs:element name ="TimeCreate" type="xs:string"/>
+			<xs:element name ="NameSupports" type="xs:string"/>
+			<xs:element name ="Subjects" type="xs:string"/>
+			<xs:element name ="Money" type="xs:string"/>
+			<xs:element name ="MoneyStatus" type="xs:string"/>
+			<xs:element name ="Apply" type="xs:string"/>
+			<xs:element name ="NumberApply" type="xs:int"/>
+			<xs:element name ="District" type="xs:string"/>
+			<xs:element name ="City" type="xs:string"/>
+			<xs:element name ="Ward" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name ="GSLesson">
+		<xs:sequence>
+			<xs:element name ="ClassID" type="xs:string"/>
+			<xs:element name ="LessonID" type="xs:string"/>
+			<xs:element name ="Date" type="xs:string"/>
+			<xs:element name ="Status" type="xs:string"/>
+			<xs:element name ="Comment" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

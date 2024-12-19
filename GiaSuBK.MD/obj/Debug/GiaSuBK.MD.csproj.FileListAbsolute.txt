@@ -1,0 +1,6 @@
+C:\University Files\iCTSV\Dự án Gia sư\Dev\GiaSuBachKhoaAPI\GiaSuBK.MD\bin\Debug\GiaSuBK.MD.dll
+C:\University Files\iCTSV\Dự án Gia sư\Dev\GiaSuBachKhoaAPI\GiaSuBK.MD\bin\Debug\GiaSuBK.MD.pdb
+C:\University Files\iCTSV\Dự án Gia sư\Dev\GiaSuBachKhoaAPI\GiaSuBK.MD\obj\Debug\GiaSuBK.MD.csproj.CoreCompileInputs.cache
+C:\University Files\iCTSV\Dự án Gia sư\Dev\GiaSuBachKhoaAPI\GiaSuBK.MD\obj\Debug\GiaSuBK.MD.dll
+C:\University Files\iCTSV\Dự án Gia sư\Dev\GiaSuBachKhoaAPI\GiaSuBK.MD\obj\Debug\GiaSuBK.MD.pdb
+C:\University Files\iCTSV\Dự án Gia sư\Dev\GiaSuBachKhoaAPI\GiaSuBK.MD\obj\Debug\GiaSuBK.MD.csproj.AssemblyReference.cache
