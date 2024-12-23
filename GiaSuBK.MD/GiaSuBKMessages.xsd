@@ -405,6 +405,25 @@
 		</xs:sequence>
 	</xs:complexType>
 
+	<!--Get finding class list-->
+	<xs:complexType name="GSGetFindingClassListReq">
+		<xs:sequence>
+			<xs:element name="UserID" type="xs:string" />
+			<xs:element name="Token" type="xs:string" />
+			<xs:element name="PageNumber" type="xs:int" />
+			<xs:element name="RowsPage" type="xs:int" />
+			<xs:element name="Search" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GSGetFindingClassListRes">
+		<xs:sequence>
+			<xs:element name="RespCode" type="xs:int" />
+			<xs:element name="RespText" type="xs:string" />
+			<xs:element name="TotalRows" type="xs:int" />
+			<xs:element name="ClassList" type="mstns:ClassList"/>
+		</xs:sequence>
+	</xs:complexType>
+
 	<xs:complexType name="ClassList">
 		<xs:sequence>
 			<xs:element name="Class" type="mstns:GSClass" minOccurs="0" maxOccurs="unbounded" />
@@ -469,6 +488,7 @@
 			<xs:element name="UserID" type="xs:string" />
 			<xs:element name="Token" type="xs:string" />
 			<xs:element name="PhoneParent" type="xs:string" />
+			<xs:element name="Month" type="xs:string" />
 			<xs:element name="ClassID" type="xs:string" />
 		</xs:sequence>
 	</xs:complexType>
@@ -476,7 +496,7 @@
 		<xs:sequence>
 			<xs:element name="RespCode" type="xs:int" />
 			<xs:element name="RespText" type="xs:string" />
-			<xs:element name="Lesson" type="mstns:GSLesson" />
+			<xs:element name="LessonList" type="mstns:LessonList" />
 		</xs:sequence>
 	</xs:complexType>
 	
@@ -517,6 +537,12 @@
 			<xs:element name ="Date" type="xs:string"/>
 			<xs:element name ="Status" type="xs:string"/>
 			<xs:element name ="Comment" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="LessonList">
+		<xs:sequence>
+			<xs:element name="Lesson" type="mstns:GSLesson" minOccurs="0" maxOccurs="unbounded" />
 		</xs:sequence>
 	</xs:complexType>
 </xs:schema>

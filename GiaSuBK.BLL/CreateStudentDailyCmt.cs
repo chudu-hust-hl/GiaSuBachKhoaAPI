@@ -62,7 +62,7 @@ namespace GiaSuBK.BLL
                         {
                             ClassID = objReq.ClassID,
                             LessonID = $"{objReq.ClassID}{objReq.Date}",
-                            Date = objReq.Date,
+                            Date = DateTime.UtcNow,
                             Comment = objReq.Comment,
                         };
 

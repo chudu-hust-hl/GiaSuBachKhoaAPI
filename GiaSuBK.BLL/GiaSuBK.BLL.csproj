@@ -66,10 +66,12 @@
     <Compile Include="CreateStudentDailyCmt.cs" />
     <Compile Include="GetClassInfo.cs" />
     <Compile Include="GetClassList.cs" />
-    <Compile Include="GetParentComment.cs" />
+    <Compile Include="CreateParentComment.cs" />
+    <Compile Include="GetFindingClassList.cs" />
     <Compile Include="GetParentReqList.cs" />
     <Compile Include="GetStudentBasicInfo.cs" />
-    <Compile Include="GetStudentComment.cs" />
+    <Compile Include="CreateStudentComment.cs" />
+    <Compile Include="GetStudentDailyComment.cs" />
     <Compile Include="GetStudentReqInfo.cs" />
     <Compile Include="GetStudentReqList.cs" />
     <Compile Include="StudentApplyClass.cs" />
