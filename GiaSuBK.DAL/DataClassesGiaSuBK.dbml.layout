@@ -32,12 +32,6 @@
         <elementListCompartment Id="7572a01f-52ec-42c2-a0ae-d122b0e30d96" absoluteBounds="3.765, 11.21, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="6a09d485-578d-425c-9928-05cf99b2d44f" absoluteBounds="6.25, 3.375, 2, 1.7708968098958327">
-      <DataClassMoniker Name="/DataClassesGiaSuBKDataContext/GS_Lesson" />
-      <nestedChildShapes>
-        <elementListCompartment Id="8ecf09e8-e885-4aff-947c-1a2fdbb555d8" absoluteBounds="6.265, 3.835, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="b4717e36-1855-4c28-866f-60dbfc212ffa" absoluteBounds="6.75, 10.75, 2, 5.2323225911458309">
       <DataClassMoniker Name="/DataClassesGiaSuBKDataContext/GS_OrderStudent" />
       <nestedChildShapes>
@@ -98,25 +92,31 @@
         <elementListCompartment Id="86fc84ad-2331-44f8-bb94-30c8c6da92b3" absoluteBounds="3.6400000000000006, 2.085, 1.9700000000000002, 5.6338297526041661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(5.625 : 4.26044840494792); (6.25 : 4.26044840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/DataClassesGiaSuBKDataContext/GS_Class/GS_Class_GS_Lesson" />
-      <nodes>
-        <classShapeMoniker Id="228a33a4-a90e-41f8-844f-d06c06891b7d" />
-        <classShapeMoniker Id="6a09d485-578d-425c-9928-05cf99b2d44f" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 4.43826416015625); (3.625 : 4.43826416015625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 4.43826416015625); (3.625 : 4.43826416015625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataClassesGiaSuBKDataContext/GS_ReqParent/GS_ReqParent_GS_Class" />
       <nodes>
         <classShapeMoniker Id="4108f9ae-ee24-41e7-b0f4-cae543f0428f" />
         <classShapeMoniker Id="228a33a4-a90e-41f8-844f-d06c06891b7d" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 9.40625); (3.65625 : 9.40625); (3.65625 : 7.81882975260417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 9.40625); (3.65625 : 9.40625); (3.65625 : 7.81882975260417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataClassesGiaSuBKDataContext/GS_Student/GS_Student_GS_Class" />
       <nodes>
         <classShapeMoniker Id="5754ee07-c265-4c20-b020-72143da553d7" />
         <classShapeMoniker Id="228a33a4-a90e-41f8-844f-d06c06891b7d" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="fc7c0a9b-daf8-4ef2-b220-bcf968800b2c" absoluteBounds="7.25, 3.875, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/DataClassesGiaSuBKDataContext/GS_Lesson" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bc96cc01-3cbf-401e-898f-d3c953dfd124" absoluteBounds="7.265, 4.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.625 : 4.76044840494792); (7.25 : 4.76044840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesGiaSuBKDataContext/GS_Class/GS_Class_GS_Lesson" />
+      <nodes>
+        <classShapeMoniker Id="228a33a4-a90e-41f8-844f-d06c06891b7d" />
+        <classShapeMoniker Id="fc7c0a9b-daf8-4ef2-b220-bcf968800b2c" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

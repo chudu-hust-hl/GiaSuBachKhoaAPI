@@ -42,9 +42,6 @@ namespace GiaSuBK.DAL
     partial void InsertGS_InviteStudent(GS_InviteStudent instance);
     partial void UpdateGS_InviteStudent(GS_InviteStudent instance);
     partial void DeleteGS_InviteStudent(GS_InviteStudent instance);
-    partial void InsertGS_Lesson(GS_Lesson instance);
-    partial void UpdateGS_Lesson(GS_Lesson instance);
-    partial void DeleteGS_Lesson(GS_Lesson instance);
     partial void InsertGS_Parent(GS_Parent instance);
     partial void UpdateGS_Parent(GS_Parent instance);
     partial void DeleteGS_Parent(GS_Parent instance);
@@ -72,6 +69,9 @@ namespace GiaSuBK.DAL
     partial void InsertGS_Class(GS_Class instance);
     partial void UpdateGS_Class(GS_Class instance);
     partial void DeleteGS_Class(GS_Class instance);
+    partial void InsertGS_Lesson(GS_Lesson instance);
+    partial void UpdateGS_Lesson(GS_Lesson instance);
+    partial void DeleteGS_Lesson(GS_Lesson instance);
     #endregion
 		
 		public DataClassesGiaSuBKDataContext() : 
@@ -141,14 +141,6 @@ namespace GiaSuBK.DAL
 			get
 			{
 				return this.GetTable<GS_InviteStudent>();
-			}
-		}
-		
-		public System.Data.Linq.Table<GS_Lesson> GS_Lessons
-		{
-			get
-			{
-				return this.GetTable<GS_Lesson>();
 			}
 		}
 		
@@ -232,10 +224,12 @@ namespace GiaSuBK.DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AS_CheckMotelExist")]
-		public void AS_CheckMotelExist([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MotelCode", DbType="NVarChar(10)")] string motelCode)
+		public System.Data.Linq.Table<GS_Lesson> GS_Lessons
 		{
-			this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), motelCode);
+			get
+			{
+				return this.GetTable<GS_Lesson>();
+			}
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.RP_GetDashboadByTime")]
@@ -243,30 +237,6 @@ namespace GiaSuBK.DAL
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<RP_GetDashboadByTimeResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AS_GetMotelConfirmByDistance")]
-		public void AS_GetMotelConfirmByDistance([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Distance", DbType="Int")] System.Nullable<int> distance, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Latitude", DbType="Decimal(18,8)")] System.Nullable<decimal> latitude, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Longitude", DbType="Decimal(18,8)")] System.Nullable<decimal> longitude, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PageNumber", DbType="Int")] System.Nullable<int> pageNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RowspPage", DbType="Int")] System.Nullable<int> rowspPage, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Search", DbType="NVarChar(100)")] string search)
-		{
-			this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), distance, latitude, longitude, pageNumber, rowspPage, search);
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AS_GetMotelConfirmLst")]
-		public void AS_GetMotelConfirmLst([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PageNumber", DbType="Int")] System.Nullable<int> pageNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RowspPage", DbType="Int")] System.Nullable<int> rowspPage, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Search", DbType="NVarChar(100)")] string search)
-		{
-			this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), pageNumber, rowspPage, search);
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AS_GetMotelSelectByID")]
-		public void AS_GetMotelSelectByID([global::System.Data.Linq.Mapping.ParameterAttribute(Name="StudentReqID", DbType="Int")] System.Nullable<int> studentReqID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PageNumber", DbType="Int")] System.Nullable<int> pageNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RowspPage", DbType="Int")] System.Nullable<int> rowspPage, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Search", DbType="NVarChar(100)")] string search)
-		{
-			this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), studentReqID, pageNumber, rowspPage, search);
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AS_GetStudentConfirmMoneyLst")]
-		public void AS_GetStudentConfirmMoneyLst([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PageNumber", DbType="Int")] System.Nullable<int> pageNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RowspPage", DbType="Int")] System.Nullable<int> rowspPage, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Search", DbType="NVarChar(100)")] string search)
-		{
-			this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), pageNumber, rowspPage, search);
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetCity")]
@@ -318,10 +288,10 @@ namespace GiaSuBK.DAL
 			return ((ISingleResult<GS_GetStudentByDistanceResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GS_GetStudentByReqParentID")]
-		public void GS_GetStudentByReqParentID([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ReqParentID", DbType="NVarChar(50)")] string reqParentID)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GS_GetStudentByReqParentID", IsComposable=true)]
+		public object GS_GetStudentByReqParentID([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ReqParentID", DbType="NVarChar(50)")] string reqParentID)
 		{
-			this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), reqParentID);
+			return ((object)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), reqParentID).ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GS_GetStudentLst")]
@@ -338,10 +308,10 @@ namespace GiaSuBK.DAL
 			return ((ISingleResult<GS_GetStudentLst2Result>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GS_GetStudentMotelResgisterLst")]
-		public void GS_GetStudentMotelResgisterLst([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PageNumber", DbType="Int")] System.Nullable<int> pageNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RowspPage", DbType="Int")] System.Nullable<int> rowspPage, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Search", DbType="NVarChar(100)")] string search)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GS_GetStudentMotelResgisterLst", IsComposable=true)]
+		public object GS_GetStudentMotelResgisterLst([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PageNumber", DbType="Int")] System.Nullable<int> pageNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RowspPage", DbType="Int")] System.Nullable<int> rowspPage, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Search", DbType="NVarChar(100)")] string search)
 		{
-			this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), pageNumber, rowspPage, search);
+			return ((object)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), pageNumber, rowspPage, search).ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GS_SearchStudent")]
@@ -351,40 +321,41 @@ namespace GiaSuBK.DAL
 			return ((ISingleResult<GS_SearchStudentResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MAIL_SendMailMotelSelected")]
-		public void MAIL_SendMailMotelSelected([global::System.Data.Linq.Mapping.ParameterAttribute(Name="StudentReqID", DbType="Int")] System.Nullable<int> studentReqID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NameStudent", DbType="NVarChar(250)")] string nameStudent, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmailStudent", DbType="NVarChar(250)")] string emailStudent)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MAIL_SendMailMotelSelected", IsComposable=true)]
+		public object MAIL_SendMailMotelSelected([global::System.Data.Linq.Mapping.ParameterAttribute(Name="StudentReqID", DbType="Int")] System.Nullable<int> studentReqID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NameStudent", DbType="NVarChar(250)")] string nameStudent, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmailStudent", DbType="NVarChar(250)")] string emailStudent)
 		{
-			this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), studentReqID, nameStudent, emailStudent);
+			return ((object)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), studentReqID, nameStudent, emailStudent).ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MAIL_SendMailParentReq")]
-		public void MAIL_SendMailParentReq([global::System.Data.Linq.Mapping.ParameterAttribute(Name="NameParent", DbType="NVarChar(250)")] string nameParent, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ValueClass", DbType="NVarChar(50)")] string valueClass, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PhoneEmail", DbType="NVarChar(100)")] string phoneEmail, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AddressParent", DbType="NVarChar(250)")] string addressParent, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Subjects", DbType="NVarChar(250)")] string subjects, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SkillSupport", DbType="NVarChar(250)")] string skillSupport, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TimeSupport", DbType="NVarChar(250)")] string timeSupport, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FormTeach", DbType="NVarChar(50)")] string formTeach)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MAIL_SendMailParentReq", IsComposable=true)]
+		public object MAIL_SendMailParentReq([global::System.Data.Linq.Mapping.ParameterAttribute(Name="NameParent", DbType="NVarChar(250)")] string nameParent, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ValueClass", DbType="NVarChar(50)")] string valueClass, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PhoneEmail", DbType="NVarChar(100)")] string phoneEmail, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AddressParent", DbType="NVarChar(250)")] string addressParent, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Subjects", DbType="NVarChar(250)")] string subjects, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SkillSupport", DbType="NVarChar(250)")] string skillSupport, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TimeSupport", DbType="NVarChar(250)")] string timeSupport, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FormTeach", DbType="NVarChar(50)")] string formTeach)
 		{
-			this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nameParent, valueClass, phoneEmail, addressParent, subjects, skillSupport, timeSupport, formTeach);
+			return ((object)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nameParent, valueClass, phoneEmail, addressParent, subjects, skillSupport, timeSupport, formTeach).ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MAIL_SendMailStudentApply")]
-		public void MAIL_SendMailStudentApply([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ReqParent", DbType="NVarChar(50)")] string reqParent, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StudentID", DbType="NVarChar(50)")] string studentID)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MAIL_SendMailStudentApply", IsComposable=true)]
+		public object MAIL_SendMailStudentApply([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ReqParent", DbType="NVarChar(50)")] string reqParent, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StudentID", DbType="NVarChar(50)")] string studentID)
 		{
-			this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), reqParent, studentID);
+			return ((object)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), reqParent, studentID).ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MAIL_SendMailStudentReq")]
-		public void MAIL_SendMailStudentReq([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Name", DbType="NVarChar(250)")] string name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StudentID", DbType="NVarChar(50)")] string studentID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ValueClass", DbType="NVarChar(50)")] string valueClass, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PhoneEmail", DbType="NVarChar(100)")] string phoneEmail, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Address", DbType="NVarChar(250)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Subjects", DbType="NVarChar(250)")] string subjects, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SkillSupport", DbType="NVarChar(250)")] string skillSupport, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TimeSupport", DbType="NVarChar(250)")] string timeSupport, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FormTeach", DbType="NVarChar(50)")] string formTeach)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MAIL_SendMailStudentReq", IsComposable=true)]
+		public object MAIL_SendMailStudentReq([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Name", DbType="NVarChar(250)")] string name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StudentID", DbType="NVarChar(50)")] string studentID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ValueClass", DbType="NVarChar(50)")] string valueClass, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PhoneEmail", DbType="NVarChar(100)")] string phoneEmail, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Address", DbType="NVarChar(250)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Subjects", DbType="NVarChar(250)")] string subjects, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SkillSupport", DbType="NVarChar(250)")] string skillSupport, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TimeSupport", DbType="NVarChar(250)")] string timeSupport, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FormTeach", DbType="NVarChar(50)")] string formTeach)
 		{
-			this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), name, studentID, valueClass, phoneEmail, address, subjects, skillSupport, timeSupport, formTeach);
+			return ((object)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), name, studentID, valueClass, phoneEmail, address, subjects, skillSupport, timeSupport, formTeach).ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MAIL_StudentConfimMoney")]
-		public void MAIL_StudentConfimMoney([global::System.Data.Linq.Mapping.ParameterAttribute(Name="StudentName", DbType="NVarChar(250)")] string studentName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StudentID", DbType="NVarChar(50)")] string studentID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(250)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Area", DbType="NVarChar(500)")] string area, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Address", DbType="NVarChar(500)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MotelType", DbType="NVarChar(250)")] string motelType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="QuantityP", DbType="Int")] System.Nullable<int> quantityP, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PriceMax", DbType="NVarChar(50)")] string priceMax, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PrintMin", DbType="NVarChar(50)")] string printMin, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Require", DbType="NVarChar(250)")] string require, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IsGroup", DbType="NVarChar(50)")] string isGroup, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BillCode", DbType="NVarChar(10)")] string billCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Radius", DbType="NVarChar(10)")] string radius)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MAIL_StudentConfimMoney", IsComposable=true)]
+		public object MAIL_StudentConfimMoney([global::System.Data.Linq.Mapping.ParameterAttribute(Name="StudentName", DbType="NVarChar(250)")] string studentName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StudentID", DbType="NVarChar(50)")] string studentID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(250)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Area", DbType="NVarChar(500)")] string area, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Address", DbType="NVarChar(500)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MotelType", DbType="NVarChar(250)")] string motelType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="QuantityP", DbType="Int")] System.Nullable<int> quantityP, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PriceMax", DbType="NVarChar(50)")] string priceMax, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PrintMin", DbType="NVarChar(50)")] string printMin, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Require", DbType="NVarChar(250)")] string require, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IsGroup", DbType="NVarChar(50)")] string isGroup, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BillCode", DbType="NVarChar(10)")] string billCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Radius", DbType="NVarChar(10)")] string radius)
 		{
-			this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), studentName, studentID, email, area, address, motelType, quantityP, priceMax, printMin, require, isGroup, billCode, radius);
+			return ((object)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), studentName, studentID, email, area, address, motelType, quantityP, priceMax, printMin, require, isGroup, billCode, radius).ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MAIL_StudentReceivedMoney")]
-		public void MAIL_StudentReceivedMoney([global::System.Data.Linq.Mapping.ParameterAttribute(Name="StudentName", DbType="NVarChar(250)")] string studentName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StudentID", DbType="NVarChar(50)")] string studentID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(250)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Area", DbType="NVarChar(500)")] string area, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Address", DbType="NVarChar(500)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MotelType", DbType="NVarChar(250)")] string motelType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="QuantityP", DbType="Int")] System.Nullable<int> quantityP, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PriceMax", DbType="NVarChar(50)")] string priceMax, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PrintMin", DbType="NVarChar(50)")] string printMin, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Require", DbType="NVarChar(250)")] string require, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IsGroup", DbType="NVarChar(50)")] string isGroup, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BillCode", DbType="NVarChar(10)")] string billCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Radius", DbType="NVarChar(10)")] string radius)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GS_GetLessonLst")]
+		public ISingleResult<GS_GetLessonLstResult> GS_GetLessonLst([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Month", DbType="NVarChar(7)")] string month, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ClassID", DbType="NVarChar(50)")] string classID)
 		{
-			this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), studentName, studentID, email, area, address, motelType, quantityP, priceMax, printMin, require, isGroup, billCode, radius);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), month, classID);
+			return ((ISingleResult<GS_GetLessonLstResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -1382,205 +1353,6 @@ namespace GiaSuBK.DAL
 					this._ModifyID = value;
 					this.SendPropertyChanged("ModifyID");
 					this.OnModifyIDChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.GS_Lesson")]
-	public partial class GS_Lesson : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _LessonID;
-		
-		private string _ClassID;
-		
-		private string _Date;
-		
-		private string _Status;
-		
-		private string _Comment;
-		
-		private EntityRef<GS_Class> _GS_Class;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnLessonIDChanging(string value);
-    partial void OnLessonIDChanged();
-    partial void OnClassIDChanging(string value);
-    partial void OnClassIDChanged();
-    partial void OnDateChanging(string value);
-    partial void OnDateChanged();
-    partial void OnStatusChanging(string value);
-    partial void OnStatusChanged();
-    partial void OnCommentChanging(string value);
-    partial void OnCommentChanged();
-    #endregion
-		
-		public GS_Lesson()
-		{
-			this._GS_Class = default(EntityRef<GS_Class>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LessonID", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string LessonID
-		{
-			get
-			{
-				return this._LessonID;
-			}
-			set
-			{
-				if ((this._LessonID != value))
-				{
-					this.OnLessonIDChanging(value);
-					this.SendPropertyChanging();
-					this._LessonID = value;
-					this.SendPropertyChanged("LessonID");
-					this.OnLessonIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClassID", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string ClassID
-		{
-			get
-			{
-				return this._ClassID;
-			}
-			set
-			{
-				if ((this._ClassID != value))
-				{
-					if (this._GS_Class.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnClassIDChanging(value);
-					this.SendPropertyChanging();
-					this._ClassID = value;
-					this.SendPropertyChanged("ClassID");
-					this.OnClassIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string Date
-		{
-			get
-			{
-				return this._Date;
-			}
-			set
-			{
-				if ((this._Date != value))
-				{
-					this.OnDateChanging(value);
-					this.SendPropertyChanging();
-					this._Date = value;
-					this.SendPropertyChanged("Date");
-					this.OnDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="NVarChar(50)")]
-		public string Status
-		{
-			get
-			{
-				return this._Status;
-			}
-			set
-			{
-				if ((this._Status != value))
-				{
-					this.OnStatusChanging(value);
-					this.SendPropertyChanging();
-					this._Status = value;
-					this.SendPropertyChanged("Status");
-					this.OnStatusChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comment", DbType="NVarChar(MAX)")]
-		public string Comment
-		{
-			get
-			{
-				return this._Comment;
-			}
-			set
-			{
-				if ((this._Comment != value))
-				{
-					this.OnCommentChanging(value);
-					this.SendPropertyChanging();
-					this._Comment = value;
-					this.SendPropertyChanged("Comment");
-					this.OnCommentChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="GS_Class_GS_Lesson", Storage="_GS_Class", ThisKey="ClassID", OtherKey="ClassID", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
-		public GS_Class GS_Class
-		{
-			get
-			{
-				return this._GS_Class.Entity;
-			}
-			set
-			{
-				GS_Class previousValue = this._GS_Class.Entity;
-				if (((previousValue != value) 
-							|| (this._GS_Class.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._GS_Class.Entity = null;
-						previousValue.GS_Lessons.Remove(this);
-					}
-					this._GS_Class.Entity = value;
-					if ((value != null))
-					{
-						value.GS_Lessons.Add(this);
-						this._ClassID = value.ClassID;
-					}
-					else
-					{
-						this._ClassID = default(string);
-					}
-					this.SendPropertyChanged("GS_Class");
 				}
 			}
 		}
@@ -6113,6 +5885,205 @@ namespace GiaSuBK.DAL
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.GS_Lesson")]
+	public partial class GS_Lesson : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _LessonID;
+		
+		private string _ClassID;
+		
+		private System.DateTime _Date;
+		
+		private string _Status;
+		
+		private string _Comment;
+		
+		private EntityRef<GS_Class> _GS_Class;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnLessonIDChanging(string value);
+    partial void OnLessonIDChanged();
+    partial void OnClassIDChanging(string value);
+    partial void OnClassIDChanged();
+    partial void OnDateChanging(System.DateTime value);
+    partial void OnDateChanged();
+    partial void OnStatusChanging(string value);
+    partial void OnStatusChanged();
+    partial void OnCommentChanging(string value);
+    partial void OnCommentChanged();
+    #endregion
+		
+		public GS_Lesson()
+		{
+			this._GS_Class = default(EntityRef<GS_Class>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LessonID", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string LessonID
+		{
+			get
+			{
+				return this._LessonID;
+			}
+			set
+			{
+				if ((this._LessonID != value))
+				{
+					this.OnLessonIDChanging(value);
+					this.SendPropertyChanging();
+					this._LessonID = value;
+					this.SendPropertyChanged("LessonID");
+					this.OnLessonIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClassID", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string ClassID
+		{
+			get
+			{
+				return this._ClassID;
+			}
+			set
+			{
+				if ((this._ClassID != value))
+				{
+					if (this._GS_Class.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnClassIDChanging(value);
+					this.SendPropertyChanging();
+					this._ClassID = value;
+					this.SendPropertyChanged("ClassID");
+					this.OnClassIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="Date NOT NULL")]
+		public System.DateTime Date
+		{
+			get
+			{
+				return this._Date;
+			}
+			set
+			{
+				if ((this._Date != value))
+				{
+					this.OnDateChanging(value);
+					this.SendPropertyChanging();
+					this._Date = value;
+					this.SendPropertyChanged("Date");
+					this.OnDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="NVarChar(50)")]
+		public string Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comment", DbType="NVarChar(MAX)")]
+		public string Comment
+		{
+			get
+			{
+				return this._Comment;
+			}
+			set
+			{
+				if ((this._Comment != value))
+				{
+					this.OnCommentChanging(value);
+					this.SendPropertyChanging();
+					this._Comment = value;
+					this.SendPropertyChanged("Comment");
+					this.OnCommentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="GS_Class_GS_Lesson", Storage="_GS_Class", ThisKey="ClassID", OtherKey="ClassID", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public GS_Class GS_Class
+		{
+			get
+			{
+				return this._GS_Class.Entity;
+			}
+			set
+			{
+				GS_Class previousValue = this._GS_Class.Entity;
+				if (((previousValue != value) 
+							|| (this._GS_Class.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._GS_Class.Entity = null;
+						previousValue.GS_Lessons.Remove(this);
+					}
+					this._GS_Class.Entity = value;
+					if ((value != null))
+					{
+						value.GS_Lessons.Add(this);
+						this._ClassID = value.ClassID;
+					}
+					else
+					{
+						this._ClassID = default(string);
+					}
+					this.SendPropertyChanged("GS_Class");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	public partial class RP_GetDashboadByTimeResult
 	{
 		
@@ -10138,6 +10109,122 @@ namespace GiaSuBK.DAL
 				if ((this._Distance != value))
 				{
 					this._Distance = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GS_GetLessonLstResult
+	{
+		
+		private string _LessonID;
+		
+		private string _ClassID;
+		
+		private System.DateTime _Date;
+		
+		private string _Status;
+		
+		private string _Comment;
+		
+		private System.Nullable<int> _TotalRows;
+		
+		public GS_GetLessonLstResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LessonID", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string LessonID
+		{
+			get
+			{
+				return this._LessonID;
+			}
+			set
+			{
+				if ((this._LessonID != value))
+				{
+					this._LessonID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClassID", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string ClassID
+		{
+			get
+			{
+				return this._ClassID;
+			}
+			set
+			{
+				if ((this._ClassID != value))
+				{
+					this._ClassID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime NOT NULL")]
+		public System.DateTime Date
+		{
+			get
+			{
+				return this._Date;
+			}
+			set
+			{
+				if ((this._Date != value))
+				{
+					this._Date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="NVarChar(50)")]
+		public string Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this._Status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comment", DbType="NVarChar(MAX)")]
+		public string Comment
+		{
+			get
+			{
+				return this._Comment;
+			}
+			set
+			{
+				if ((this._Comment != value))
+				{
+					this._Comment = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalRows", DbType="Int")]
+		public System.Nullable<int> TotalRows
+		{
+			get
+			{
+				return this._TotalRows;
+			}
+			set
+			{
+				if ((this._TotalRows != value))
+				{
+					this._TotalRows = value;
 				}
 			}
 		}

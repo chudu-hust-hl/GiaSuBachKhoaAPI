@@ -7,7 +7,7 @@ using log4net;
 
 namespace GiaSuBK.BLL
 {
-    public class GetStudentComment
+    public class CreateStudentComment
     {
         private static readonly ILog Log = LogManager.GetLogger("GiaSuBKAppender");
 

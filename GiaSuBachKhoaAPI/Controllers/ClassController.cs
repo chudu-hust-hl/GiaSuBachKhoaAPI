@@ -118,8 +118,81 @@ namespace GiaSuBKAPI.Controllers
             return objRes;
         }
 
+
+        //Get Class List
+        [Route("GSClass/GetClassList")]
+        [HttpPost]
+        public GSGetClassReqListRes GSGetClassReqList(GSGetClassReqListReq objReq)
+        {
+            var objRes = new GSGetClassReqListRes
+            {
+                RespCode = -1,
+                RespText = "Nothing",
+            };
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            try
+            {
+                if (!WriteIncommingMessage2Log("Get Class List", js.Serialize(objReq), 0))
+                    Log.Warn("Loi ghi log ban tin request");
+                objRes = new GiaSuBK.BLL.GetClassList().GSGetClassReqList(objReq);
+                if (!WriteIncommingMessage2Log("Get Class List", js.Serialize(objRes), 1))
+                    Log.Warn("Loi ghi log ban tin response");
+            }
+            catch (WebException wex)
+            {
+                objRes.RespCode = 8;
+                objRes.RespText = wex.Message;
+                Log.Error(string.Format("[{0}: {1}]", objRes.RespCode, objRes.RespText));
+            }
+            catch (Exception ex)
+            {
+                objRes.RespCode = 9;
+                objRes.RespText = ex.Message;
+                Log.Error(string.Format("[{0}: {1}]", objRes.RespCode, objRes.RespText));
+
+            }
+            return objRes;
+        }
+
+
+        //Get Finding Class List
+        [Route("GSClass/GetFindingClassList")]
+        [HttpPost]
+        public GSGetFindingClassListRes GSGetFindingClassList(GSGetFindingClassListReq objReq)
+        {
+            var objRes = new GSGetFindingClassListRes
+            {
+                RespCode = -1,
+                RespText = "Nothing",
+            };
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            try
+            {
+                if (!WriteIncommingMessage2Log("Get Finding Class List", js.Serialize(objReq), 0))
+                    Log.Warn("Loi ghi log ban tin request");
+                objRes = new GiaSuBK.BLL.GetFindingClassList().GSGetFindingClassList(objReq);
+                if (!WriteIncommingMessage2Log("Get Finding Class List", js.Serialize(objRes), 1))
+                    Log.Warn("Loi ghi log ban tin response");
+            }
+            catch (WebException wex)
+            {
+                objRes.RespCode = 8;
+                objRes.RespText = wex.Message;
+                Log.Error(string.Format("[{0}: {1}]", objRes.RespCode, objRes.RespText));
+            }
+            catch (Exception ex)
+            {
+                objRes.RespCode = 9;
+                objRes.RespText = ex.Message;
+                Log.Error(string.Format("[{0}: {1}]", objRes.RespCode, objRes.RespText));
+
+            }
+            return objRes;
+        }
+
+
         //GetStudent Comment
-        [Route("GSClass/GetStudentComment")]
+        [Route("GSClass/CreateStudentComment")]
         [HttpPost]
         public GSStudentCmtRes GSStudentCmt(GSStudentCmtReq objReq)
         {
@@ -133,7 +206,7 @@ namespace GiaSuBKAPI.Controllers
             {
                 if (!WriteIncommingMessage2Log("Get Student Comment", js.Serialize(objReq), 0))
                     Log.Warn("Loi ghi log ban tin request");
-                objRes = new GiaSuBK.BLL.GetStudentComment().GSStudentCmt(objReq);
+                objRes = new GiaSuBK.BLL.CreateStudentComment().GSStudentCmt(objReq);
                 if (!WriteIncommingMessage2Log("Get Student Comment", js.Serialize(objRes), 1))
                     Log.Warn("Loi ghi log ban tin response");
             }
@@ -154,7 +227,7 @@ namespace GiaSuBKAPI.Controllers
         }
 
         //Get parent comment
-        [Route("GSClass/GetParentComment")]
+        [Route("GSClass/CreateParentComment")]
         [HttpPost]
         public GSParentCmtRes GSParentCmt(GSParentCmtReq objReq)
         {
@@ -168,7 +241,7 @@ namespace GiaSuBKAPI.Controllers
             {
                 if (!WriteIncommingMessage2Log("Get parent comment", js.Serialize(objReq), 0))
                     Log.Warn("Loi ghi log ban tin request");
-                objRes = new GiaSuBK.BLL.GetParentComment().GSParentCmt(objReq);
+                objRes = new GiaSuBK.BLL.CreateParentComment().GSParentCmt(objReq);
                 if (!WriteIncommingMessage2Log("Get parent comment", js.Serialize(objRes), 1))
                     Log.Warn("Loi ghi log ban tin response");
             }
@@ -223,12 +296,12 @@ namespace GiaSuBKAPI.Controllers
             return objRes;
         }
 
-        //Get Student List
-        [Route("GSStudent/GetClassReqList")]
+        //Get Lesson Daily Comment
+        [Route("GSClass/GetStudentDailyComment")]
         [HttpPost]
-        public GSGetClassReqListRes GSGetClassReqList(GSGetClassReqListReq objReq)
+        public GSGetStudentDailyCmtRes GSGetStudentDailyCmt(GSGetStudentDailyCmtReq objReq)
         {
-            var objRes = new GSGetClassReqListRes
+            var objRes = new GSGetStudentDailyCmtRes
             {
                 RespCode = -1,
                 RespText = "Nothing",
@@ -236,10 +309,10 @@ namespace GiaSuBKAPI.Controllers
             JavaScriptSerializer js = new JavaScriptSerializer();
             try
             {
-                if (!WriteIncommingMessage2Log("Get Student Req List Info", js.Serialize(objReq), 0))
+                if (!WriteIncommingMessage2Log("Get Student Daily Comment", js.Serialize(objReq), 0))
                     Log.Warn("Loi ghi log ban tin request");
-                objRes = new GiaSuBK.BLL.GetClassList().GSGetClassReqList(objReq);
-                if (!WriteIncommingMessage2Log("Get Student Req List Info", js.Serialize(objRes), 1))
+                objRes = new GiaSuBK.BLL.GetStudentDailyComment().GSGetStudentDailyCmt(objReq);
+                if (!WriteIncommingMessage2Log("Get Student Daily Comment", js.Serialize(objRes), 1))
                     Log.Warn("Loi ghi log ban tin response");
             }
             catch (WebException wex)
