@@ -74,6 +74,7 @@
     <Compile Include="GetStudentDailyComment.cs" />
     <Compile Include="GetStudentReqInfo.cs" />
     <Compile Include="GetStudentReqList.cs" />
+    <Compile Include="GetZaloUserInfo.cs" />
     <Compile Include="StudentApplyClass.cs" />
     <Compile Include="StudentRequest.cs" />
     <Compile Include="GetParentReqInfo.cs" />

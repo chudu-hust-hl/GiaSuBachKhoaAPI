@@ -66,9 +66,13 @@ namespace GiaSuBK.BLL
                         }
 
                         // Create new GS_ReqParent object
+                        var random = new Random();
+                        var randomCode = random.Next(10000, 99999); // Generate a 5-digit random number
+                        var reqParentID = $"{objReq.ParentInfo.PhoneParent}{randomCode}";
+
                         var newParentReq = new GS_ReqParent
                         {
-                            ReqParentID = objReq.ParentInfo.ReqParentID,
+                            ReqParentID = reqParentID,
                             ParentID = objReq.ParentInfo.ParentID,
                             NameParent = objReq.ParentInfo.NameParent,
                             PhoneEmail = objReq.ParentInfo.PhoneParent,
