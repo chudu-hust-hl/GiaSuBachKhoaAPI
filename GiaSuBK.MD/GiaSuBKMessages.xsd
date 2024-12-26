@@ -60,6 +60,30 @@
 		</xs:sequence>
 	</xs:complexType>
 
+	<xs:complexType name="GSGetZaloUserInfoReq">
+		<xs:sequence>
+			<xs:element name="UserID" type="xs:string" />
+			<xs:element name="Token" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GSGetZaloUserInfoRes">
+		<xs:sequence>
+			<xs:element name="RespCode" type="xs:int" />
+			<xs:element name="RespText" type="xs:string" />
+			<xs:element name="ZaloUserInfo" type="mstns:GSZaloUserInfo"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name ="GSZaloUserInfo">
+		<xs:sequence>
+			<xs:element name ="PhoneNumber" type="xs:string"/>
+			<xs:element name ="Avatar" type="xs:string"/>
+			<xs:element name ="Name" type="xs:string"/>
+			<xs:element name ="StudentID" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+
 
 	<xs:complexType name ="GSUserInfo">
 		<xs:sequence>

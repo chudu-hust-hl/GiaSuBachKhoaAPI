@@ -41,8 +41,8 @@ namespace GiaSuBK.BLL
                             return objRes;
                         }
 
-                        var existStudent = db.GS_ReqStudents.Where(p => p.StudentID == objReq.StudentInfo.StudentID).FirstOrDefault();
-                        if (existStudent == null)
+                        var existStudentReq = db.GS_ReqStudents.Where(p => p.RowID == objReq.StudentInfo.RowID).FirstOrDefault();
+                        if (existStudentReq == null)
                         {
                             objRes.RespCode = -2;
                             objRes.RespText = "No existing data of this request";
@@ -52,26 +52,26 @@ namespace GiaSuBK.BLL
                         else
                         {
                             // Update new GS_Student instance
-                            existStudent.StudentID = objReq.StudentInfo.StudentID;
-                            existStudent.StudentName = objReq.StudentInfo.StudentName;
-                            existStudent.Phone = objReq.StudentInfo.Phone;
-                            existStudent.Address = objReq.StudentInfo.Address;
-                            existStudent.FormTeach = objReq.StudentInfo.FormTeach;
-                            existStudent.InfoMore = objReq.StudentInfo.InfoMore;
-                            existStudent.Level = objReq.StudentInfo.Level;
-                            existStudent.SexStudent = objReq.StudentInfo.SexStudent;
-                            existStudent.SelectSchool = objReq.StudentInfo.SelectSchool;
-                            existStudent.NameSupports = objReq.StudentInfo.NameSupports;
-                            existStudent.Subjects = objReq.StudentInfo.Subjects;
-                            existStudent.TimeSupport = objReq.StudentInfo.TimeSupport;
-                            existStudent.SkillSupport = objReq.StudentInfo.SkillSupport;
-                            existStudent.District = objReq.StudentInfo.District;
-                            existStudent.City = objReq.StudentInfo.City;
-                            existStudent.Ward = objReq.StudentInfo.Ward;
-                            existStudent.Achievement = objReq.StudentInfo.Achievement;
-                            existStudent.Experience = objReq.StudentInfo.Experience;
-                            existStudent.TimeModify = DateTime.UtcNow;
-                            existStudent.ModifierID = null;
+                            existStudentReq.StudentID = objReq.StudentInfo.StudentID;
+                            existStudentReq.StudentName = objReq.StudentInfo.StudentName;
+                            existStudentReq.Phone = objReq.StudentInfo.Phone;
+                            existStudentReq.Address = objReq.StudentInfo.Address;
+                            existStudentReq.FormTeach = objReq.StudentInfo.FormTeach;
+                            existStudentReq.InfoMore = objReq.StudentInfo.InfoMore;
+                            existStudentReq.Level = objReq.StudentInfo.Level;
+                            existStudentReq.SexStudent = objReq.StudentInfo.SexStudent;
+                            existStudentReq.SelectSchool = objReq.StudentInfo.SelectSchool;
+                            existStudentReq.NameSupports = objReq.StudentInfo.NameSupports;
+                            existStudentReq.Subjects = objReq.StudentInfo.Subjects;
+                            existStudentReq.TimeSupport = objReq.StudentInfo.TimeSupport;
+                            existStudentReq.SkillSupport = objReq.StudentInfo.SkillSupport;
+                            existStudentReq.District = objReq.StudentInfo.District;
+                            existStudentReq.City = objReq.StudentInfo.City;
+                            existStudentReq.Ward = objReq.StudentInfo.Ward;
+                            existStudentReq.Achievement = objReq.StudentInfo.Achievement;
+                            existStudentReq.Experience = objReq.StudentInfo.Experience;
+                            existStudentReq.TimeModify = DateTime.UtcNow;
+                            existStudentReq.ModifierID = null;
 
                             // Update done then save change
                             db.SubmitChanges();
