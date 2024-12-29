@@ -36,12 +36,18 @@ namespace GiaSuBK.DAL
     partial void InsertDefaultValue(DefaultValue instance);
     partial void UpdateDefaultValue(DefaultValue instance);
     partial void DeleteDefaultValue(DefaultValue instance);
+    partial void InsertGS_Class(GS_Class instance);
+    partial void UpdateGS_Class(GS_Class instance);
+    partial void DeleteGS_Class(GS_Class instance);
     partial void InsertGS_Course(GS_Course instance);
     partial void UpdateGS_Course(GS_Course instance);
     partial void DeleteGS_Course(GS_Course instance);
     partial void InsertGS_InviteStudent(GS_InviteStudent instance);
     partial void UpdateGS_InviteStudent(GS_InviteStudent instance);
     partial void DeleteGS_InviteStudent(GS_InviteStudent instance);
+    partial void InsertGS_Lesson(GS_Lesson instance);
+    partial void UpdateGS_Lesson(GS_Lesson instance);
+    partial void DeleteGS_Lesson(GS_Lesson instance);
     partial void InsertGS_Parent(GS_Parent instance);
     partial void UpdateGS_Parent(GS_Parent instance);
     partial void DeleteGS_Parent(GS_Parent instance);
@@ -66,12 +72,6 @@ namespace GiaSuBK.DAL
     partial void InsertUserRole(UserRole instance);
     partial void UpdateUserRole(UserRole instance);
     partial void DeleteUserRole(UserRole instance);
-    partial void InsertGS_Class(GS_Class instance);
-    partial void UpdateGS_Class(GS_Class instance);
-    partial void DeleteGS_Class(GS_Class instance);
-    partial void InsertGS_Lesson(GS_Lesson instance);
-    partial void UpdateGS_Lesson(GS_Lesson instance);
-    partial void DeleteGS_Lesson(GS_Lesson instance);
     #endregion
 		
 		public DataClassesGiaSuBKDataContext() : 
@@ -128,6 +128,14 @@ namespace GiaSuBK.DAL
 			}
 		}
 		
+		public System.Data.Linq.Table<GS_Class> GS_Classes
+		{
+			get
+			{
+				return this.GetTable<GS_Class>();
+			}
+		}
+		
 		public System.Data.Linq.Table<GS_Course> GS_Courses
 		{
 			get
@@ -141,6 +149,14 @@ namespace GiaSuBK.DAL
 			get
 			{
 				return this.GetTable<GS_InviteStudent>();
+			}
+		}
+		
+		public System.Data.Linq.Table<GS_Lesson> GS_Lessons
+		{
+			get
+			{
+				return this.GetTable<GS_Lesson>();
 			}
 		}
 		
@@ -213,22 +229,6 @@ namespace GiaSuBK.DAL
 			get
 			{
 				return this.GetTable<UserRole>();
-			}
-		}
-		
-		public System.Data.Linq.Table<GS_Class> GS_Classes
-		{
-			get
-			{
-				return this.GetTable<GS_Class>();
-			}
-		}
-		
-		public System.Data.Linq.Table<GS_Lesson> GS_Lessons
-		{
-			get
-			{
-				return this.GetTable<GS_Lesson>();
 			}
 		}
 		
@@ -795,6 +795,826 @@ namespace GiaSuBK.DAL
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.GS_Class")]
+	public partial class GS_Class : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _ClassID;
+		
+		private string _ReqParentID;
+		
+		private string _NameParent;
+		
+		private string _PhoneEmail;
+		
+		private string _City;
+		
+		private string _District;
+		
+		private string _Ward;
+		
+		private string _StudentID;
+		
+		private string _StudentName;
+		
+		private string _PhoneStudent;
+		
+		private System.Nullable<int> _Status;
+		
+		private string _Apply;
+		
+		private System.Nullable<int> _NumberApply;
+		
+		private string _NameSupport;
+		
+		private string _Money;
+		
+		private string _MoneyStatus;
+		
+		private string _FormTeach;
+		
+		private string _InfoMore;
+		
+		private string _NameSupports;
+		
+		private string _Subjects;
+		
+		private string _ValueClass;
+		
+		private string _AddressParent;
+		
+		private string _Lessons;
+		
+		private int _RowID;
+		
+		private System.Nullable<System.DateTime> _TimeCreate;
+		
+		private string _Level;
+		
+		private string _ParentCmt;
+		
+		private string _StudentCmt;
+		
+		private EntitySet<GS_Lesson> _GS_Lessons;
+		
+		private EntityRef<GS_ReqParent> _GS_ReqParent;
+		
+		private EntityRef<GS_Student> _GS_Student;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnClassIDChanging(string value);
+    partial void OnClassIDChanged();
+    partial void OnReqParentIDChanging(string value);
+    partial void OnReqParentIDChanged();
+    partial void OnNameParentChanging(string value);
+    partial void OnNameParentChanged();
+    partial void OnPhoneEmailChanging(string value);
+    partial void OnPhoneEmailChanged();
+    partial void OnCityChanging(string value);
+    partial void OnCityChanged();
+    partial void OnDistrictChanging(string value);
+    partial void OnDistrictChanged();
+    partial void OnWardChanging(string value);
+    partial void OnWardChanged();
+    partial void OnStudentIDChanging(string value);
+    partial void OnStudentIDChanged();
+    partial void OnStudentNameChanging(string value);
+    partial void OnStudentNameChanged();
+    partial void OnPhoneStudentChanging(string value);
+    partial void OnPhoneStudentChanged();
+    partial void OnStatusChanging(System.Nullable<int> value);
+    partial void OnStatusChanged();
+    partial void OnApplyChanging(string value);
+    partial void OnApplyChanged();
+    partial void OnNumberApplyChanging(System.Nullable<int> value);
+    partial void OnNumberApplyChanged();
+    partial void OnNameSupportChanging(string value);
+    partial void OnNameSupportChanged();
+    partial void OnMoneyChanging(string value);
+    partial void OnMoneyChanged();
+    partial void OnMoneyStatusChanging(string value);
+    partial void OnMoneyStatusChanged();
+    partial void OnFormTeachChanging(string value);
+    partial void OnFormTeachChanged();
+    partial void OnInfoMoreChanging(string value);
+    partial void OnInfoMoreChanged();
+    partial void OnNameSupportsChanging(string value);
+    partial void OnNameSupportsChanged();
+    partial void OnSubjectsChanging(string value);
+    partial void OnSubjectsChanged();
+    partial void OnValueClassChanging(string value);
+    partial void OnValueClassChanged();
+    partial void OnAddressParentChanging(string value);
+    partial void OnAddressParentChanged();
+    partial void OnLessonsChanging(string value);
+    partial void OnLessonsChanged();
+    partial void OnRowIDChanging(int value);
+    partial void OnRowIDChanged();
+    partial void OnTimeCreateChanging(System.Nullable<System.DateTime> value);
+    partial void OnTimeCreateChanged();
+    partial void OnLevelChanging(string value);
+    partial void OnLevelChanged();
+    partial void OnParentCmtChanging(string value);
+    partial void OnParentCmtChanged();
+    partial void OnStudentCmtChanging(string value);
+    partial void OnStudentCmtChanged();
+    #endregion
+		
+		public GS_Class()
+		{
+			this._GS_Lessons = new EntitySet<GS_Lesson>(new Action<GS_Lesson>(this.attach_GS_Lessons), new Action<GS_Lesson>(this.detach_GS_Lessons));
+			this._GS_ReqParent = default(EntityRef<GS_ReqParent>);
+			this._GS_Student = default(EntityRef<GS_Student>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClassID", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string ClassID
+		{
+			get
+			{
+				return this._ClassID;
+			}
+			set
+			{
+				if ((this._ClassID != value))
+				{
+					this.OnClassIDChanging(value);
+					this.SendPropertyChanging();
+					this._ClassID = value;
+					this.SendPropertyChanged("ClassID");
+					this.OnClassIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReqParentID", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string ReqParentID
+		{
+			get
+			{
+				return this._ReqParentID;
+			}
+			set
+			{
+				if ((this._ReqParentID != value))
+				{
+					if (this._GS_ReqParent.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnReqParentIDChanging(value);
+					this.SendPropertyChanging();
+					this._ReqParentID = value;
+					this.SendPropertyChanged("ReqParentID");
+					this.OnReqParentIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NameParent", DbType="NVarChar(450)")]
+		public string NameParent
+		{
+			get
+			{
+				return this._NameParent;
+			}
+			set
+			{
+				if ((this._NameParent != value))
+				{
+					this.OnNameParentChanging(value);
+					this.SendPropertyChanging();
+					this._NameParent = value;
+					this.SendPropertyChanged("NameParent");
+					this.OnNameParentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhoneEmail", DbType="NVarChar(450)")]
+		public string PhoneEmail
+		{
+			get
+			{
+				return this._PhoneEmail;
+			}
+			set
+			{
+				if ((this._PhoneEmail != value))
+				{
+					this.OnPhoneEmailChanging(value);
+					this.SendPropertyChanging();
+					this._PhoneEmail = value;
+					this.SendPropertyChanged("PhoneEmail");
+					this.OnPhoneEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_City", DbType="NVarChar(150)")]
+		public string City
+		{
+			get
+			{
+				return this._City;
+			}
+			set
+			{
+				if ((this._City != value))
+				{
+					this.OnCityChanging(value);
+					this.SendPropertyChanging();
+					this._City = value;
+					this.SendPropertyChanged("City");
+					this.OnCityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_District", DbType="NVarChar(150)")]
+		public string District
+		{
+			get
+			{
+				return this._District;
+			}
+			set
+			{
+				if ((this._District != value))
+				{
+					this.OnDistrictChanging(value);
+					this.SendPropertyChanging();
+					this._District = value;
+					this.SendPropertyChanged("District");
+					this.OnDistrictChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ward", DbType="NVarChar(150)")]
+		public string Ward
+		{
+			get
+			{
+				return this._Ward;
+			}
+			set
+			{
+				if ((this._Ward != value))
+				{
+					this.OnWardChanging(value);
+					this.SendPropertyChanging();
+					this._Ward = value;
+					this.SendPropertyChanged("Ward");
+					this.OnWardChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StudentID", DbType="NVarChar(10)")]
+		public string StudentID
+		{
+			get
+			{
+				return this._StudentID;
+			}
+			set
+			{
+				if ((this._StudentID != value))
+				{
+					if (this._GS_Student.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnStudentIDChanging(value);
+					this.SendPropertyChanging();
+					this._StudentID = value;
+					this.SendPropertyChanged("StudentID");
+					this.OnStudentIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StudentName", DbType="NVarChar(250)")]
+		public string StudentName
+		{
+			get
+			{
+				return this._StudentName;
+			}
+			set
+			{
+				if ((this._StudentName != value))
+				{
+					this.OnStudentNameChanging(value);
+					this.SendPropertyChanging();
+					this._StudentName = value;
+					this.SendPropertyChanged("StudentName");
+					this.OnStudentNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhoneStudent", DbType="NVarChar(50)")]
+		public string PhoneStudent
+		{
+			get
+			{
+				return this._PhoneStudent;
+			}
+			set
+			{
+				if ((this._PhoneStudent != value))
+				{
+					this.OnPhoneStudentChanging(value);
+					this.SendPropertyChanging();
+					this._PhoneStudent = value;
+					this.SendPropertyChanged("PhoneStudent");
+					this.OnPhoneStudentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int")]
+		public System.Nullable<int> Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Apply", DbType="NVarChar(MAX)")]
+		public string Apply
+		{
+			get
+			{
+				return this._Apply;
+			}
+			set
+			{
+				if ((this._Apply != value))
+				{
+					this.OnApplyChanging(value);
+					this.SendPropertyChanging();
+					this._Apply = value;
+					this.SendPropertyChanged("Apply");
+					this.OnApplyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumberApply", DbType="Int")]
+		public System.Nullable<int> NumberApply
+		{
+			get
+			{
+				return this._NumberApply;
+			}
+			set
+			{
+				if ((this._NumberApply != value))
+				{
+					this.OnNumberApplyChanging(value);
+					this.SendPropertyChanging();
+					this._NumberApply = value;
+					this.SendPropertyChanged("NumberApply");
+					this.OnNumberApplyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NameSupport", DbType="NVarChar(MAX)")]
+		public string NameSupport
+		{
+			get
+			{
+				return this._NameSupport;
+			}
+			set
+			{
+				if ((this._NameSupport != value))
+				{
+					this.OnNameSupportChanging(value);
+					this.SendPropertyChanging();
+					this._NameSupport = value;
+					this.SendPropertyChanged("NameSupport");
+					this.OnNameSupportChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Money", DbType="NVarChar(50)")]
+		public string Money
+		{
+			get
+			{
+				return this._Money;
+			}
+			set
+			{
+				if ((this._Money != value))
+				{
+					this.OnMoneyChanging(value);
+					this.SendPropertyChanging();
+					this._Money = value;
+					this.SendPropertyChanged("Money");
+					this.OnMoneyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MoneyStatus", DbType="NVarChar(50)")]
+		public string MoneyStatus
+		{
+			get
+			{
+				return this._MoneyStatus;
+			}
+			set
+			{
+				if ((this._MoneyStatus != value))
+				{
+					this.OnMoneyStatusChanging(value);
+					this.SendPropertyChanging();
+					this._MoneyStatus = value;
+					this.SendPropertyChanged("MoneyStatus");
+					this.OnMoneyStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FormTeach", DbType="NVarChar(50)")]
+		public string FormTeach
+		{
+			get
+			{
+				return this._FormTeach;
+			}
+			set
+			{
+				if ((this._FormTeach != value))
+				{
+					this.OnFormTeachChanging(value);
+					this.SendPropertyChanging();
+					this._FormTeach = value;
+					this.SendPropertyChanged("FormTeach");
+					this.OnFormTeachChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InfoMore", DbType="NVarChar(500)")]
+		public string InfoMore
+		{
+			get
+			{
+				return this._InfoMore;
+			}
+			set
+			{
+				if ((this._InfoMore != value))
+				{
+					this.OnInfoMoreChanging(value);
+					this.SendPropertyChanging();
+					this._InfoMore = value;
+					this.SendPropertyChanged("InfoMore");
+					this.OnInfoMoreChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NameSupports", DbType="NVarChar(MAX)")]
+		public string NameSupports
+		{
+			get
+			{
+				return this._NameSupports;
+			}
+			set
+			{
+				if ((this._NameSupports != value))
+				{
+					this.OnNameSupportsChanging(value);
+					this.SendPropertyChanging();
+					this._NameSupports = value;
+					this.SendPropertyChanged("NameSupports");
+					this.OnNameSupportsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Subjects", DbType="NVarChar(500)")]
+		public string Subjects
+		{
+			get
+			{
+				return this._Subjects;
+			}
+			set
+			{
+				if ((this._Subjects != value))
+				{
+					this.OnSubjectsChanging(value);
+					this.SendPropertyChanging();
+					this._Subjects = value;
+					this.SendPropertyChanged("Subjects");
+					this.OnSubjectsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ValueClass", DbType="NVarChar(100)")]
+		public string ValueClass
+		{
+			get
+			{
+				return this._ValueClass;
+			}
+			set
+			{
+				if ((this._ValueClass != value))
+				{
+					this.OnValueClassChanging(value);
+					this.SendPropertyChanging();
+					this._ValueClass = value;
+					this.SendPropertyChanged("ValueClass");
+					this.OnValueClassChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AddressParent", DbType="NVarChar(450)")]
+		public string AddressParent
+		{
+			get
+			{
+				return this._AddressParent;
+			}
+			set
+			{
+				if ((this._AddressParent != value))
+				{
+					this.OnAddressParentChanging(value);
+					this.SendPropertyChanging();
+					this._AddressParent = value;
+					this.SendPropertyChanged("AddressParent");
+					this.OnAddressParentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lessons", DbType="NVarChar(MAX)")]
+		public string Lessons
+		{
+			get
+			{
+				return this._Lessons;
+			}
+			set
+			{
+				if ((this._Lessons != value))
+				{
+					this.OnLessonsChanging(value);
+					this.SendPropertyChanging();
+					this._Lessons = value;
+					this.SendPropertyChanged("Lessons");
+					this.OnLessonsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RowID", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+		public int RowID
+		{
+			get
+			{
+				return this._RowID;
+			}
+			set
+			{
+				if ((this._RowID != value))
+				{
+					this.OnRowIDChanging(value);
+					this.SendPropertyChanging();
+					this._RowID = value;
+					this.SendPropertyChanged("RowID");
+					this.OnRowIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeCreate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> TimeCreate
+		{
+			get
+			{
+				return this._TimeCreate;
+			}
+			set
+			{
+				if ((this._TimeCreate != value))
+				{
+					this.OnTimeCreateChanging(value);
+					this.SendPropertyChanging();
+					this._TimeCreate = value;
+					this.SendPropertyChanged("TimeCreate");
+					this.OnTimeCreateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Level]", Storage="_Level", DbType="NVarChar(50)")]
+		public string Level
+		{
+			get
+			{
+				return this._Level;
+			}
+			set
+			{
+				if ((this._Level != value))
+				{
+					this.OnLevelChanging(value);
+					this.SendPropertyChanging();
+					this._Level = value;
+					this.SendPropertyChanged("Level");
+					this.OnLevelChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ParentCmt", DbType="NVarChar(MAX)")]
+		public string ParentCmt
+		{
+			get
+			{
+				return this._ParentCmt;
+			}
+			set
+			{
+				if ((this._ParentCmt != value))
+				{
+					this.OnParentCmtChanging(value);
+					this.SendPropertyChanging();
+					this._ParentCmt = value;
+					this.SendPropertyChanged("ParentCmt");
+					this.OnParentCmtChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StudentCmt", DbType="NVarChar(MAX)")]
+		public string StudentCmt
+		{
+			get
+			{
+				return this._StudentCmt;
+			}
+			set
+			{
+				if ((this._StudentCmt != value))
+				{
+					this.OnStudentCmtChanging(value);
+					this.SendPropertyChanging();
+					this._StudentCmt = value;
+					this.SendPropertyChanged("StudentCmt");
+					this.OnStudentCmtChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="GS_Class_GS_Lesson", Storage="_GS_Lessons", ThisKey="ClassID", OtherKey="ClassID")]
+		public EntitySet<GS_Lesson> GS_Lessons
+		{
+			get
+			{
+				return this._GS_Lessons;
+			}
+			set
+			{
+				this._GS_Lessons.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="GS_ReqParent_GS_Class", Storage="_GS_ReqParent", ThisKey="ReqParentID", OtherKey="ReqParentID", IsForeignKey=true)]
+		public GS_ReqParent GS_ReqParent
+		{
+			get
+			{
+				return this._GS_ReqParent.Entity;
+			}
+			set
+			{
+				GS_ReqParent previousValue = this._GS_ReqParent.Entity;
+				if (((previousValue != value) 
+							|| (this._GS_ReqParent.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._GS_ReqParent.Entity = null;
+						previousValue.GS_Classes.Remove(this);
+					}
+					this._GS_ReqParent.Entity = value;
+					if ((value != null))
+					{
+						value.GS_Classes.Add(this);
+						this._ReqParentID = value.ReqParentID;
+					}
+					else
+					{
+						this._ReqParentID = default(string);
+					}
+					this.SendPropertyChanged("GS_ReqParent");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="GS_Student_GS_Class", Storage="_GS_Student", ThisKey="StudentID", OtherKey="StudentID", IsForeignKey=true)]
+		public GS_Student GS_Student
+		{
+			get
+			{
+				return this._GS_Student.Entity;
+			}
+			set
+			{
+				GS_Student previousValue = this._GS_Student.Entity;
+				if (((previousValue != value) 
+							|| (this._GS_Student.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._GS_Student.Entity = null;
+						previousValue.GS_Classes.Remove(this);
+					}
+					this._GS_Student.Entity = value;
+					if ((value != null))
+					{
+						value.GS_Classes.Add(this);
+						this._StudentID = value.StudentID;
+					}
+					else
+					{
+						this._StudentID = default(string);
+					}
+					this.SendPropertyChanged("GS_Student");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_GS_Lessons(GS_Lesson entity)
+		{
+			this.SendPropertyChanging();
+			entity.GS_Class = this;
+		}
+		
+		private void detach_GS_Lessons(GS_Lesson entity)
+		{
+			this.SendPropertyChanging();
+			entity.GS_Class = null;
 		}
 	}
 	
@@ -1378,6 +2198,205 @@ namespace GiaSuBK.DAL
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.GS_Lesson")]
+	public partial class GS_Lesson : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _LessonID;
+		
+		private string _ClassID;
+		
+		private System.DateTime _Date;
+		
+		private string _Status;
+		
+		private string _Comment;
+		
+		private EntityRef<GS_Class> _GS_Class;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnLessonIDChanging(string value);
+    partial void OnLessonIDChanged();
+    partial void OnClassIDChanging(string value);
+    partial void OnClassIDChanged();
+    partial void OnDateChanging(System.DateTime value);
+    partial void OnDateChanged();
+    partial void OnStatusChanging(string value);
+    partial void OnStatusChanged();
+    partial void OnCommentChanging(string value);
+    partial void OnCommentChanged();
+    #endregion
+		
+		public GS_Lesson()
+		{
+			this._GS_Class = default(EntityRef<GS_Class>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LessonID", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string LessonID
+		{
+			get
+			{
+				return this._LessonID;
+			}
+			set
+			{
+				if ((this._LessonID != value))
+				{
+					this.OnLessonIDChanging(value);
+					this.SendPropertyChanging();
+					this._LessonID = value;
+					this.SendPropertyChanged("LessonID");
+					this.OnLessonIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClassID", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string ClassID
+		{
+			get
+			{
+				return this._ClassID;
+			}
+			set
+			{
+				if ((this._ClassID != value))
+				{
+					if (this._GS_Class.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnClassIDChanging(value);
+					this.SendPropertyChanging();
+					this._ClassID = value;
+					this.SendPropertyChanged("ClassID");
+					this.OnClassIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="Date NOT NULL")]
+		public System.DateTime Date
+		{
+			get
+			{
+				return this._Date;
+			}
+			set
+			{
+				if ((this._Date != value))
+				{
+					this.OnDateChanging(value);
+					this.SendPropertyChanging();
+					this._Date = value;
+					this.SendPropertyChanged("Date");
+					this.OnDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="NVarChar(50)")]
+		public string Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comment", DbType="NVarChar(MAX)")]
+		public string Comment
+		{
+			get
+			{
+				return this._Comment;
+			}
+			set
+			{
+				if ((this._Comment != value))
+				{
+					this.OnCommentChanging(value);
+					this.SendPropertyChanging();
+					this._Comment = value;
+					this.SendPropertyChanged("Comment");
+					this.OnCommentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="GS_Class_GS_Lesson", Storage="_GS_Class", ThisKey="ClassID", OtherKey="ClassID", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public GS_Class GS_Class
+		{
+			get
+			{
+				return this._GS_Class.Entity;
+			}
+			set
+			{
+				GS_Class previousValue = this._GS_Class.Entity;
+				if (((previousValue != value) 
+							|| (this._GS_Class.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._GS_Class.Entity = null;
+						previousValue.GS_Lessons.Remove(this);
+					}
+					this._GS_Class.Entity = value;
+					if ((value != null))
+					{
+						value.GS_Lessons.Add(this);
+						this._ClassID = value.ClassID;
+					}
+					else
+					{
+						this._ClassID = default(string);
+					}
+					this.SendPropertyChanged("GS_Class");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.GS_OrderStudent")]
 	public partial class GS_OrderStudent
 	{
@@ -1825,6 +2844,8 @@ namespace GiaSuBK.DAL
 		
 		private string _Done;
 		
+		private string _NameParent;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1847,6 +2868,8 @@ namespace GiaSuBK.DAL
     partial void OnTeachingChanged();
     partial void OnDoneChanging(string value);
     partial void OnDoneChanged();
+    partial void OnNameParentChanging(string value);
+    partial void OnNameParentChanged();
     #endregion
 		
 		public GS_Parent()
@@ -2030,6 +3053,26 @@ namespace GiaSuBK.DAL
 					this._Done = value;
 					this.SendPropertyChanged("Done");
 					this.OnDoneChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NameParent", DbType="NVarChar(450)")]
+		public string NameParent
+		{
+			get
+			{
+				return this._NameParent;
+			}
+			set
+			{
+				if ((this._NameParent != value))
+				{
+					this.OnNameParentChanging(value);
+					this.SendPropertyChanging();
+					this._NameParent = value;
+					this.SendPropertyChanged("NameParent");
+					this.OnNameParentChanged();
 				}
 			}
 		}
@@ -5040,1025 +6083,6 @@ namespace GiaSuBK.DAL
 					this._Description = value;
 					this.SendPropertyChanged("Description");
 					this.OnDescriptionChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.GS_Class")]
-	public partial class GS_Class : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _ClassID;
-		
-		private string _ReqParentID;
-		
-		private string _NameParent;
-		
-		private string _PhoneEmail;
-		
-		private string _City;
-		
-		private string _District;
-		
-		private string _Ward;
-		
-		private string _StudentID;
-		
-		private string _StudentName;
-		
-		private string _PhoneStudent;
-		
-		private System.Nullable<int> _Status;
-		
-		private string _Apply;
-		
-		private System.Nullable<int> _NumberApply;
-		
-		private string _NameSupport;
-		
-		private string _Money;
-		
-		private string _MoneyStatus;
-		
-		private string _FormTeach;
-		
-		private string _InfoMore;
-		
-		private string _NameSupports;
-		
-		private string _Subjects;
-		
-		private string _ValueClass;
-		
-		private string _AddressParent;
-		
-		private string _Lessons;
-		
-		private int _RowID;
-		
-		private System.Nullable<System.DateTime> _TimeCreate;
-		
-		private string _Level;
-		
-		private string _ParentCmt;
-		
-		private string _StudentCmt;
-		
-		private EntitySet<GS_Lesson> _GS_Lessons;
-		
-		private EntityRef<GS_ReqParent> _GS_ReqParent;
-		
-		private EntityRef<GS_Student> _GS_Student;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnClassIDChanging(string value);
-    partial void OnClassIDChanged();
-    partial void OnReqParentIDChanging(string value);
-    partial void OnReqParentIDChanged();
-    partial void OnNameParentChanging(string value);
-    partial void OnNameParentChanged();
-    partial void OnPhoneEmailChanging(string value);
-    partial void OnPhoneEmailChanged();
-    partial void OnCityChanging(string value);
-    partial void OnCityChanged();
-    partial void OnDistrictChanging(string value);
-    partial void OnDistrictChanged();
-    partial void OnWardChanging(string value);
-    partial void OnWardChanged();
-    partial void OnStudentIDChanging(string value);
-    partial void OnStudentIDChanged();
-    partial void OnStudentNameChanging(string value);
-    partial void OnStudentNameChanged();
-    partial void OnPhoneStudentChanging(string value);
-    partial void OnPhoneStudentChanged();
-    partial void OnStatusChanging(System.Nullable<int> value);
-    partial void OnStatusChanged();
-    partial void OnApplyChanging(string value);
-    partial void OnApplyChanged();
-    partial void OnNumberApplyChanging(System.Nullable<int> value);
-    partial void OnNumberApplyChanged();
-    partial void OnNameSupportChanging(string value);
-    partial void OnNameSupportChanged();
-    partial void OnMoneyChanging(string value);
-    partial void OnMoneyChanged();
-    partial void OnMoneyStatusChanging(string value);
-    partial void OnMoneyStatusChanged();
-    partial void OnFormTeachChanging(string value);
-    partial void OnFormTeachChanged();
-    partial void OnInfoMoreChanging(string value);
-    partial void OnInfoMoreChanged();
-    partial void OnNameSupportsChanging(string value);
-    partial void OnNameSupportsChanged();
-    partial void OnSubjectsChanging(string value);
-    partial void OnSubjectsChanged();
-    partial void OnValueClassChanging(string value);
-    partial void OnValueClassChanged();
-    partial void OnAddressParentChanging(string value);
-    partial void OnAddressParentChanged();
-    partial void OnLessonsChanging(string value);
-    partial void OnLessonsChanged();
-    partial void OnRowIDChanging(int value);
-    partial void OnRowIDChanged();
-    partial void OnTimeCreateChanging(System.Nullable<System.DateTime> value);
-    partial void OnTimeCreateChanged();
-    partial void OnLevelChanging(string value);
-    partial void OnLevelChanged();
-    partial void OnParentCmtChanging(string value);
-    partial void OnParentCmtChanged();
-    partial void OnStudentCmtChanging(string value);
-    partial void OnStudentCmtChanged();
-    #endregion
-		
-		public GS_Class()
-		{
-			this._GS_Lessons = new EntitySet<GS_Lesson>(new Action<GS_Lesson>(this.attach_GS_Lessons), new Action<GS_Lesson>(this.detach_GS_Lessons));
-			this._GS_ReqParent = default(EntityRef<GS_ReqParent>);
-			this._GS_Student = default(EntityRef<GS_Student>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClassID", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string ClassID
-		{
-			get
-			{
-				return this._ClassID;
-			}
-			set
-			{
-				if ((this._ClassID != value))
-				{
-					this.OnClassIDChanging(value);
-					this.SendPropertyChanging();
-					this._ClassID = value;
-					this.SendPropertyChanged("ClassID");
-					this.OnClassIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReqParentID", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string ReqParentID
-		{
-			get
-			{
-				return this._ReqParentID;
-			}
-			set
-			{
-				if ((this._ReqParentID != value))
-				{
-					if (this._GS_ReqParent.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnReqParentIDChanging(value);
-					this.SendPropertyChanging();
-					this._ReqParentID = value;
-					this.SendPropertyChanged("ReqParentID");
-					this.OnReqParentIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NameParent", DbType="NVarChar(450)")]
-		public string NameParent
-		{
-			get
-			{
-				return this._NameParent;
-			}
-			set
-			{
-				if ((this._NameParent != value))
-				{
-					this.OnNameParentChanging(value);
-					this.SendPropertyChanging();
-					this._NameParent = value;
-					this.SendPropertyChanged("NameParent");
-					this.OnNameParentChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhoneEmail", DbType="NVarChar(450)")]
-		public string PhoneEmail
-		{
-			get
-			{
-				return this._PhoneEmail;
-			}
-			set
-			{
-				if ((this._PhoneEmail != value))
-				{
-					this.OnPhoneEmailChanging(value);
-					this.SendPropertyChanging();
-					this._PhoneEmail = value;
-					this.SendPropertyChanged("PhoneEmail");
-					this.OnPhoneEmailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_City", DbType="NVarChar(150)")]
-		public string City
-		{
-			get
-			{
-				return this._City;
-			}
-			set
-			{
-				if ((this._City != value))
-				{
-					this.OnCityChanging(value);
-					this.SendPropertyChanging();
-					this._City = value;
-					this.SendPropertyChanged("City");
-					this.OnCityChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_District", DbType="NVarChar(150)")]
-		public string District
-		{
-			get
-			{
-				return this._District;
-			}
-			set
-			{
-				if ((this._District != value))
-				{
-					this.OnDistrictChanging(value);
-					this.SendPropertyChanging();
-					this._District = value;
-					this.SendPropertyChanged("District");
-					this.OnDistrictChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ward", DbType="NVarChar(150)")]
-		public string Ward
-		{
-			get
-			{
-				return this._Ward;
-			}
-			set
-			{
-				if ((this._Ward != value))
-				{
-					this.OnWardChanging(value);
-					this.SendPropertyChanging();
-					this._Ward = value;
-					this.SendPropertyChanged("Ward");
-					this.OnWardChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StudentID", DbType="NVarChar(10)")]
-		public string StudentID
-		{
-			get
-			{
-				return this._StudentID;
-			}
-			set
-			{
-				if ((this._StudentID != value))
-				{
-					if (this._GS_Student.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnStudentIDChanging(value);
-					this.SendPropertyChanging();
-					this._StudentID = value;
-					this.SendPropertyChanged("StudentID");
-					this.OnStudentIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StudentName", DbType="NVarChar(250)")]
-		public string StudentName
-		{
-			get
-			{
-				return this._StudentName;
-			}
-			set
-			{
-				if ((this._StudentName != value))
-				{
-					this.OnStudentNameChanging(value);
-					this.SendPropertyChanging();
-					this._StudentName = value;
-					this.SendPropertyChanged("StudentName");
-					this.OnStudentNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhoneStudent", DbType="NVarChar(50)")]
-		public string PhoneStudent
-		{
-			get
-			{
-				return this._PhoneStudent;
-			}
-			set
-			{
-				if ((this._PhoneStudent != value))
-				{
-					this.OnPhoneStudentChanging(value);
-					this.SendPropertyChanging();
-					this._PhoneStudent = value;
-					this.SendPropertyChanged("PhoneStudent");
-					this.OnPhoneStudentChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int")]
-		public System.Nullable<int> Status
-		{
-			get
-			{
-				return this._Status;
-			}
-			set
-			{
-				if ((this._Status != value))
-				{
-					this.OnStatusChanging(value);
-					this.SendPropertyChanging();
-					this._Status = value;
-					this.SendPropertyChanged("Status");
-					this.OnStatusChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Apply", DbType="NVarChar(MAX)")]
-		public string Apply
-		{
-			get
-			{
-				return this._Apply;
-			}
-			set
-			{
-				if ((this._Apply != value))
-				{
-					this.OnApplyChanging(value);
-					this.SendPropertyChanging();
-					this._Apply = value;
-					this.SendPropertyChanged("Apply");
-					this.OnApplyChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumberApply", DbType="Int")]
-		public System.Nullable<int> NumberApply
-		{
-			get
-			{
-				return this._NumberApply;
-			}
-			set
-			{
-				if ((this._NumberApply != value))
-				{
-					this.OnNumberApplyChanging(value);
-					this.SendPropertyChanging();
-					this._NumberApply = value;
-					this.SendPropertyChanged("NumberApply");
-					this.OnNumberApplyChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NameSupport", DbType="NVarChar(MAX)")]
-		public string NameSupport
-		{
-			get
-			{
-				return this._NameSupport;
-			}
-			set
-			{
-				if ((this._NameSupport != value))
-				{
-					this.OnNameSupportChanging(value);
-					this.SendPropertyChanging();
-					this._NameSupport = value;
-					this.SendPropertyChanged("NameSupport");
-					this.OnNameSupportChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Money", DbType="NVarChar(50)")]
-		public string Money
-		{
-			get
-			{
-				return this._Money;
-			}
-			set
-			{
-				if ((this._Money != value))
-				{
-					this.OnMoneyChanging(value);
-					this.SendPropertyChanging();
-					this._Money = value;
-					this.SendPropertyChanged("Money");
-					this.OnMoneyChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MoneyStatus", DbType="NVarChar(50)")]
-		public string MoneyStatus
-		{
-			get
-			{
-				return this._MoneyStatus;
-			}
-			set
-			{
-				if ((this._MoneyStatus != value))
-				{
-					this.OnMoneyStatusChanging(value);
-					this.SendPropertyChanging();
-					this._MoneyStatus = value;
-					this.SendPropertyChanged("MoneyStatus");
-					this.OnMoneyStatusChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FormTeach", DbType="NVarChar(50)")]
-		public string FormTeach
-		{
-			get
-			{
-				return this._FormTeach;
-			}
-			set
-			{
-				if ((this._FormTeach != value))
-				{
-					this.OnFormTeachChanging(value);
-					this.SendPropertyChanging();
-					this._FormTeach = value;
-					this.SendPropertyChanged("FormTeach");
-					this.OnFormTeachChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InfoMore", DbType="NVarChar(500)")]
-		public string InfoMore
-		{
-			get
-			{
-				return this._InfoMore;
-			}
-			set
-			{
-				if ((this._InfoMore != value))
-				{
-					this.OnInfoMoreChanging(value);
-					this.SendPropertyChanging();
-					this._InfoMore = value;
-					this.SendPropertyChanged("InfoMore");
-					this.OnInfoMoreChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NameSupports", DbType="NVarChar(MAX)")]
-		public string NameSupports
-		{
-			get
-			{
-				return this._NameSupports;
-			}
-			set
-			{
-				if ((this._NameSupports != value))
-				{
-					this.OnNameSupportsChanging(value);
-					this.SendPropertyChanging();
-					this._NameSupports = value;
-					this.SendPropertyChanged("NameSupports");
-					this.OnNameSupportsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Subjects", DbType="NVarChar(500)")]
-		public string Subjects
-		{
-			get
-			{
-				return this._Subjects;
-			}
-			set
-			{
-				if ((this._Subjects != value))
-				{
-					this.OnSubjectsChanging(value);
-					this.SendPropertyChanging();
-					this._Subjects = value;
-					this.SendPropertyChanged("Subjects");
-					this.OnSubjectsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ValueClass", DbType="NVarChar(100)")]
-		public string ValueClass
-		{
-			get
-			{
-				return this._ValueClass;
-			}
-			set
-			{
-				if ((this._ValueClass != value))
-				{
-					this.OnValueClassChanging(value);
-					this.SendPropertyChanging();
-					this._ValueClass = value;
-					this.SendPropertyChanged("ValueClass");
-					this.OnValueClassChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AddressParent", DbType="NVarChar(450)")]
-		public string AddressParent
-		{
-			get
-			{
-				return this._AddressParent;
-			}
-			set
-			{
-				if ((this._AddressParent != value))
-				{
-					this.OnAddressParentChanging(value);
-					this.SendPropertyChanging();
-					this._AddressParent = value;
-					this.SendPropertyChanged("AddressParent");
-					this.OnAddressParentChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lessons", DbType="NVarChar(MAX)")]
-		public string Lessons
-		{
-			get
-			{
-				return this._Lessons;
-			}
-			set
-			{
-				if ((this._Lessons != value))
-				{
-					this.OnLessonsChanging(value);
-					this.SendPropertyChanging();
-					this._Lessons = value;
-					this.SendPropertyChanged("Lessons");
-					this.OnLessonsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RowID", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
-		public int RowID
-		{
-			get
-			{
-				return this._RowID;
-			}
-			set
-			{
-				if ((this._RowID != value))
-				{
-					this.OnRowIDChanging(value);
-					this.SendPropertyChanging();
-					this._RowID = value;
-					this.SendPropertyChanged("RowID");
-					this.OnRowIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeCreate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> TimeCreate
-		{
-			get
-			{
-				return this._TimeCreate;
-			}
-			set
-			{
-				if ((this._TimeCreate != value))
-				{
-					this.OnTimeCreateChanging(value);
-					this.SendPropertyChanging();
-					this._TimeCreate = value;
-					this.SendPropertyChanged("TimeCreate");
-					this.OnTimeCreateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Level]", Storage="_Level", DbType="NVarChar(50)")]
-		public string Level
-		{
-			get
-			{
-				return this._Level;
-			}
-			set
-			{
-				if ((this._Level != value))
-				{
-					this.OnLevelChanging(value);
-					this.SendPropertyChanging();
-					this._Level = value;
-					this.SendPropertyChanged("Level");
-					this.OnLevelChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ParentCmt", DbType="NVarChar(MAX)")]
-		public string ParentCmt
-		{
-			get
-			{
-				return this._ParentCmt;
-			}
-			set
-			{
-				if ((this._ParentCmt != value))
-				{
-					this.OnParentCmtChanging(value);
-					this.SendPropertyChanging();
-					this._ParentCmt = value;
-					this.SendPropertyChanged("ParentCmt");
-					this.OnParentCmtChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StudentCmt", DbType="NVarChar(MAX)")]
-		public string StudentCmt
-		{
-			get
-			{
-				return this._StudentCmt;
-			}
-			set
-			{
-				if ((this._StudentCmt != value))
-				{
-					this.OnStudentCmtChanging(value);
-					this.SendPropertyChanging();
-					this._StudentCmt = value;
-					this.SendPropertyChanged("StudentCmt");
-					this.OnStudentCmtChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="GS_Class_GS_Lesson", Storage="_GS_Lessons", ThisKey="ClassID", OtherKey="ClassID")]
-		public EntitySet<GS_Lesson> GS_Lessons
-		{
-			get
-			{
-				return this._GS_Lessons;
-			}
-			set
-			{
-				this._GS_Lessons.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="GS_ReqParent_GS_Class", Storage="_GS_ReqParent", ThisKey="ReqParentID", OtherKey="ReqParentID", IsForeignKey=true)]
-		public GS_ReqParent GS_ReqParent
-		{
-			get
-			{
-				return this._GS_ReqParent.Entity;
-			}
-			set
-			{
-				GS_ReqParent previousValue = this._GS_ReqParent.Entity;
-				if (((previousValue != value) 
-							|| (this._GS_ReqParent.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._GS_ReqParent.Entity = null;
-						previousValue.GS_Classes.Remove(this);
-					}
-					this._GS_ReqParent.Entity = value;
-					if ((value != null))
-					{
-						value.GS_Classes.Add(this);
-						this._ReqParentID = value.ReqParentID;
-					}
-					else
-					{
-						this._ReqParentID = default(string);
-					}
-					this.SendPropertyChanged("GS_ReqParent");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="GS_Student_GS_Class", Storage="_GS_Student", ThisKey="StudentID", OtherKey="StudentID", IsForeignKey=true)]
-		public GS_Student GS_Student
-		{
-			get
-			{
-				return this._GS_Student.Entity;
-			}
-			set
-			{
-				GS_Student previousValue = this._GS_Student.Entity;
-				if (((previousValue != value) 
-							|| (this._GS_Student.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._GS_Student.Entity = null;
-						previousValue.GS_Classes.Remove(this);
-					}
-					this._GS_Student.Entity = value;
-					if ((value != null))
-					{
-						value.GS_Classes.Add(this);
-						this._StudentID = value.StudentID;
-					}
-					else
-					{
-						this._StudentID = default(string);
-					}
-					this.SendPropertyChanged("GS_Student");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_GS_Lessons(GS_Lesson entity)
-		{
-			this.SendPropertyChanging();
-			entity.GS_Class = this;
-		}
-		
-		private void detach_GS_Lessons(GS_Lesson entity)
-		{
-			this.SendPropertyChanging();
-			entity.GS_Class = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.GS_Lesson")]
-	public partial class GS_Lesson : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _LessonID;
-		
-		private string _ClassID;
-		
-		private System.DateTime _Date;
-		
-		private string _Status;
-		
-		private string _Comment;
-		
-		private EntityRef<GS_Class> _GS_Class;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnLessonIDChanging(string value);
-    partial void OnLessonIDChanged();
-    partial void OnClassIDChanging(string value);
-    partial void OnClassIDChanged();
-    partial void OnDateChanging(System.DateTime value);
-    partial void OnDateChanged();
-    partial void OnStatusChanging(string value);
-    partial void OnStatusChanged();
-    partial void OnCommentChanging(string value);
-    partial void OnCommentChanged();
-    #endregion
-		
-		public GS_Lesson()
-		{
-			this._GS_Class = default(EntityRef<GS_Class>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LessonID", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string LessonID
-		{
-			get
-			{
-				return this._LessonID;
-			}
-			set
-			{
-				if ((this._LessonID != value))
-				{
-					this.OnLessonIDChanging(value);
-					this.SendPropertyChanging();
-					this._LessonID = value;
-					this.SendPropertyChanged("LessonID");
-					this.OnLessonIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClassID", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string ClassID
-		{
-			get
-			{
-				return this._ClassID;
-			}
-			set
-			{
-				if ((this._ClassID != value))
-				{
-					if (this._GS_Class.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnClassIDChanging(value);
-					this.SendPropertyChanging();
-					this._ClassID = value;
-					this.SendPropertyChanged("ClassID");
-					this.OnClassIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="Date NOT NULL")]
-		public System.DateTime Date
-		{
-			get
-			{
-				return this._Date;
-			}
-			set
-			{
-				if ((this._Date != value))
-				{
-					this.OnDateChanging(value);
-					this.SendPropertyChanging();
-					this._Date = value;
-					this.SendPropertyChanged("Date");
-					this.OnDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="NVarChar(50)")]
-		public string Status
-		{
-			get
-			{
-				return this._Status;
-			}
-			set
-			{
-				if ((this._Status != value))
-				{
-					this.OnStatusChanging(value);
-					this.SendPropertyChanging();
-					this._Status = value;
-					this.SendPropertyChanged("Status");
-					this.OnStatusChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comment", DbType="NVarChar(MAX)")]
-		public string Comment
-		{
-			get
-			{
-				return this._Comment;
-			}
-			set
-			{
-				if ((this._Comment != value))
-				{
-					this.OnCommentChanging(value);
-					this.SendPropertyChanging();
-					this._Comment = value;
-					this.SendPropertyChanged("Comment");
-					this.OnCommentChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="GS_Class_GS_Lesson", Storage="_GS_Class", ThisKey="ClassID", OtherKey="ClassID", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
-		public GS_Class GS_Class
-		{
-			get
-			{
-				return this._GS_Class.Entity;
-			}
-			set
-			{
-				GS_Class previousValue = this._GS_Class.Entity;
-				if (((previousValue != value) 
-							|| (this._GS_Class.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._GS_Class.Entity = null;
-						previousValue.GS_Lessons.Remove(this);
-					}
-					this._GS_Class.Entity = value;
-					if ((value != null))
-					{
-						value.GS_Lessons.Add(this);
-						this._ClassID = value.ClassID;
-					}
-					else
-					{
-						this._ClassID = default(string);
-					}
-					this.SendPropertyChanged("GS_Class");
 				}
 			}
 		}

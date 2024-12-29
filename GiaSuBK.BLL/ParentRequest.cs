@@ -40,14 +40,19 @@ namespace GiaSuBK.BLL
                             return objRes;
                         }
 
+                        // Create new GS_ReqParent object
+                        var random = new Random();
+                        var randomCode = random.Next(10000, 99999); // Generate a 5-digit random number
+                        var reqParentID = $"{objReq.ParentInfo.PhoneParent}-{randomCode}";
+
                         var existParent = db.GS_Parents.Where(p => p.ParentID == objReq.ParentInfo.PhoneParent).FirstOrDefault();
                         if (existParent != null)
                         {
                             // Update the Apply list for the existing parent
                             existParent.Apply = string.IsNullOrEmpty(existParent.Apply) ?
                             objReq.ParentInfo.ReqParentID :
-                            string.Join(",", existParent.Apply.Split(',').Concat(new[] { objReq.ParentInfo.ReqParentID }));
-
+                            string.Join(",", existParent.Apply.Split(',').Concat(new[] { reqParentID }));
+                            
                             db.SubmitChanges();
                         }
                         else
@@ -58,22 +63,19 @@ namespace GiaSuBK.BLL
                                 ParentID = objReq.ParentInfo.PhoneParent,
                                 Phone = objReq.ParentInfo.PhoneParent,
                                 Address = objReq.ParentInfo.AddressParent,
-                                Apply = objReq.ParentInfo.ReqParentID
+                                Apply = reqParentID
                             };
 
                             db.GS_Parents.InsertOnSubmit(newParent);
                             db.SubmitChanges();
                         }
 
-                        // Create new GS_ReqParent object
-                        var random = new Random();
-                        var randomCode = random.Next(10000, 99999); // Generate a 5-digit random number
-                        var reqParentID = $"{objReq.ParentInfo.PhoneParent}{randomCode}";
+                        
 
                         var newParentReq = new GS_ReqParent
                         {
                             ReqParentID = reqParentID,
-                            ParentID = objReq.ParentInfo.ParentID,
+                            ParentID = objReq.ParentInfo.PhoneParent,
                             NameParent = objReq.ParentInfo.NameParent,
                             PhoneEmail = objReq.ParentInfo.PhoneParent,
                             AddressParent = objReq.ParentInfo.AddressParent,

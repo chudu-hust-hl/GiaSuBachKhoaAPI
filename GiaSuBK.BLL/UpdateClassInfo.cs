@@ -53,15 +53,12 @@ namespace GiaSuBK.BLL
                         else
                         {
                             // Update new GS_Parent instance
-                            existClass.ClassID = objReq.ClassInfo.ClassID;
                             existClass.NameParent = objReq.ClassInfo.NameParent;
                             existClass.PhoneEmail = objReq.ClassInfo.PhoneParent;
                             existClass.District = objReq.ClassInfo.District;
                             existClass.City = objReq.ClassInfo.City;
                             existClass.Ward = objReq.ClassInfo.Ward;
-                            existClass.StudentID = objReq.ClassInfo.StudentID;
-                            existClass.StudentName = objReq.ClassInfo.StudentName;
-                            existClass.PhoneStudent = objReq.ClassInfo.PhoneStudent;
+                            existClass.StudentID = objReq.ClassInfo.StudentID; //Phone and name is auto updated
                             existClass.Status = objReq.ClassInfo.Status;
                             existClass.Apply = objReq.ClassInfo.Apply;
                             existClass.NumberApply = objReq.ClassInfo.NumberApply;
@@ -74,6 +71,38 @@ namespace GiaSuBK.BLL
                             existClass.Status = objReq.ClassInfo.Status;
                             existClass.NameSupports = objReq.ClassInfo.NameSupports;
                             existClass.Subjects = objReq.ClassInfo.Subjects;
+
+                            if(existClass.StudentID != null)
+                            {
+                                existClass.Status = 1;
+                                var existStudent = db.GS_Students.Where(p => p.StudentID == existClass.StudentID).FirstOrDefault();
+                                var studentTeachingList = existStudent.Teaching;
+                                if (string.IsNullOrEmpty(studentTeachingList))
+                                {
+                                    existStudent.Teaching = objReq.ClassID.ToString();
+                                }
+                                else
+                                {
+                                    var classsIds = studentTeachingList.Split(',').Select(id => id.Trim()).ToList();
+                                    if (!classsIds.Contains(objReq.ClassID.ToString()))
+                                    {
+                                        classsIds.Add(objReq.ClassID.ToString());
+                                        existStudent.Teaching = string.Join(",", classsIds);
+                                    }
+                                }
+
+                                // Update Apply array
+                                var studentApplyList = existStudent.Apply; // Assuming Apply is a string like Teaching
+                                if (!string.IsNullOrEmpty(studentApplyList))
+                                {
+                                    var applyClassIds = studentApplyList.Split(',').Select(id => id.Trim()).ToList();
+                                    if (applyClassIds.Contains(objReq.ClassID.ToString()))
+                                    {
+                                        applyClassIds.Remove(objReq.ClassID.ToString());
+                                        existStudent.Apply = string.Join(",", applyClassIds);
+                                    }
+                                }
+                            }
 
                             // Update done then save change
                             db.SubmitChanges();

@@ -1515,6 +1515,264 @@ namespace GiaSuBK.MD.GiaSuBKMessages
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GSGetParentBasicInfoReq", Namespace="http://cpc1hn.vn/LabManager/Message/v1")]
+    public partial class GSGetParentBasicInfoReq : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string UserIDField;
+        
+        private string TokenField;
+        
+        private string ParentIDField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string UserID
+        {
+            get
+            {
+                return this.UserIDField;
+            }
+            set
+            {
+                this.UserIDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=1)]
+        public string Token
+        {
+            get
+            {
+                return this.TokenField;
+            }
+            set
+            {
+                this.TokenField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=2)]
+        public string ParentID
+        {
+            get
+            {
+                return this.ParentIDField;
+            }
+            set
+            {
+                this.ParentIDField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GSGetParentBasicInfoRes", Namespace="http://cpc1hn.vn/LabManager/Message/v1")]
+    public partial class GSGetParentBasicInfoRes : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private int RespCodeField;
+        
+        private string RespTextField;
+        
+        private GiaSuBK.MD.GiaSuBKMessages.GSParentBasicInfo ParentInfoField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int RespCode
+        {
+            get
+            {
+                return this.RespCodeField;
+            }
+            set
+            {
+                this.RespCodeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string RespText
+        {
+            get
+            {
+                return this.RespTextField;
+            }
+            set
+            {
+                this.RespTextField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=2)]
+        public GiaSuBK.MD.GiaSuBKMessages.GSParentBasicInfo ParentInfo
+        {
+            get
+            {
+                return this.ParentInfoField;
+            }
+            set
+            {
+                this.ParentInfoField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GSParentBasicInfo", Namespace="http://cpc1hn.vn/LabManager/Message/v1")]
+    public partial class GSParentBasicInfo : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string ParentIDField;
+        
+        private string NameParentField;
+        
+        private string PhoneParentField;
+        
+        private string AddressField;
+        
+        private string ApplyField;
+        
+        private string TeachingField;
+        
+        private string DoneField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string ParentID
+        {
+            get
+            {
+                return this.ParentIDField;
+            }
+            set
+            {
+                this.ParentIDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=1)]
+        public string NameParent
+        {
+            get
+            {
+                return this.NameParentField;
+            }
+            set
+            {
+                this.NameParentField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=2)]
+        public string PhoneParent
+        {
+            get
+            {
+                return this.PhoneParentField;
+            }
+            set
+            {
+                this.PhoneParentField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=3)]
+        public string Address
+        {
+            get
+            {
+                return this.AddressField;
+            }
+            set
+            {
+                this.AddressField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=4)]
+        public string Apply
+        {
+            get
+            {
+                return this.ApplyField;
+            }
+            set
+            {
+                this.ApplyField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=5)]
+        public string Teaching
+        {
+            get
+            {
+                return this.TeachingField;
+            }
+            set
+            {
+                this.TeachingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=6)]
+        public string Done
+        {
+            get
+            {
+                return this.DoneField;
+            }
+            set
+            {
+                this.DoneField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="GSGetParentReqListReq", Namespace="http://cpc1hn.vn/LabManager/Message/v1")]
     public partial class GSGetParentReqListReq : object, System.Runtime.Serialization.IExtensibleDataObject
     {
@@ -2569,8 +2827,6 @@ namespace GiaSuBK.MD.GiaSuBKMessages
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private int RowIDField;
-        
         private string StudentIDField;
         
         private string StudentNameField;
@@ -2599,6 +2855,12 @@ namespace GiaSuBK.MD.GiaSuBKMessages
         
         private string AchievementField;
         
+        private string ApplyField;
+        
+        private string TeachingField;
+        
+        private string DoneField;
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -2608,19 +2870,6 @@ namespace GiaSuBK.MD.GiaSuBKMessages
             set
             {
                 this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public int RowID
-        {
-            get
-            {
-                return this.RowIDField;
-            }
-            set
-            {
-                this.RowIDField = value;
             }
         }
         
@@ -2650,7 +2899,7 @@ namespace GiaSuBK.MD.GiaSuBKMessages
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=3)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=2)]
         public string Phone
         {
             get
@@ -2663,7 +2912,7 @@ namespace GiaSuBK.MD.GiaSuBKMessages
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=4)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=3)]
         public string Address
         {
             get
@@ -2676,7 +2925,7 @@ namespace GiaSuBK.MD.GiaSuBKMessages
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=5)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=4)]
         public string FormTeach
         {
             get
@@ -2689,7 +2938,7 @@ namespace GiaSuBK.MD.GiaSuBKMessages
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=6)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=5)]
         public string InfoMore
         {
             get
@@ -2702,7 +2951,7 @@ namespace GiaSuBK.MD.GiaSuBKMessages
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=7)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=6)]
         public string SexStudent
         {
             get
@@ -2715,7 +2964,7 @@ namespace GiaSuBK.MD.GiaSuBKMessages
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=8)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=7)]
         public string Subjects
         {
             get
@@ -2728,7 +2977,7 @@ namespace GiaSuBK.MD.GiaSuBKMessages
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=9)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=8)]
         public string TimeSupport
         {
             get
@@ -2741,7 +2990,7 @@ namespace GiaSuBK.MD.GiaSuBKMessages
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=10)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=9)]
         public string City
         {
             get
@@ -2754,7 +3003,7 @@ namespace GiaSuBK.MD.GiaSuBKMessages
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=11)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=10)]
         public string District
         {
             get
@@ -2767,7 +3016,7 @@ namespace GiaSuBK.MD.GiaSuBKMessages
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=12)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=11)]
         public string Ward
         {
             get
@@ -2780,7 +3029,7 @@ namespace GiaSuBK.MD.GiaSuBKMessages
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=13)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=12)]
         public string Experience
         {
             get
@@ -2793,7 +3042,7 @@ namespace GiaSuBK.MD.GiaSuBKMessages
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=14)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=13)]
         public string Achievement
         {
             get
@@ -2803,6 +3052,45 @@ namespace GiaSuBK.MD.GiaSuBKMessages
             set
             {
                 this.AchievementField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=14)]
+        public string Apply
+        {
+            get
+            {
+                return this.ApplyField;
+            }
+            set
+            {
+                this.ApplyField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=15)]
+        public string Teaching
+        {
+            get
+            {
+                return this.TeachingField;
+            }
+            set
+            {
+                this.TeachingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=16)]
+        public string Done
+        {
+            get
+            {
+                return this.DoneField;
+            }
+            set
+            {
+                this.DoneField = value;
             }
         }
     }

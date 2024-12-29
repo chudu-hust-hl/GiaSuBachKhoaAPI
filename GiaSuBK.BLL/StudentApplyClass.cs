@@ -69,6 +69,22 @@ namespace GiaSuBK.BLL
                             }
                             existClass.NumberApply = existClass.NumberApply + 1;
 
+                            var studentApplyList = existStudent.Apply;
+                            if (string.IsNullOrEmpty(studentApplyList))
+                            {
+                                existStudent.Apply = objReq.ClassID.ToString();
+                            }
+                            else
+                            {
+                                var classsIds = studentApplyList.Split(',').Select(id => id.Trim()).ToList();
+                                if (!classsIds.Contains(objReq.ClassID.ToString()))
+                                {
+                                    classsIds.Add(objReq.ClassID.ToString());
+                                    existStudent.Apply = string.Join(",", classsIds);
+                                }
+                            }
+
+
                             // Update done then save change
                             db.SubmitChanges();
                         }
