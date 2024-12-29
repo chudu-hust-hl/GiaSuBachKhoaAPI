@@ -29,6 +29,41 @@
       <Column Name="ValueName2" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.GS_Class" Member="GS_Classes">
+    <Type Name="GS_Class">
+      <Column Name="ClassID" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ReqParentID" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NameParent" Type="System.String" DbType="NVarChar(450)" CanBeNull="true" />
+      <Column Name="PhoneEmail" Type="System.String" DbType="NVarChar(450)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="District" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Ward" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="StudentID" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="StudentName" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="PhoneStudent" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Apply" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="NumberApply" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NameSupport" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Money" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MoneyStatus" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FormTeach" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="InfoMore" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="NameSupports" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Subjects" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="ValueClass" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AddressParent" Type="System.String" DbType="NVarChar(450)" CanBeNull="true" />
+      <Column Name="Lessons" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="RowID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TimeCreate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="[Level]" Member="Level" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ParentCmt" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="StudentCmt" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="GS_Class_GS_Lesson" Member="GS_Lessons" ThisKey="ClassID" OtherKey="ClassID" Type="GS_Lesson" />
+      <Association Name="GS_ReqParent_GS_Class" Member="GS_ReqParent" ThisKey="ReqParentID" OtherKey="ReqParentID" Type="GS_ReqParent" IsForeignKey="true" />
+      <Association Name="GS_Student_GS_Class" Member="GS_Student" ThisKey="StudentID" OtherKey="StudentID" Type="GS_Student" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.GS_Course" Member="GS_Courses">
     <Type Name="GS_Course">
       <Column Name="RowID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -56,6 +91,16 @@
       <Column Name="MoneyStatus" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="TimeModify" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="ModifyID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GS_Lesson" Member="GS_Lessons">
+    <Type Name="GS_Lesson">
+      <Column Name="LessonID" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ClassID" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Comment" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="GS_Class_GS_Lesson" Member="GS_Class" ThisKey="ClassID" OtherKey="ClassID" Type="GS_Class" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.GS_OrderStudent" Member="GS_OrderStudents">
@@ -96,6 +141,7 @@
       <Column Name="Apply" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="Teaching" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="Done" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="NameParent" Type="System.String" DbType="NVarChar(450)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.GS_Post" Member="GS_Posts">
@@ -238,51 +284,6 @@
       <Column Name="UserName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Role" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Description" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.GS_Class" Member="GS_Classes">
-    <Type Name="GS_Class">
-      <Column Name="ClassID" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="ReqParentID" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="NameParent" Type="System.String" DbType="NVarChar(450)" CanBeNull="true" />
-      <Column Name="PhoneEmail" Type="System.String" DbType="NVarChar(450)" CanBeNull="true" />
-      <Column Name="City" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="District" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="Ward" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="StudentID" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
-      <Column Name="StudentName" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="PhoneStudent" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Apply" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="NumberApply" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="NameSupport" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Money" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="MoneyStatus" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="FormTeach" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="InfoMore" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="NameSupports" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Subjects" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="ValueClass" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="AddressParent" Type="System.String" DbType="NVarChar(450)" CanBeNull="true" />
-      <Column Name="Lessons" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="RowID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="TimeCreate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="[Level]" Member="Level" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ParentCmt" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="StudentCmt" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Association Name="GS_Class_GS_Lesson" Member="GS_Lessons" ThisKey="ClassID" OtherKey="ClassID" Type="GS_Lesson" />
-      <Association Name="GS_ReqParent_GS_Class" Member="GS_ReqParent" ThisKey="ReqParentID" OtherKey="ReqParentID" Type="GS_ReqParent" IsForeignKey="true" />
-      <Association Name="GS_Student_GS_Class" Member="GS_Student" ThisKey="StudentID" OtherKey="StudentID" Type="GS_Student" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.GS_Lesson" Member="GS_Lessons">
-    <Type Name="GS_Lesson">
-      <Column Name="LessonID" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="ClassID" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Comment" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Association Name="GS_Class_GS_Lesson" Member="GS_Class" ThisKey="ClassID" OtherKey="ClassID" Type="GS_Class" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.RP_GetDashboadByTime" Method="RP_GetDashboadByTime">

@@ -12,12 +12,12 @@ using log4net;
 
 namespace GiaSuBK.BLL
 {
-    public class GetStudentBasicInfo
+    public class GetParentBasicInfo
     {
         private static readonly ILog Log = LogManager.GetLogger("GiaSuBKAppender");
-        public GSGetStudentBasicInfoRes GSGetStudentBasicInfo(GSGetStudentBasicInfoReq objReq)
+        public GSGetParentBasicInfoRes GSGetParentBasicInfo(GSGetParentBasicInfoReq objReq)
         {
-            GSGetStudentBasicInfoRes objRes = new GSGetStudentBasicInfoRes
+            GSGetParentBasicInfoRes objRes = new GSGetParentBasicInfoRes
             {
                 RespCode = -1,
                 RespText = "Nothing"
@@ -41,10 +41,10 @@ namespace GiaSuBK.BLL
                             return objRes;
                         }
 
-                        var existStudent = db.GS_Students.Where(p => p.StudentID == objReq.StudentID).FirstOrDefault();
-                        if (existStudent == null)
+                        var existParent = db.GS_Parents.Where(p => p.ParentID == objReq.ParentID).FirstOrDefault();
+                        if (existParent == null)
                         {
-                            // Update the Apply list for the existing Student
+                            // Update the Apply list for the existing Parent
                             objRes.RespCode = -2;
                             objRes.RespText = "No existing data of this request";
                             Log.Warn(string.Format("[{0}:{1}]", objRes.RespCode, objRes.RespText));
@@ -52,25 +52,15 @@ namespace GiaSuBK.BLL
                         }
                         else
                         {
-                            objRes.StudentInfo = new GSStudentBasicInfo
+                            objRes.ParentInfo = new GSParentBasicInfo
                             {
-                                StudentID = existStudent.StudentID,
-                                StudentName = existStudent.StudentName,
-                                Phone = existStudent.Phone,
-                                Address = existStudent.Address,
-                                FormTeach = existStudent.FormTeach,
-                                InfoMore = existStudent.InfoMore,
-                                SexStudent = existStudent.SexStudent,
-                                Subjects = existStudent.Subjects,
-                                TimeSupport = existStudent.TimeSupport,
-                                District = existStudent.District,
-                                City = existStudent.City,
-                                Ward = existStudent.Ward,
-                                Achievement = existStudent.Achievement,
-                                Experience = existStudent.Experience,
-                                Apply = existStudent.Apply,
-                                Teaching = existStudent.Teaching,
-                                Done = existStudent.Done,
+                                ParentID = existParent.ParentID,
+                                NameParent = existParent.NameParent,
+                                PhoneParent = existParent.Phone,
+                                Address = existParent.Address,
+                                Apply = existParent.Apply,
+                                Teaching = existParent.Teaching,
+                                Done = existParent.Done,
                             };
                         }
 

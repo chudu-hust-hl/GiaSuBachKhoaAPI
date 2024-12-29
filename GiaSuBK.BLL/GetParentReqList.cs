@@ -68,6 +68,7 @@ namespace GiaSuBK.BLL
                                 SelectSchool = p.SelectSchool,
                                 ValueClass = p.ValueClass,
                                 TimeCreate = p.TimeCreate?.ToString("yyyy-MM-dd HH:mm:ss"),
+                                Status = (int)p.Status,
                                 NameSupports = p.NameSupports,
                                 Subjects = p.Subjects,
                                 TimeSupport = p.TimeSupport,

@@ -147,6 +147,22 @@
 			<xs:element name="ParentInfo" type ="mstns:GSParentInfo" /> 
 		</xs:sequence>
 	</xs:complexType>
+
+	<!--Get parent basic Info-->
+	<xs:complexType name="GSGetParentBasicInfoReq">
+		<xs:sequence>
+			<xs:element name="UserID" type="xs:string" />
+			<xs:element name="Token" type="xs:string" />
+			<xs:element name="ParentID" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GSGetParentBasicInfoRes">
+		<xs:sequence>
+			<xs:element name="RespCode" type="xs:int" />
+			<xs:element name="RespText" type="xs:string" />
+			<xs:element name="ParentInfo" type ="mstns:GSParentBasicInfo" />
+		</xs:sequence>
+	</xs:complexType>
 	
 	<xs:complexType name ="GSParentInfo">
 		<xs:sequence>
@@ -175,6 +191,18 @@
 			<xs:element name ="Ward" type="xs:string"/>
 			<xs:element name ="TimeModify" type="xs:string"/>
 			<xs:element name ="ModifierID" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name ="GSParentBasicInfo">
+		<xs:sequence>
+			<xs:element name ="ParentID" type="xs:string"/>
+			<xs:element name ="NameParent" type="xs:string"/>
+			<xs:element name ="PhoneParent" type="xs:string"/>
+			<xs:element name ="Address" type="xs:string"/>
+			<xs:element name ="Apply" type="xs:string"/>
+			<xs:element name ="Teaching" type="xs:string"/>
+			<xs:element name ="Done" type="xs:string"/>
 		</xs:sequence>
 	</xs:complexType>
 	
@@ -311,7 +339,6 @@
 
 	<xs:complexType name ="GSStudentBasicInfo">
 		<xs:sequence>
-			<xs:element name ="RowID" type="xs:int"/>
 			<xs:element name ="StudentID" type="xs:string"/>
 			<xs:element name ="StudentName" type="xs:string"/>
 			<xs:element name ="Phone" type="xs:string"/>
@@ -326,6 +353,9 @@
 			<xs:element name ="Ward" type="xs:string"/>
 			<xs:element name ="Experience" type="xs:string"/>
 			<xs:element name ="Achievement" type="xs:string"/>
+			<xs:element name ="Apply" type="xs:string"/>
+			<xs:element name ="Teaching" type="xs:string"/>
+			<xs:element name ="Done " type="xs:string"/>
 		</xs:sequence>
 	</xs:complexType>
 	
