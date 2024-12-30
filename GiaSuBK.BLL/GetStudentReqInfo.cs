@@ -63,6 +63,7 @@ namespace GiaSuBK.BLL
                                 InfoMore = existStudent.InfoMore,
                                 Level = existStudent.Level,
                                 SexStudent = existStudent.SexStudent,
+                                Status = (int)existStudent.Status,
                                 SelectSchool = existStudent.SelectSchool,
                                 TimeCreate = existStudent.TimeCreate?.ToString("yyyy-MM-dd HH:mm:ss"),
                                 NameSupports = existStudent.NameSupports,
