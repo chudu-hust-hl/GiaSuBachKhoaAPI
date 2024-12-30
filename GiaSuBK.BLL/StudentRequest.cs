@@ -41,6 +41,10 @@ namespace GiaSuBK.BLL
                         //    return objRes;
                         //}
 
+                        var random = new Random();
+                        var randomCode = random.Next(10000, 99999); // Generate a 5-digit random number
+                        var reqParentID = $"{objReq.StudentInfo.Phone}-{randomCode}";
+
                         var existStudent = db.GS_Students.Where(p => p.StudentID == objReq.StudentInfo.StudentID).FirstOrDefault();
                         if (existStudent == null)
                         {

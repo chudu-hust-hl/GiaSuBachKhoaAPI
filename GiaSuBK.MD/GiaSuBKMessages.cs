@@ -2047,6 +2047,8 @@ namespace GiaSuBK.MD.GiaSuBKMessages
         
         private string SexStudentField;
         
+        private int StatusField;
+        
         private string SelectSchoolField;
         
         private string TimeCreateField;
@@ -2202,7 +2204,20 @@ namespace GiaSuBK.MD.GiaSuBKMessages
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=9)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=9)]
+        public int Status
+        {
+            get
+            {
+                return this.StatusField;
+            }
+            set
+            {
+                this.StatusField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=10)]
         public string SelectSchool
         {
             get
@@ -2215,7 +2230,7 @@ namespace GiaSuBK.MD.GiaSuBKMessages
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=10)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=11)]
         public string TimeCreate
         {
             get
@@ -2228,7 +2243,7 @@ namespace GiaSuBK.MD.GiaSuBKMessages
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=11)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=12)]
         public string NameSupports
         {
             get
@@ -2241,7 +2256,7 @@ namespace GiaSuBK.MD.GiaSuBKMessages
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=12)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=13)]
         public string Subjects
         {
             get
@@ -2254,7 +2269,7 @@ namespace GiaSuBK.MD.GiaSuBKMessages
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=13)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=14)]
         public string TimeSupport
         {
             get
@@ -2267,7 +2282,7 @@ namespace GiaSuBK.MD.GiaSuBKMessages
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=14)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=15)]
         public string SkillSupport
         {
             get
@@ -2280,7 +2295,7 @@ namespace GiaSuBK.MD.GiaSuBKMessages
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=15)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=16)]
         public string District
         {
             get
@@ -2293,7 +2308,7 @@ namespace GiaSuBK.MD.GiaSuBKMessages
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=16)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=17)]
         public string City
         {
             get
@@ -2306,7 +2321,7 @@ namespace GiaSuBK.MD.GiaSuBKMessages
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=17)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=18)]
         public string Ward
         {
             get
@@ -2319,7 +2334,7 @@ namespace GiaSuBK.MD.GiaSuBKMessages
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=18)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=19)]
         public string Experience
         {
             get
@@ -2332,7 +2347,7 @@ namespace GiaSuBK.MD.GiaSuBKMessages
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=19)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=20)]
         public string Achievement
         {
             get
@@ -2345,7 +2360,7 @@ namespace GiaSuBK.MD.GiaSuBKMessages
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=20)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=21)]
         public string TimeModify
         {
             get
@@ -2358,7 +2373,7 @@ namespace GiaSuBK.MD.GiaSuBKMessages
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=21)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=22)]
         public string ModifierID
         {
             get
