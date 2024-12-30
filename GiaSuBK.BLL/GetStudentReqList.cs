@@ -63,6 +63,7 @@ namespace GiaSuBK.BLL
                                 Level = p.Level,
                                 SexStudent = p.SexStudent,
                                 SelectSchool = p.SelectSchool,
+                                Status = (int)p.Status,
                                 TimeCreate = p.TimeCreate?.ToString("yyyy-MM-dd HH:mm:ss"),
                                 NameSupports = p.NameSupports,
                                 Subjects = p.Subjects,
