@@ -74,7 +74,7 @@ namespace GiaSuBK.BLL
 
                             if(existClass.StudentID != null)
                             {
-                                existClass.Status = 1;
+                                existClass.Status = 2;
                                 var existStudent = db.GS_Students.Where(p => p.StudentID == existClass.StudentID).FirstOrDefault();
                                 var studentTeachingList = existStudent.Teaching;
                                 if (string.IsNullOrEmpty(studentTeachingList))
@@ -100,6 +100,34 @@ namespace GiaSuBK.BLL
                                     {
                                         applyClassIds.Remove(objReq.ClassID.ToString());
                                         existStudent.Apply = string.Join(",", applyClassIds);
+                                    }
+                                }
+
+                                var existParent = db.GS_Parents.Where(p => p.ParentID == existClass.PhoneEmail).FirstOrDefault();
+                                var parentTeachingList = existParent.Teaching;
+                                if (string.IsNullOrEmpty(parentTeachingList))
+                                {
+                                    existParent.Teaching = objReq.ClassID.ToString();
+                                }
+                                else
+                                {
+                                    var classsIds = parentTeachingList.Split(',').Select(id => id.Trim()).ToList();
+                                    if (!classsIds.Contains(objReq.ClassID.ToString()))
+                                    {
+                                        classsIds.Add(objReq.ClassID.ToString());
+                                        existParent.Teaching = string.Join(",", classsIds);
+                                    }
+                                }
+
+                                // Update Apply array
+                                var parentApplyList = existParent.Apply; // Assuming Apply is a string like Teaching
+                                if (!string.IsNullOrEmpty(parentApplyList))
+                                {
+                                    var applyClassIds = parentApplyList.Split(',').Select(id => id.Trim()).ToList();
+                                    if (applyClassIds.Contains(objReq.ClassID.ToString()))
+                                    {
+                                        applyClassIds.Remove(objReq.ClassID.ToString());
+                                        existParent.Apply = string.Join(",", applyClassIds);
                                     }
                                 }
                             }
