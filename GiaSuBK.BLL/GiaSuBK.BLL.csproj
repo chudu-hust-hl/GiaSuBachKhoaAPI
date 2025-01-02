@@ -67,6 +67,7 @@
     <Compile Include="GetClassInfo.cs" />
     <Compile Include="GetClassList.cs" />
     <Compile Include="CreateParentComment.cs" />
+    <Compile Include="GetExcelStudentReqList.cs" />
     <Compile Include="GetFindingClassList.cs" />
     <Compile Include="GetParentBasicInfo.cs" />
     <Compile Include="GetParentReqList.cs" />

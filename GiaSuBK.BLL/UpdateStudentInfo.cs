@@ -63,6 +63,7 @@ namespace GiaSuBK.BLL
                             existStudentReq.SelectSchool = objReq.StudentInfo.SelectSchool;
                             existStudentReq.NameSupports = objReq.StudentInfo.NameSupports;
                             existStudentReq.Subjects = objReq.StudentInfo.Subjects;
+                            existStudentReq.Status = objReq.StudentInfo.Status;
                             existStudentReq.TimeSupport = objReq.StudentInfo.TimeSupport;
                             existStudentReq.SkillSupport = objReq.StudentInfo.SkillSupport;
                             existStudentReq.District = objReq.StudentInfo.District;

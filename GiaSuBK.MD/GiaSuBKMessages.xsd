@@ -331,6 +331,25 @@
 		</xs:sequence>
 	</xs:complexType>
 
+	<!--Get Student Excellent List-->
+	<xs:complexType name="GSGetExcelStudentReqListReq">
+		<xs:sequence>
+			<xs:element name="UserID" type="xs:string" />
+			<xs:element name="Token" type="xs:string" />
+			<xs:element name="PageNumber" type="xs:int" />
+			<xs:element name="RowsPage" type="xs:int" />
+			<xs:element name="Search" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GSGetExcelStudentReqListRes">
+		<xs:sequence>
+			<xs:element name="RespCode" type="xs:int" />
+			<xs:element name="RespText" type="xs:string" />
+			<xs:element name="TotalRows" type="xs:int" />
+			<xs:element name="StudentList" type="mstns:StudentList"/>
+		</xs:sequence>
+	</xs:complexType>
+	
 	<xs:complexType name="StudentList">
 		<xs:sequence>
 			<xs:element name="Student" type="mstns:GSStudentInfo" minOccurs="0" maxOccurs="unbounded" />
