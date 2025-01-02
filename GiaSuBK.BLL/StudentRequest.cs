@@ -43,7 +43,7 @@ namespace GiaSuBK.BLL
 
                         var random = new Random();
                         var randomCode = random.Next(10000, 99999); // Generate a 5-digit random number
-                        var reqParentID = $"{objReq.StudentInfo.Phone}-{randomCode}";
+                        var reqStudentID = $"{objReq.StudentInfo.StudentID}-{randomCode}";
 
                         var existStudent = db.GS_Students.Where(p => p.StudentID == objReq.StudentInfo.StudentID).FirstOrDefault();
                         if (existStudent == null)
@@ -71,6 +71,7 @@ namespace GiaSuBK.BLL
                         // Create new GS_ReqStudent object
                         var newStudentReq = new GS_ReqStudent
                         {
+                            ReqStudentID = reqStudentID,
                             StudentID = objReq.StudentInfo.StudentID,
                             StudentName = objReq.StudentInfo.StudentName,
                             Phone = objReq.StudentInfo.Phone,

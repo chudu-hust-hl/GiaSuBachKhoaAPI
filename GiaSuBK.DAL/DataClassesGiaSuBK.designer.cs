@@ -357,6 +357,13 @@ namespace GiaSuBK.DAL
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), month, classID);
 			return ((ISingleResult<GS_GetLessonLstResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GS_GetExcelStudentLst")]
+		public ISingleResult<GS_GetExcelStudentLstResult> GS_GetExcelStudentLst([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PageNumber", DbType="Int")] System.Nullable<int> pageNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RowspPage", DbType="Int")] System.Nullable<int> rowspPage, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Search", DbType="NVarChar(100)")] string search)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), pageNumber, rowspPage, search);
+			return ((ISingleResult<GS_GetExcelStudentLstResult>)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DataCity")]
@@ -4058,6 +4065,8 @@ namespace GiaSuBK.DAL
 		
 		private string _Experience;
 		
+		private string _ReqStudentID;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -4120,6 +4129,8 @@ namespace GiaSuBK.DAL
     partial void OnAchievementChanged();
     partial void OnExperienceChanging(string value);
     partial void OnExperienceChanged();
+    partial void OnReqStudentIDChanging(string value);
+    partial void OnReqStudentIDChanged();
     #endregion
 		
 		public GS_ReqStudent()
@@ -4127,7 +4138,7 @@ namespace GiaSuBK.DAL
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RowID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RowID", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
 		public int RowID
 		{
 			get
@@ -4707,6 +4718,26 @@ namespace GiaSuBK.DAL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReqStudentID", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string ReqStudentID
+		{
+			get
+			{
+				return this._ReqStudentID;
+			}
+			set
+			{
+				if ((this._ReqStudentID != value))
+				{
+					this.OnReqStudentIDChanging(value);
+					this.SendPropertyChanging();
+					this._ReqStudentID = value;
+					this.SendPropertyChanged("ReqStudentID");
+					this.OnReqStudentIDChanged();
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -4790,6 +4821,8 @@ namespace GiaSuBK.DAL
 		
 		private string _SexStudent;
 		
+		private string _ParentComment;
+		
 		private EntitySet<GS_Class> _GS_Classes;
 		
     #region Extensibility Method Definitions
@@ -4852,6 +4885,8 @@ namespace GiaSuBK.DAL
     partial void OnLevelChanged();
     partial void OnSexStudentChanging(string value);
     partial void OnSexStudentChanged();
+    partial void OnParentCommentChanging(string value);
+    partial void OnParentCommentChanged();
     #endregion
 		
 		public GS_Student()
@@ -5416,6 +5451,26 @@ namespace GiaSuBK.DAL
 					this._SexStudent = value;
 					this.SendPropertyChanged("SexStudent");
 					this.OnSexStudentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ParentComment", DbType="NVarChar(MAX)")]
+		public string ParentComment
+		{
+			get
+			{
+				return this._ParentComment;
+			}
+			set
+			{
+				if ((this._ParentComment != value))
+				{
+					this.OnParentCommentChanging(value);
+					this.SendPropertyChanging();
+					this._ParentComment = value;
+					this.SendPropertyChanged("ParentComment");
+					this.OnParentCommentChanged();
 				}
 			}
 		}
@@ -10233,6 +10288,572 @@ namespace GiaSuBK.DAL
 				if ((this._Comment != value))
 				{
 					this._Comment = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalRows", DbType="Int")]
+		public System.Nullable<int> TotalRows
+		{
+			get
+			{
+				return this._TotalRows;
+			}
+			set
+			{
+				if ((this._TotalRows != value))
+				{
+					this._TotalRows = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GS_GetExcelStudentLstResult
+	{
+		
+		private int _RowID;
+		
+		private string _StudentID;
+		
+		private string _StudentName;
+		
+		private string _Phone;
+		
+		private string _Address;
+		
+		private string _Radius;
+		
+		private string _FormTeach;
+		
+		private string _InfoMore;
+		
+		private string _Level;
+		
+		private string _Longitude;
+		
+		private string _Latitude;
+		
+		private string _Need;
+		
+		private string _SexStudent;
+		
+		private string _Perpose;
+		
+		private string _NameSupports;
+		
+		private string _Subjects;
+		
+		private string _TimeSupport;
+		
+		private string _SkillSupport;
+		
+		private string _District;
+		
+		private string _City;
+		
+		private string _Ward;
+		
+		private System.Nullable<int> _Status;
+		
+		private System.Nullable<System.DateTime> _TimeCreate;
+		
+		private System.Nullable<System.DateTime> _TimeModify;
+		
+		private string _ModifierID;
+		
+		private string _Email;
+		
+		private string _SelectSchool;
+		
+		private string _Achievement;
+		
+		private string _Experience;
+		
+		private string _ReqStudentID;
+		
+		private System.Nullable<int> _TotalRows;
+		
+		public GS_GetExcelStudentLstResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RowID", DbType="Int NOT NULL")]
+		public int RowID
+		{
+			get
+			{
+				return this._RowID;
+			}
+			set
+			{
+				if ((this._RowID != value))
+				{
+					this._RowID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StudentID", DbType="NVarChar(50)")]
+		public string StudentID
+		{
+			get
+			{
+				return this._StudentID;
+			}
+			set
+			{
+				if ((this._StudentID != value))
+				{
+					this._StudentID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StudentName", DbType="NVarChar(450)")]
+		public string StudentName
+		{
+			get
+			{
+				return this._StudentName;
+			}
+			set
+			{
+				if ((this._StudentName != value))
+				{
+					this._StudentName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Phone", DbType="NVarChar(150)")]
+		public string Phone
+		{
+			get
+			{
+				return this._Phone;
+			}
+			set
+			{
+				if ((this._Phone != value))
+				{
+					this._Phone = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="NVarChar(450)")]
+		public string Address
+		{
+			get
+			{
+				return this._Address;
+			}
+			set
+			{
+				if ((this._Address != value))
+				{
+					this._Address = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Radius", DbType="NVarChar(50)")]
+		public string Radius
+		{
+			get
+			{
+				return this._Radius;
+			}
+			set
+			{
+				if ((this._Radius != value))
+				{
+					this._Radius = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FormTeach", DbType="NVarChar(500)")]
+		public string FormTeach
+		{
+			get
+			{
+				return this._FormTeach;
+			}
+			set
+			{
+				if ((this._FormTeach != value))
+				{
+					this._FormTeach = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InfoMore", DbType="NVarChar(50)")]
+		public string InfoMore
+		{
+			get
+			{
+				return this._InfoMore;
+			}
+			set
+			{
+				if ((this._InfoMore != value))
+				{
+					this._InfoMore = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Level]", Storage="_Level", DbType="NVarChar(100)")]
+		public string Level
+		{
+			get
+			{
+				return this._Level;
+			}
+			set
+			{
+				if ((this._Level != value))
+				{
+					this._Level = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Longitude", DbType="NVarChar(100)")]
+		public string Longitude
+		{
+			get
+			{
+				return this._Longitude;
+			}
+			set
+			{
+				if ((this._Longitude != value))
+				{
+					this._Longitude = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Latitude", DbType="NVarChar(100)")]
+		public string Latitude
+		{
+			get
+			{
+				return this._Latitude;
+			}
+			set
+			{
+				if ((this._Latitude != value))
+				{
+					this._Latitude = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Need", DbType="NVarChar(50)")]
+		public string Need
+		{
+			get
+			{
+				return this._Need;
+			}
+			set
+			{
+				if ((this._Need != value))
+				{
+					this._Need = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SexStudent", DbType="NVarChar(400)")]
+		public string SexStudent
+		{
+			get
+			{
+				return this._SexStudent;
+			}
+			set
+			{
+				if ((this._SexStudent != value))
+				{
+					this._SexStudent = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Perpose", DbType="NVarChar(1000)")]
+		public string Perpose
+		{
+			get
+			{
+				return this._Perpose;
+			}
+			set
+			{
+				if ((this._Perpose != value))
+				{
+					this._Perpose = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NameSupports", DbType="NVarChar(MAX)")]
+		public string NameSupports
+		{
+			get
+			{
+				return this._NameSupports;
+			}
+			set
+			{
+				if ((this._NameSupports != value))
+				{
+					this._NameSupports = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Subjects", DbType="NVarChar(500)")]
+		public string Subjects
+		{
+			get
+			{
+				return this._Subjects;
+			}
+			set
+			{
+				if ((this._Subjects != value))
+				{
+					this._Subjects = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeSupport", DbType="NVarChar(MAX)")]
+		public string TimeSupport
+		{
+			get
+			{
+				return this._TimeSupport;
+			}
+			set
+			{
+				if ((this._TimeSupport != value))
+				{
+					this._TimeSupport = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SkillSupport", DbType="NVarChar(500)")]
+		public string SkillSupport
+		{
+			get
+			{
+				return this._SkillSupport;
+			}
+			set
+			{
+				if ((this._SkillSupport != value))
+				{
+					this._SkillSupport = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_District", DbType="NVarChar(150)")]
+		public string District
+		{
+			get
+			{
+				return this._District;
+			}
+			set
+			{
+				if ((this._District != value))
+				{
+					this._District = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_City", DbType="NVarChar(150)")]
+		public string City
+		{
+			get
+			{
+				return this._City;
+			}
+			set
+			{
+				if ((this._City != value))
+				{
+					this._City = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ward", DbType="NVarChar(150)")]
+		public string Ward
+		{
+			get
+			{
+				return this._Ward;
+			}
+			set
+			{
+				if ((this._Ward != value))
+				{
+					this._Ward = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int")]
+		public System.Nullable<int> Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this._Status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeCreate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> TimeCreate
+		{
+			get
+			{
+				return this._TimeCreate;
+			}
+			set
+			{
+				if ((this._TimeCreate != value))
+				{
+					this._TimeCreate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeModify", DbType="DateTime")]
+		public System.Nullable<System.DateTime> TimeModify
+		{
+			get
+			{
+				return this._TimeModify;
+			}
+			set
+			{
+				if ((this._TimeModify != value))
+				{
+					this._TimeModify = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifierID", DbType="NVarChar(50)")]
+		public string ModifierID
+		{
+			get
+			{
+				return this._ModifierID;
+			}
+			set
+			{
+				if ((this._ModifierID != value))
+				{
+					this._ModifierID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(150)")]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this._Email = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SelectSchool", DbType="NVarChar(50)")]
+		public string SelectSchool
+		{
+			get
+			{
+				return this._SelectSchool;
+			}
+			set
+			{
+				if ((this._SelectSchool != value))
+				{
+					this._SelectSchool = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Achievement", DbType="NVarChar(MAX)")]
+		public string Achievement
+		{
+			get
+			{
+				return this._Achievement;
+			}
+			set
+			{
+				if ((this._Achievement != value))
+				{
+					this._Achievement = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Experience", DbType="NVarChar(MAX)")]
+		public string Experience
+		{
+			get
+			{
+				return this._Experience;
+			}
+			set
+			{
+				if ((this._Experience != value))
+				{
+					this._Experience = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReqStudentID", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string ReqStudentID
+		{
+			get
+			{
+				return this._ReqStudentID;
+			}
+			set
+			{
+				if ((this._ReqStudentID != value))
+				{
+					this._ReqStudentID = value;
 				}
 			}
 		}

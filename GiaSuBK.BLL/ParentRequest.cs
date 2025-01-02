@@ -32,6 +32,7 @@ namespace GiaSuBK.BLL
                     {
                         // Validate token
                         var userToken = db.GS_ZaloUserInfos.Where(p => p.ZaloUserID == objReq.UserID && p.TokenCode == objReq.Token).FirstOrDefault();
+                        var adminToken = db.UserTokens.Where(p => p.TokenCode == objReq.Token).FirstOrDefault();
                         if (userToken == null)
                         {
                             objRes.RespCode = -1;

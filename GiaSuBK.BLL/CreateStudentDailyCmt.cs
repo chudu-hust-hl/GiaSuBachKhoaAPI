@@ -62,7 +62,7 @@ namespace GiaSuBK.BLL
                         {
                             ClassID = objReq.ClassID,
                             LessonID = $"{objReq.ClassID}{objReq.Date}",
-                            Date = DateTime.UtcNow,
+                            Date = DateTime.ParseExact(objReq.Date, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture),
                             Comment = objReq.Comment,
                         };
 

@@ -2,121 +2,121 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 18, 16.25" name="DataClassesGiaSuBK">
   <DataContextMoniker Name="/DataClassesGiaSuBKDataContext" />
   <nestedChildShapes>
-    <classShape Id="4a125e91-7507-4838-9d11-292b0e201a86" absoluteBounds="6.75, 6.75, 2, 2.5401025390624996">
+    <classShape Id="790dcfc8-e2fa-4606-ab6a-8b5f83f8f83e" absoluteBounds="6.75, 6.75, 2, 2.5401025390624996">
       <DataClassMoniker Name="/DataClassesGiaSuBKDataContext/DataCity" />
       <nestedChildShapes>
-        <elementListCompartment Id="4f46e026-b005-46a8-9440-b602b71a362b" absoluteBounds="6.765, 7.21, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="bc72ee57-cca3-4bee-bbe0-57a1c6131838" absoluteBounds="6.765, 7.21, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="258a6657-58bc-4a55-8f6f-563067f8e51e" absoluteBounds="6.75, 0.75, 2, 1.5785953776041666">
+    <classShape Id="b0cd646c-10ea-4b93-969d-1b543a452216" absoluteBounds="6.75, 0.75, 2, 1.5785953776041666">
       <DataClassMoniker Name="/DataClassesGiaSuBKDataContext/UserToken" />
       <nestedChildShapes>
-        <elementListCompartment Id="6b435068-cb31-4ef6-8a7b-452388f61602" absoluteBounds="6.765, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="d34eda35-da31-4116-bcd8-bfbe2088051d" absoluteBounds="6.765, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="73b41982-b188-4612-b0bc-95e8bfafd95b" absoluteBounds="8.75, 3.75, 2, 1.5785953776041666">
+    <classShape Id="3c39724b-797c-4ddb-b634-888fb601b63c" absoluteBounds="8.75, 3.75, 2, 1.5785953776041666">
       <DataClassMoniker Name="/DataClassesGiaSuBKDataContext/DefaultValue" />
       <nestedChildShapes>
-        <elementListCompartment Id="f30080a1-e716-4737-8b3f-2edb40dee1da" absoluteBounds="8.765, 4.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="539ea86a-9fce-4b0b-b6fb-b1b132bde071" absoluteBounds="8.765, 4.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="6c20d7b9-ba92-4206-94e9-725a68d0826e" absoluteBounds="3.5, 1.125, 2, 6.1938297526041666">
+    <classShape Id="43256a04-0ffb-4e3c-8668-40d5db8126ab" absoluteBounds="3.5, 1.125, 2, 6.1938297526041666">
       <DataClassMoniker Name="/DataClassesGiaSuBKDataContext/GS_Class" />
       <nestedChildShapes>
-        <elementListCompartment Id="8d6cbb2f-b160-461e-83a5-f2b3e79abdec" absoluteBounds="3.515, 1.585, 1.9700000000000002, 5.6338297526041661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="1a7b042b-0490-4585-a827-2e56255cf467" absoluteBounds="3.515, 1.585, 1.9700000000000002, 5.6338297526041661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="95bd1cd9-1e31-4694-94cf-5fef243cf40a" absoluteBounds="9.75, 6.75, 2, 2.5401025390624996">
+    <classShape Id="51fe8904-0194-408a-9ecc-a6b298b191b1" absoluteBounds="9.75, 6.75, 2, 2.5401025390624996">
       <DataClassMoniker Name="/DataClassesGiaSuBKDataContext/GS_Course" />
       <nestedChildShapes>
-        <elementListCompartment Id="f9e792b4-95cc-4ea4-b19f-43670303419d" absoluteBounds="9.765, 7.21, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="eae9ffdd-2a31-4114-bee6-8cef9554e723" absoluteBounds="9.765, 7.21, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="42223273-9a98-49bb-afa1-bcaa1d24404f" absoluteBounds="3.75, 10.75, 2, 3.1170068359375023">
+    <classShape Id="19d95b99-84b9-4542-bd5e-b3e0cce9743b" absoluteBounds="3.75, 10.75, 2, 3.1170068359375023">
       <DataClassMoniker Name="/DataClassesGiaSuBKDataContext/GS_InviteStudent" />
       <nestedChildShapes>
-        <elementListCompartment Id="9c4bc2f5-e5a8-4bc7-826c-fdc6e5c9b6dc" absoluteBounds="3.765, 11.21, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="49d2ede3-bfc6-4f6b-b94d-89da52187731" absoluteBounds="3.765, 11.21, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="250a8e7f-2ee4-48f4-add2-e42a545acc1c" absoluteBounds="6.25, 3.375, 2, 1.7708968098958327">
+    <classShape Id="46fc53d4-982b-4544-8faa-bc7e949e2b7a" absoluteBounds="6.25, 3.375, 2, 1.7708968098958327">
       <DataClassMoniker Name="/DataClassesGiaSuBKDataContext/GS_Lesson" />
       <nestedChildShapes>
-        <elementListCompartment Id="300db213-2edb-44db-b9f8-8420c7ba1892" absoluteBounds="6.265, 3.835, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="c2be6681-26db-448d-b37a-7b6d839b1073" absoluteBounds="6.265, 3.835, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="a02398ad-c516-43b6-abc5-a254ed773feb" absoluteBounds="6.75, 10.75, 2, 5.2323225911458309">
+    <classShape Id="e45c3ff4-a116-43db-8f57-bb8ae801811a" absoluteBounds="6.75, 10.75, 2, 5.2323225911458309">
       <DataClassMoniker Name="/DataClassesGiaSuBKDataContext/GS_OrderStudent" />
       <nestedChildShapes>
-        <elementListCompartment Id="99e8ab1c-5b09-4dcf-abb2-d0b53cbc6fe7" absoluteBounds="6.765, 11.21, 1.9700000000000002, 4.672322591145833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="3a806440-51c0-454f-88d1-bd16a9a660d5" absoluteBounds="6.765, 11.21, 1.9700000000000002, 4.672322591145833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="89dea9eb-110a-42fe-9d7d-1a187a134cf5" absoluteBounds="9.75, 10.75, 2, 2.7324039713541666">
+    <classShape Id="87ee09c4-3b89-460d-8f0a-4df2a5bf2ab3" absoluteBounds="9.75, 10.75, 2, 2.7324039713541666">
       <DataClassMoniker Name="/DataClassesGiaSuBKDataContext/GS_Parent" />
       <nestedChildShapes>
-        <elementListCompartment Id="4dcc1b8b-1d94-471b-b855-4b0caa6eee85" absoluteBounds="9.765, 11.21, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="82f303d2-4cf9-47bc-8ea5-8d8db84c2ef7" absoluteBounds="9.765, 11.21, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="05ca16ce-b040-47ea-9df6-1804e8d1c5cd" absoluteBounds="9.75, 0.75, 2, 1.9631982421875003">
+    <classShape Id="85f1ee25-9434-44ba-b85c-f9ca083f746f" absoluteBounds="9.75, 0.75, 2, 1.9631982421875003">
       <DataClassMoniker Name="/DataClassesGiaSuBKDataContext/GS_Post" />
       <nestedChildShapes>
-        <elementListCompartment Id="8a19ca01-9d1d-4fcf-be73-865b530d0a19" absoluteBounds="9.765, 1.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="569ba67b-6dc0-4fba-bfce-3c037e5553b4" absoluteBounds="9.765, 1.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="1fbbd7cd-f55c-4395-9144-e40046ef0d4b" absoluteBounds="0.75, 1.25, 2, 6.0015283203124987">
+    <classShape Id="abac7a23-1bd3-4791-9cb4-0aa897e8b960" absoluteBounds="0.75, 1.25, 2, 6.0015283203124987">
       <DataClassMoniker Name="/DataClassesGiaSuBKDataContext/GS_ReqParent" />
       <nestedChildShapes>
-        <elementListCompartment Id="29bdddd8-084f-4bca-9a4c-9a17bddc8204" absoluteBounds="0.765, 1.71, 1.9700000000000002, 5.4415283203125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="c73befb2-6615-49eb-844c-232f944a48bc" absoluteBounds="0.765, 1.71, 1.9700000000000002, 5.4415283203125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="eba12d00-f02f-446c-aabe-7b7f0104489f" absoluteBounds="12.75, 0.75, 2, 6.3861311848958326">
+    <classShape Id="b7e3ca6e-f3ec-48ff-bddf-40e914473c55" absoluteBounds="12.75, 0.75, 2, 6.5784326171874987">
       <DataClassMoniker Name="/DataClassesGiaSuBKDataContext/GS_ReqStudent" />
       <nestedChildShapes>
-        <elementListCompartment Id="cf2bca0c-8ac0-496f-85e4-1c5d3b1a28fa" absoluteBounds="12.765, 1.21, 1.9700000000000002, 5.826131184895833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="84159b3e-40c7-49e6-b8e8-da408d906d8b" absoluteBounds="12.765, 1.21, 1.9700000000000002, 6.0184326171875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="31b33a23-4a9c-4c8e-b9d7-cd75dae8d7f9" absoluteBounds="0.75, 8.125, 2, 6.1938297526041666">
+    <classShape Id="b1c3e417-b56d-4ce6-8a28-c05600cfa0ba" absoluteBounds="0.75, 8, 2, 6.3861311848958344">
       <DataClassMoniker Name="/DataClassesGiaSuBKDataContext/GS_Student" />
       <nestedChildShapes>
-        <elementListCompartment Id="6d2101a8-7841-434f-9f8e-7bac5cf6072e" absoluteBounds="0.765, 8.585, 1.9700000000000002, 5.6338297526041661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="9ec55557-2d3c-497b-ad34-d9e153f7b930" absoluteBounds="0.765, 8.46, 1.9700000000000002, 5.826131184895833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="e0f057c9-b6a8-483e-a40e-3a8286db4847" absoluteBounds="12.75, 8.75, 2, 2.1554996744791666">
+    <classShape Id="b9cc5020-e810-40a5-815b-efdf7d3d6486" absoluteBounds="12.75, 8.75, 2, 2.1554996744791666">
       <DataClassMoniker Name="/DataClassesGiaSuBKDataContext/GS_ZaloUserInfo" />
       <nestedChildShapes>
-        <elementListCompartment Id="181b7ddf-639f-491f-947d-3786ef16db84" absoluteBounds="12.765, 9.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="22ceeb20-b018-467e-b1b2-1b8f28f3b00d" absoluteBounds="12.765, 9.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="cd9eb663-6a2d-4d29-9273-eee04767a79e" absoluteBounds="12.75, 11.75, 2, 2.9247054036458309">
+    <classShape Id="82e894ea-9325-4234-b554-588e25d63ec8" absoluteBounds="12.75, 11.75, 2, 2.9247054036458309">
       <DataClassMoniker Name="/DataClassesGiaSuBKDataContext/User" />
       <nestedChildShapes>
-        <elementListCompartment Id="b784fc6e-03a4-4460-be42-2b405eb94a9a" absoluteBounds="12.765, 12.21, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="913be326-6ef8-4a3b-9802-74df31c73b87" absoluteBounds="12.765, 12.21, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="a6d96c1d-0686-4a41-802e-da384e1f7b96" absoluteBounds="15.75, 0.75, 2, 1.5785953776041666">
+    <classShape Id="13af03c0-527f-478d-b6c6-1d6eec34ff48" absoluteBounds="15.75, 0.75, 2, 1.5785953776041666">
       <DataClassMoniker Name="/DataClassesGiaSuBKDataContext/UserRole" />
       <nestedChildShapes>
-        <elementListCompartment Id="72717178-ed5d-445b-adcf-049f2c886502" absoluteBounds="15.765, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="c3e38c89-02fd-4dc0-9f28-e654f3b3db92" absoluteBounds="15.765, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <associationConnector edgePoints="[(5.5 : 4.26044840494792); (6.25 : 4.26044840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassesGiaSuBKDataContext/GS_Class/GS_Class_GS_Lesson" />
       <nodes>
-        <classShapeMoniker Id="6c20d7b9-ba92-4206-94e9-725a68d0826e" />
-        <classShapeMoniker Id="250a8e7f-2ee4-48f4-add2-e42a545acc1c" />
+        <classShapeMoniker Id="43256a04-0ffb-4e3c-8668-40d5db8126ab" />
+        <classShapeMoniker Id="46fc53d4-982b-4544-8faa-bc7e949e2b7a" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(2.75 : 4.25076416015625); (3.5 : 4.25076416015625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassesGiaSuBKDataContext/GS_ReqParent/GS_ReqParent_GS_Class" />
       <nodes>
-        <classShapeMoniker Id="1fbbd7cd-f55c-4395-9144-e40046ef0d4b" />
-        <classShapeMoniker Id="6c20d7b9-ba92-4206-94e9-725a68d0826e" />
+        <classShapeMoniker Id="abac7a23-1bd3-4791-9cb4-0aa897e8b960" />
+        <classShapeMoniker Id="43256a04-0ffb-4e3c-8668-40d5db8126ab" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 9.40625); (3.59375 : 9.40625); (3.59375 : 7.31882975260417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 9.34375); (3.59375 : 9.34375); (3.59375 : 7.31882975260417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassesGiaSuBKDataContext/GS_Student/GS_Student_GS_Class" />
       <nodes>
-        <classShapeMoniker Id="31b33a23-4a9c-4c8e-b9d7-cd75dae8d7f9" />
-        <classShapeMoniker Id="6c20d7b9-ba92-4206-94e9-725a68d0826e" />
+        <classShapeMoniker Id="b1c3e417-b56d-4ce6-8a28-c05600cfa0ba" />
+        <classShapeMoniker Id="43256a04-0ffb-4e3c-8668-40d5db8126ab" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

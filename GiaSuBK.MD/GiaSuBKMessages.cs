@@ -3428,6 +3428,183 @@ namespace GiaSuBK.MD.GiaSuBKMessages
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GSGetExcelStudentReqListReq", Namespace="http://cpc1hn.vn/LabManager/Message/v1")]
+    public partial class GSGetExcelStudentReqListReq : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string UserIDField;
+        
+        private string TokenField;
+        
+        private int PageNumberField;
+        
+        private int RowsPageField;
+        
+        private string SearchField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string UserID
+        {
+            get
+            {
+                return this.UserIDField;
+            }
+            set
+            {
+                this.UserIDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=1)]
+        public string Token
+        {
+            get
+            {
+                return this.TokenField;
+            }
+            set
+            {
+                this.TokenField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
+        public int PageNumber
+        {
+            get
+            {
+                return this.PageNumberField;
+            }
+            set
+            {
+                this.PageNumberField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
+        public int RowsPage
+        {
+            get
+            {
+                return this.RowsPageField;
+            }
+            set
+            {
+                this.RowsPageField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=4)]
+        public string Search
+        {
+            get
+            {
+                return this.SearchField;
+            }
+            set
+            {
+                this.SearchField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GSGetExcelStudentReqListRes", Namespace="http://cpc1hn.vn/LabManager/Message/v1")]
+    public partial class GSGetExcelStudentReqListRes : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private int RespCodeField;
+        
+        private string RespTextField;
+        
+        private int TotalRowsField;
+        
+        private GiaSuBK.MD.GiaSuBKMessages.StudentList StudentListField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int RespCode
+        {
+            get
+            {
+                return this.RespCodeField;
+            }
+            set
+            {
+                this.RespCodeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string RespText
+        {
+            get
+            {
+                return this.RespTextField;
+            }
+            set
+            {
+                this.RespTextField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int TotalRows
+        {
+            get
+            {
+                return this.TotalRowsField;
+            }
+            set
+            {
+                this.TotalRowsField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=3)]
+        public GiaSuBK.MD.GiaSuBKMessages.StudentList StudentList
+        {
+            get
+            {
+                return this.StudentListField;
+            }
+            set
+            {
+                this.StudentListField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="GSStudentApplyClassReq", Namespace="http://cpc1hn.vn/LabManager/Message/v1")]
     public partial class GSStudentApplyClassReq : object, System.Runtime.Serialization.IExtensibleDataObject
     {
