@@ -60,6 +60,23 @@
 		</xs:sequence>
 	</xs:complexType>
 
+	<!--Store ZaloUserInfo-->
+	<xs:complexType name="GSStoreZaloUserInfoReq">
+		<xs:sequence>
+			<xs:element name="UserID" type="xs:string" />
+			<xs:element name="Token" type="xs:string" />
+			<xs:element name="ZaloUserInfo" type="mstns:GSZaloUserInfo"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GSStoreZaloUserInfoRes">
+		<xs:sequence>
+			<xs:element name="RespCode" type="xs:int" />
+			<xs:element name="RespText" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<!--Get ZaloUserInfo-->
 	<xs:complexType name="GSGetZaloUserInfoReq">
 		<xs:sequence>
 			<xs:element name="UserID" type="xs:string" />
@@ -76,6 +93,8 @@
 
 	<xs:complexType name ="GSZaloUserInfo">
 		<xs:sequence>
+			<xs:element name="UserID" type="xs:string" />
+			<xs:element name="Token" type="xs:string" />
 			<xs:element name ="PhoneNumber" type="xs:string"/>
 			<xs:element name ="Avatar" type="xs:string"/>
 			<xs:element name ="Name" type="xs:string"/>
@@ -349,6 +368,28 @@
 			<xs:element name="StudentList" type="mstns:StudentList"/>
 		</xs:sequence>
 	</xs:complexType>
+
+	<!--Get Student Apply Class List-->
+	<xs:complexType name="GSGetStudentApplyListReq">
+		<xs:sequence>
+			<xs:element name="UserID" type="xs:string" />
+			<xs:element name="Token" type="xs:string" />
+			<xs:element name="ClassID" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GSGetStudentApplyListRes">
+		<xs:sequence>
+			<xs:element name="RespCode" type="xs:int" />
+			<xs:element name="RespText" type="xs:string" />
+			<xs:element name="StudentList" type="mstns:StudentBasicList"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="StudentBasicList">
+		<xs:sequence>
+			<xs:element name="Student" type="mstns:GSStudentBasicInfo" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
 	
 	<xs:complexType name="StudentList">
 		<xs:sequence>
@@ -384,6 +425,7 @@
 	<xs:complexType name ="GSStudentInfo">
 		<xs:sequence>
 			<xs:element name ="RowID" type="xs:int"/>
+			<xs:element name ="ReqStudentID" type="xs:string"/>
 			<xs:element name ="StudentID" type="xs:string"/>
 			<xs:element name ="StudentName" type="xs:string"/>
 			<xs:element name ="Phone" type="xs:string"/>

@@ -71,12 +71,14 @@
     <Compile Include="GetFindingClassList.cs" />
     <Compile Include="GetParentBasicInfo.cs" />
     <Compile Include="GetParentReqList.cs" />
+    <Compile Include="GetStudentApplyList.cs" />
     <Compile Include="GetStudentBasicInfo.cs" />
     <Compile Include="CreateStudentComment.cs" />
     <Compile Include="GetStudentDailyComment.cs" />
     <Compile Include="GetStudentReqInfo.cs" />
     <Compile Include="GetStudentReqList.cs" />
     <Compile Include="GetZaloUserInfo.cs" />
+    <Compile Include="StoreZaloUserInfo.cs" />
     <Compile Include="StudentApplyClass.cs" />
     <Compile Include="StudentRequest.cs" />
     <Compile Include="GetParentReqInfo.cs" />

@@ -40,6 +40,23 @@ namespace GiaSuBK.BLL
                         //    Log.Warn(string.Format("[{0}:{1}]", objRes.RespCode, objRes.RespText));
                         //    return objRes;
                         //}
+                        if (userToken == null)
+                        {
+                            objRes.RespCode = -1;
+                            objRes.RespText = "Session expired or invalid token";
+                            Log.Warn(string.Format("[{0}:{1}]", objRes.RespCode, objRes.RespText));
+                            return objRes;
+                        }
+                        else
+                        {
+                            if (userToken.StudentID != null && userToken.StudentID != objReq.StudentInfo.StudentID)
+                            {
+                                objRes.RespCode = -2;
+                                objRes.RespText = "One User can only assign for one StudentID";
+                                Log.Warn(string.Format("[{0}:{1}]", objRes.RespCode, objRes.RespText));
+                                return objRes;
+                            }
+                        }
 
                         var random = new Random();
                         var randomCode = random.Next(10000, 99999); // Generate a 5-digit random number
@@ -94,6 +111,8 @@ namespace GiaSuBK.BLL
                             TimeModify = null,
                             ModifierID = null
                         };
+
+                        userToken.StudentID = objReq.StudentInfo.StudentID;
 
                         // Add and save changes
                         db.GS_ReqStudents.InsertOnSubmit(newStudentReq);

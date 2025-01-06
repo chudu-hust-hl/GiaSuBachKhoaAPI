@@ -288,33 +288,27 @@
       <Column Name="Description" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
     </Type>
   </Table>
-  <Function Name="dbo.RP_GetDashboadByTime" Method="RP_GetDashboadByTime">
-    <ElementType Name="RP_GetDashboadByTimeResult">
-      <Column Name="QuantiTyParentAll" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="QuantityMonthStt1" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="QuantityTodayStt1" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="QuantiTyParentAll2" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="QuantityMonthStt2" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="QuantityTodayStt2" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="QuantiTyParentAll3" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="QuantityMonthStt3" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="QuantityTodayStt3" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="QuantiTyParentAll4" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="QuantityMonthStt4" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="QuantityTodayStt4" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.GetCity" Method="GetCity">
-    <ElementType Name="GetCityResult">
-      <Column Name="City" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.GetCommune" Method="GetCommune">
     <Parameter Name="City" Parameter="city" Type="System.String" DbType="NVarChar(50)" />
     <Parameter Name="District" Parameter="district" Type="System.String" DbType="NVarChar(50)" />
     <ElementType Name="GetCommuneResult">
       <Column Name="Commune" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
     </ElementType>
+  </Function>
+  <Function Name="dbo.MAIL_StudentReceivedMoney" Method="MAIL_StudentReceivedMoney">
+    <Parameter Name="StudentName" Parameter="studentName" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="StudentID" Parameter="studentID" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="Area" Parameter="area" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="Address" Parameter="address" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="MotelType" Parameter="motelType" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="QuantityP" Parameter="quantityP" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PriceMax" Parameter="priceMax" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="PrintMin" Parameter="printMin" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Require" Parameter="require" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="IsGroup" Parameter="isGroup" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="BillCode" Parameter="billCode" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="Radius" Parameter="radius" Type="System.String" DbType="NVarChar(10)" />
   </Function>
   <Function Name="dbo.GetDistrict" Method="GetDistrict">
     <Parameter Name="City" Parameter="city" Type="System.String" DbType="NVarChar(50)" />
@@ -358,6 +352,44 @@
       <Column Name="TotalRows" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.GS_GetExcelStudentLst" Method="GS_GetExcelStudentLst">
+    <Parameter Name="PageNumber" Parameter="pageNumber" Type="System.Int32" DbType="Int" />
+    <Parameter Name="RowspPage" Parameter="rowspPage" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Search" Parameter="search" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="GS_GetExcelStudentLstResult">
+      <Column Name="RowID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StudentID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="StudentName" Type="System.String" DbType="NVarChar(450)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(450)" CanBeNull="true" />
+      <Column Name="Radius" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FormTeach" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="InfoMore" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="[Level]" Member="Level" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Longitude" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Latitude" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Need" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SexStudent" Type="System.String" DbType="NVarChar(400)" CanBeNull="true" />
+      <Column Name="Perpose" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="NameSupports" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Subjects" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="TimeSupport" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SkillSupport" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="District" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Ward" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TimeCreate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TimeModify" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifierID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="SelectSchool" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Achievement" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Experience" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ReqStudentID" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TotalRows" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
   <Function Name="dbo.GS_GetFindingClassLst" Method="GS_GetFindingClassLst">
     <Parameter Name="PageNumber" Parameter="pageNumber" Type="System.Int32" DbType="Int" />
     <Parameter Name="RowspPage" Parameter="rowspPage" Type="System.Int32" DbType="Int" />
@@ -391,6 +423,18 @@
       <Column Name="[Level]" Member="Level" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="ParentCmt" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="StudentCmt" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="TotalRows" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GS_GetLessonLst" Method="GS_GetLessonLst">
+    <Parameter Name="Month" Parameter="month" Type="System.String" DbType="NVarChar(7)" />
+    <Parameter Name="ClassID" Parameter="classID" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="GS_GetLessonLstResult">
+      <Column Name="LessonID" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ClassID" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Comment" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="TotalRows" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
@@ -429,6 +473,41 @@
       <Column Name="TotalRows" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.GS_GetStudentApplyClass" Method="GS_GetStudentApplyClass">
+    <Parameter Name="ClassID" Parameter="classID" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="GS_GetStudentApplyClassResult">
+      <Column Name="RowID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StudentID" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(400)" CanBeNull="true" />
+      <Column Name="StudentName" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="District" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Ward" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Latitude" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Longitude" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OtherEmail" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TypeHome" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CPA" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="GPA" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Subjects" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="FormTeach" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="TimeSupport" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Experience" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Achievement" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Apply" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Teaching" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Done" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="InfoMore" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="[Level]" Member="Level" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SexStudent" Type="System.String" DbType="NVarChar(400)" CanBeNull="true" />
+      <Column Name="ParentComment" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="OrderID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
   <Function Name="dbo.GS_GetStudentByDistance" Method="GS_GetStudentByDistance">
     <Parameter Name="Distance" Parameter="distance" Type="System.Int32" DbType="Int" />
     <Parameter Name="Latitude" Parameter="latitude" Type="System.Decimal" DbType="Decimal(18,8)" />
@@ -462,12 +541,12 @@
       <Column Name="InfoMore" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="[Level]" Member="Level" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="SexStudent" Type="System.String" DbType="NVarChar(400)" CanBeNull="true" />
+      <Column Name="ParentComment" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="Distance" Type="System.Double" DbType="Float" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.GS_GetStudentByReqParentID" Method="GS_GetStudentByReqParentID" IsComposable="true">
+  <Function Name="dbo.GS_GetStudentByReqParentID" Method="GS_GetStudentByReqParentID">
     <Parameter Name="ReqParentID" Parameter="reqParentID" Type="System.String" DbType="NVarChar(50)" />
-    <Return Type="object" />
   </Function>
   <Function Name="dbo.GS_GetStudentLst" Method="GS_GetStudentLst">
     <Parameter Name="PageNumber" Parameter="pageNumber" Type="System.Int32" DbType="Int" />
@@ -503,6 +582,7 @@
       <Column Name="SelectSchool" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Achievement" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="Experience" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ReqStudentID" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="TotalRows" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
@@ -542,14 +622,14 @@
       <Column Name="SelectSchool" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Achievement" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="Experience" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ReqStudentID" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="TotalRows" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.GS_GetStudentMotelResgisterLst" Method="GS_GetStudentMotelResgisterLst" IsComposable="true">
+  <Function Name="dbo.GS_GetStudentMotelResgisterLst" Method="GS_GetStudentMotelResgisterLst">
     <Parameter Name="PageNumber" Parameter="pageNumber" Type="System.Int32" DbType="Int" />
     <Parameter Name="RowspPage" Parameter="rowspPage" Type="System.Int32" DbType="Int" />
     <Parameter Name="Search" Parameter="search" Type="System.String" DbType="NVarChar(100)" />
-    <Return Type="object" />
   </Function>
   <Function Name="dbo.GS_SearchStudent" Method="GS_SearchStudent">
     <Parameter Name="StudentName" Parameter="studentName" Type="System.String" DbType="NVarChar(150)" />
@@ -589,16 +669,16 @@
       <Column Name="InfoMore" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="[Level]" Member="Level" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="SexStudent" Type="System.String" DbType="NVarChar(400)" CanBeNull="true" />
+      <Column Name="ParentComment" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="Distance" Type="System.Double" DbType="Float" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.MAIL_SendMailMotelSelected" Method="MAIL_SendMailMotelSelected" IsComposable="true">
+  <Function Name="dbo.MAIL_SendMailMotelSelected" Method="MAIL_SendMailMotelSelected">
     <Parameter Name="StudentReqID" Parameter="studentReqID" Type="System.Int32" DbType="Int" />
     <Parameter Name="NameStudent" Parameter="nameStudent" Type="System.String" DbType="NVarChar(250)" />
     <Parameter Name="EmailStudent" Parameter="emailStudent" Type="System.String" DbType="NVarChar(250)" />
-    <Return Type="object" />
   </Function>
-  <Function Name="dbo.MAIL_SendMailParentReq" Method="MAIL_SendMailParentReq" IsComposable="true">
+  <Function Name="dbo.MAIL_SendMailParentReq" Method="MAIL_SendMailParentReq">
     <Parameter Name="NameParent" Parameter="nameParent" Type="System.String" DbType="NVarChar(250)" />
     <Parameter Name="ValueClass" Parameter="valueClass" Type="System.String" DbType="NVarChar(50)" />
     <Parameter Name="PhoneEmail" Parameter="phoneEmail" Type="System.String" DbType="NVarChar(100)" />
@@ -607,14 +687,12 @@
     <Parameter Name="SkillSupport" Parameter="skillSupport" Type="System.String" DbType="NVarChar(250)" />
     <Parameter Name="TimeSupport" Parameter="timeSupport" Type="System.String" DbType="NVarChar(250)" />
     <Parameter Name="FormTeach" Parameter="formTeach" Type="System.String" DbType="NVarChar(50)" />
-    <Return Type="object" />
   </Function>
-  <Function Name="dbo.MAIL_SendMailStudentApply" Method="MAIL_SendMailStudentApply" IsComposable="true">
+  <Function Name="dbo.MAIL_SendMailStudentApply" Method="MAIL_SendMailStudentApply">
     <Parameter Name="ReqParent" Parameter="reqParent" Type="System.String" DbType="NVarChar(50)" />
     <Parameter Name="StudentID" Parameter="studentID" Type="System.String" DbType="NVarChar(50)" />
-    <Return Type="object" />
   </Function>
-  <Function Name="dbo.MAIL_SendMailStudentReq" Method="MAIL_SendMailStudentReq" IsComposable="true">
+  <Function Name="dbo.MAIL_SendMailStudentReq" Method="MAIL_SendMailStudentReq">
     <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(250)" />
     <Parameter Name="StudentID" Parameter="studentID" Type="System.String" DbType="NVarChar(50)" />
     <Parameter Name="ValueClass" Parameter="valueClass" Type="System.String" DbType="NVarChar(50)" />
@@ -624,9 +702,8 @@
     <Parameter Name="SkillSupport" Parameter="skillSupport" Type="System.String" DbType="NVarChar(250)" />
     <Parameter Name="TimeSupport" Parameter="timeSupport" Type="System.String" DbType="NVarChar(250)" />
     <Parameter Name="FormTeach" Parameter="formTeach" Type="System.String" DbType="NVarChar(50)" />
-    <Return Type="object" />
   </Function>
-  <Function Name="dbo.MAIL_StudentConfimMoney" Method="MAIL_StudentConfimMoney" IsComposable="true">
+  <Function Name="dbo.MAIL_StudentConfimMoney" Method="MAIL_StudentConfimMoney">
     <Parameter Name="StudentName" Parameter="studentName" Type="System.String" DbType="NVarChar(250)" />
     <Parameter Name="StudentID" Parameter="studentID" Type="System.String" DbType="NVarChar(50)" />
     <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(250)" />
@@ -640,56 +717,5 @@
     <Parameter Name="IsGroup" Parameter="isGroup" Type="System.String" DbType="NVarChar(50)" />
     <Parameter Name="BillCode" Parameter="billCode" Type="System.String" DbType="NVarChar(10)" />
     <Parameter Name="Radius" Parameter="radius" Type="System.String" DbType="NVarChar(10)" />
-    <Return Type="object" />
-  </Function>
-  <Function Name="dbo.GS_GetLessonLst" Method="GS_GetLessonLst">
-    <Parameter Name="Month" Parameter="month" Type="System.String" DbType="NVarChar(7)" />
-    <Parameter Name="ClassID" Parameter="classID" Type="System.String" DbType="NVarChar(50)" />
-    <ElementType Name="GS_GetLessonLstResult">
-      <Column Name="LessonID" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="ClassID" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Comment" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="TotalRows" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.GS_GetExcelStudentLst" Method="GS_GetExcelStudentLst">
-    <Parameter Name="PageNumber" Parameter="pageNumber" Type="System.Int32" DbType="Int" />
-    <Parameter Name="RowspPage" Parameter="rowspPage" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Search" Parameter="search" Type="System.String" DbType="NVarChar(100)" />
-    <ElementType Name="GS_GetExcelStudentLstResult">
-      <Column Name="RowID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="StudentID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="StudentName" Type="System.String" DbType="NVarChar(450)" CanBeNull="true" />
-      <Column Name="Phone" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="Address" Type="System.String" DbType="NVarChar(450)" CanBeNull="true" />
-      <Column Name="Radius" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="FormTeach" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="InfoMore" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="[Level]" Member="Level" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="Longitude" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="Latitude" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="Need" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="SexStudent" Type="System.String" DbType="NVarChar(400)" CanBeNull="true" />
-      <Column Name="Perpose" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
-      <Column Name="NameSupports" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Subjects" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="TimeSupport" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="SkillSupport" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="District" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="City" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="Ward" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="TimeCreate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="TimeModify" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="ModifierID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Email" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="SelectSchool" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Achievement" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Experience" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="ReqStudentID" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="TotalRows" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </ElementType>
   </Function>
 </Database>

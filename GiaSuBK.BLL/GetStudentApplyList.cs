@@ -12,18 +12,17 @@ using log4net;
 
 namespace GiaSuBK.BLL
 {
-    public class GetExcelStudentReqList
+    public class GetStudentApplyList
     {
         private static readonly ILog Log = LogManager.GetLogger("GiaSuBKAppender");
 
-        public GSGetExcelStudentReqListRes GSGetExcelStudentReqList(GSGetExcelStudentReqListReq objReq)
+        public GSGetStudentApplyListRes GSGetStudentApplyList(GSGetStudentApplyListReq objReq)
         {
-            GSGetExcelStudentReqListRes objRes = new GSGetExcelStudentReqListRes
+            GSGetStudentApplyListRes objRes = new GSGetStudentApplyListRes
             {
                 RespCode = -1,
                 RespText = "Nothing",
-                TotalRows = 0,
-                StudentList = new StudentList()
+                StudentList = new StudentBasicList()
             };
 
             try
@@ -44,49 +43,36 @@ namespace GiaSuBK.BLL
                     }
 
                     // Fetch Student List
-                    var studentListData = db.GS_GetExcelStudentLst(objReq.PageNumber, objReq.RowsPage, objReq.Search).ToList();
+                    var studentListData = db.GS_GetStudentApplyClass(objReq.ClassID).ToList();
 
                     // Map database result to GSStudentInfo objects
                     if (studentListData != null)
                     {
                         foreach (var p in studentListData)
                         {
-                            var studentInfo = new GSStudentInfo
+                            var studentInfo = new GSStudentBasicInfo
                             {
-                                RowID = p.RowID,
-                                ReqStudentID = p.ReqStudentID,
                                 StudentID = p.StudentID,
                                 StudentName = p.StudentName,
                                 Phone = p.Phone,
                                 Address = p.Address,
                                 FormTeach = p.FormTeach,
                                 InfoMore = p.InfoMore,
-                                Level = p.Level,
                                 SexStudent = p.SexStudent,
-                                SelectSchool = p.SelectSchool,
-                                Status = (int)p.Status,
-                                TimeCreate = p.TimeCreate?.ToString("yyyy-MM-dd HH:mm:ss"),
-                                NameSupports = p.NameSupports,
                                 Subjects = p.Subjects,
                                 TimeSupport = p.TimeSupport,
-                                SkillSupport = p.SkillSupport,
                                 District = p.District,
                                 City = p.City,
                                 Ward = p.Ward,
-                                Experience = p.Experience,
                                 Achievement = p.Achievement,
-                                TimeModify = p.TimeModify?.ToString("yyyy-MM-dd HH:mm:ss"),
-                                ModifierID = p.ModifierID
+                                Experience = p.Experience,
+                                Apply = p.Apply,
+                                Teaching = p.Teaching,
+                                Done = p.Done,
                             };
 
                             // Add each GSStudentInfo to the StudentList
                             objRes.StudentList.Add(studentInfo);
-                        }
-
-                        // Extract TotalRows from the first row (if available)
-                        if (studentListData.Count > 0)
-                        {
-                            objRes.TotalRows = studentListData[0].TotalRows ?? 0;
                         }
                     }
 

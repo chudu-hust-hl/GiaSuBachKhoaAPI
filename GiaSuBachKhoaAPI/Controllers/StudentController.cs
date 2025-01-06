@@ -330,5 +330,41 @@ namespace GiaSuBKAPI.Controllers
             return objRes;
         }
 
+
+        //Get Student Apply Class
+        [Route("GSStudent/GetStudentApplyClassList")]
+        [HttpPost]
+        public GSGetStudentApplyListRes GetStudentApplyList(GSGetStudentApplyListReq objReq)
+        {
+            var objRes = new GSGetStudentApplyListRes
+            {
+                RespCode = -1,
+                RespText = "Nothing",
+            };
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            try
+            {
+                if (!WriteIncommingMessage2Log("Get Student Apply Class List Info", js.Serialize(objReq), 0))
+                    Log.Warn("Loi ghi log ban tin request");
+                objRes = new GiaSuBK.BLL.GetStudentApplyList().GSGetStudentApplyList(objReq);
+                if (!WriteIncommingMessage2Log("Get Student Apply Class List Info", js.Serialize(objRes), 1))
+                    Log.Warn("Loi ghi log ban tin response");
+            }
+            catch (WebException wex)
+            {
+                objRes.RespCode = 8;
+                objRes.RespText = wex.Message;
+                Log.Error(string.Format("[{0}: {1}]", objRes.RespCode, objRes.RespText));
+            }
+            catch (Exception ex)
+            {
+                objRes.RespCode = 9;
+                objRes.RespText = ex.Message;
+                Log.Error(string.Format("[{0}: {1}]", objRes.RespCode, objRes.RespText));
+
+            }
+            return objRes;
+        }
+
     }
 }

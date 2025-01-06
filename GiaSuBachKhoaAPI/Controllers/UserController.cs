@@ -151,5 +151,39 @@ namespace GiaSuBKAPI.Controllers
             return objRes;
         }
 
+        [Route("User/GSStoreZaloUserInfo")]
+        [HttpPost]
+        public GSStoreZaloUserInfoRes GSStoreZaloUserInfo(GSStoreZaloUserInfoReq objReq)
+        {
+            var objRes = new GSStoreZaloUserInfoRes
+            {
+                RespCode = -1,
+                RespText = "Nothing",
+            };
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            try
+            {
+                if (!WriteIncommingMessage2Log("Store Zalo user Info", js.Serialize(objReq), 0))
+                    Log.Warn("Loi ghi log ban tin request");
+                objRes = new GiaSuBK.BLL.StoreZaloUserInfo().GSStoreZaloUserInfo(objReq);
+                if (!WriteIncommingMessage2Log("Store Zalo user Info", js.Serialize(objRes), 1))
+                    Log.Warn("Loi ghi log ban tin response");
+            }
+            catch (WebException wex)
+            {
+                objRes.RespCode = 8;
+                objRes.RespText = wex.Message;
+                Log.Error(string.Format("[{0}: {1}]", objRes.RespCode, objRes.RespText));
+            }
+            catch (Exception ex)
+            {
+                objRes.RespCode = 9;
+                objRes.RespText = ex.Message;
+                Log.Error(string.Format("[{0}: {1}]", objRes.RespCode, objRes.RespText));
+
+            }
+            return objRes;
+        }
+
     }
 }
