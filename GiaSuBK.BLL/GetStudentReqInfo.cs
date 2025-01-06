@@ -56,6 +56,7 @@ namespace GiaSuBK.BLL
                             {
                                 RowID = existStudent.RowID,
                                 StudentID = existStudent.StudentID,
+                                ReqStudentID = existStudent.ReqStudentID,
                                 StudentName = existStudent.StudentName,
                                 Phone = existStudent.Phone,
                                 Address = existStudent.Address,

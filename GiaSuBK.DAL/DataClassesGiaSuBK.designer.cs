@@ -232,25 +232,17 @@ namespace GiaSuBK.DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.RP_GetDashboadByTime")]
-		public ISingleResult<RP_GetDashboadByTimeResult> RP_GetDashboadByTime()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<RP_GetDashboadByTimeResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetCity")]
-		public ISingleResult<GetCityResult> GetCity()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<GetCityResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetCommune")]
 		public ISingleResult<GetCommuneResult> GetCommune([global::System.Data.Linq.Mapping.ParameterAttribute(Name="City", DbType="NVarChar(50)")] string city, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="District", DbType="NVarChar(50)")] string district)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), city, district);
 			return ((ISingleResult<GetCommuneResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MAIL_StudentReceivedMoney")]
+		public void MAIL_StudentReceivedMoney([global::System.Data.Linq.Mapping.ParameterAttribute(Name="StudentName", DbType="NVarChar(250)")] string studentName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StudentID", DbType="NVarChar(50)")] string studentID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(250)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Area", DbType="NVarChar(500)")] string area, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Address", DbType="NVarChar(500)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MotelType", DbType="NVarChar(250)")] string motelType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="QuantityP", DbType="Int")] System.Nullable<int> quantityP, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PriceMax", DbType="NVarChar(50)")] string priceMax, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PrintMin", DbType="NVarChar(50)")] string printMin, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Require", DbType="NVarChar(250)")] string require, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IsGroup", DbType="NVarChar(50)")] string isGroup, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BillCode", DbType="NVarChar(10)")] string billCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Radius", DbType="NVarChar(10)")] string radius)
+		{
+			this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), studentName, studentID, email, area, address, motelType, quantityP, priceMax, printMin, require, isGroup, billCode, radius);
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetDistrict")]
@@ -267,11 +259,25 @@ namespace GiaSuBK.DAL
 			return ((ISingleResult<GS_GetClassLstResult>)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GS_GetExcelStudentLst")]
+		public ISingleResult<GS_GetExcelStudentLstResult> GS_GetExcelStudentLst([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PageNumber", DbType="Int")] System.Nullable<int> pageNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RowspPage", DbType="Int")] System.Nullable<int> rowspPage, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Search", DbType="NVarChar(100)")] string search)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), pageNumber, rowspPage, search);
+			return ((ISingleResult<GS_GetExcelStudentLstResult>)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GS_GetFindingClassLst")]
 		public ISingleResult<GS_GetFindingClassLstResult> GS_GetFindingClassLst([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PageNumber", DbType="Int")] System.Nullable<int> pageNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RowspPage", DbType="Int")] System.Nullable<int> rowspPage, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Search", DbType="NVarChar(100)")] string search)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), pageNumber, rowspPage, search);
 			return ((ISingleResult<GS_GetFindingClassLstResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GS_GetLessonLst")]
+		public ISingleResult<GS_GetLessonLstResult> GS_GetLessonLst([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Month", DbType="NVarChar(7)")] string month, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ClassID", DbType="NVarChar(50)")] string classID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), month, classID);
+			return ((ISingleResult<GS_GetLessonLstResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GS_GetParentLst")]
@@ -281,6 +287,13 @@ namespace GiaSuBK.DAL
 			return ((ISingleResult<GS_GetParentLstResult>)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GS_GetStudentApplyClass")]
+		public ISingleResult<GS_GetStudentApplyClassResult> GS_GetStudentApplyClass([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ClassID", DbType="NVarChar(50)")] string classID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), classID);
+			return ((ISingleResult<GS_GetStudentApplyClassResult>)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GS_GetStudentByDistance")]
 		public ISingleResult<GS_GetStudentByDistanceResult> GS_GetStudentByDistance([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Distance", DbType="Int")] System.Nullable<int> distance, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Latitude", DbType="Decimal(18,8)")] System.Nullable<decimal> latitude, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Longitude", DbType="Decimal(18,8)")] System.Nullable<decimal> longitude)
 		{
@@ -288,10 +301,10 @@ namespace GiaSuBK.DAL
 			return ((ISingleResult<GS_GetStudentByDistanceResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GS_GetStudentByReqParentID", IsComposable=true)]
-		public object GS_GetStudentByReqParentID([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ReqParentID", DbType="NVarChar(50)")] string reqParentID)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GS_GetStudentByReqParentID")]
+		public void GS_GetStudentByReqParentID([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ReqParentID", DbType="NVarChar(50)")] string reqParentID)
 		{
-			return ((object)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), reqParentID).ReturnValue));
+			this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), reqParentID);
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GS_GetStudentLst")]
@@ -308,10 +321,10 @@ namespace GiaSuBK.DAL
 			return ((ISingleResult<GS_GetStudentLst2Result>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GS_GetStudentMotelResgisterLst", IsComposable=true)]
-		public object GS_GetStudentMotelResgisterLst([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PageNumber", DbType="Int")] System.Nullable<int> pageNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RowspPage", DbType="Int")] System.Nullable<int> rowspPage, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Search", DbType="NVarChar(100)")] string search)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GS_GetStudentMotelResgisterLst")]
+		public void GS_GetStudentMotelResgisterLst([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PageNumber", DbType="Int")] System.Nullable<int> pageNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RowspPage", DbType="Int")] System.Nullable<int> rowspPage, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Search", DbType="NVarChar(100)")] string search)
 		{
-			return ((object)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), pageNumber, rowspPage, search).ReturnValue));
+			this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), pageNumber, rowspPage, search);
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GS_SearchStudent")]
@@ -321,48 +334,34 @@ namespace GiaSuBK.DAL
 			return ((ISingleResult<GS_SearchStudentResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MAIL_SendMailMotelSelected", IsComposable=true)]
-		public object MAIL_SendMailMotelSelected([global::System.Data.Linq.Mapping.ParameterAttribute(Name="StudentReqID", DbType="Int")] System.Nullable<int> studentReqID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NameStudent", DbType="NVarChar(250)")] string nameStudent, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmailStudent", DbType="NVarChar(250)")] string emailStudent)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MAIL_SendMailMotelSelected")]
+		public void MAIL_SendMailMotelSelected([global::System.Data.Linq.Mapping.ParameterAttribute(Name="StudentReqID", DbType="Int")] System.Nullable<int> studentReqID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NameStudent", DbType="NVarChar(250)")] string nameStudent, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmailStudent", DbType="NVarChar(250)")] string emailStudent)
 		{
-			return ((object)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), studentReqID, nameStudent, emailStudent).ReturnValue));
+			this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), studentReqID, nameStudent, emailStudent);
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MAIL_SendMailParentReq", IsComposable=true)]
-		public object MAIL_SendMailParentReq([global::System.Data.Linq.Mapping.ParameterAttribute(Name="NameParent", DbType="NVarChar(250)")] string nameParent, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ValueClass", DbType="NVarChar(50)")] string valueClass, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PhoneEmail", DbType="NVarChar(100)")] string phoneEmail, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AddressParent", DbType="NVarChar(250)")] string addressParent, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Subjects", DbType="NVarChar(250)")] string subjects, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SkillSupport", DbType="NVarChar(250)")] string skillSupport, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TimeSupport", DbType="NVarChar(250)")] string timeSupport, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FormTeach", DbType="NVarChar(50)")] string formTeach)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MAIL_SendMailParentReq")]
+		public void MAIL_SendMailParentReq([global::System.Data.Linq.Mapping.ParameterAttribute(Name="NameParent", DbType="NVarChar(250)")] string nameParent, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ValueClass", DbType="NVarChar(50)")] string valueClass, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PhoneEmail", DbType="NVarChar(100)")] string phoneEmail, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AddressParent", DbType="NVarChar(250)")] string addressParent, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Subjects", DbType="NVarChar(250)")] string subjects, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SkillSupport", DbType="NVarChar(250)")] string skillSupport, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TimeSupport", DbType="NVarChar(250)")] string timeSupport, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FormTeach", DbType="NVarChar(50)")] string formTeach)
 		{
-			return ((object)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nameParent, valueClass, phoneEmail, addressParent, subjects, skillSupport, timeSupport, formTeach).ReturnValue));
+			this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nameParent, valueClass, phoneEmail, addressParent, subjects, skillSupport, timeSupport, formTeach);
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MAIL_SendMailStudentApply", IsComposable=true)]
-		public object MAIL_SendMailStudentApply([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ReqParent", DbType="NVarChar(50)")] string reqParent, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StudentID", DbType="NVarChar(50)")] string studentID)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MAIL_SendMailStudentApply")]
+		public void MAIL_SendMailStudentApply([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ReqParent", DbType="NVarChar(50)")] string reqParent, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StudentID", DbType="NVarChar(50)")] string studentID)
 		{
-			return ((object)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), reqParent, studentID).ReturnValue));
+			this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), reqParent, studentID);
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MAIL_SendMailStudentReq", IsComposable=true)]
-		public object MAIL_SendMailStudentReq([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Name", DbType="NVarChar(250)")] string name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StudentID", DbType="NVarChar(50)")] string studentID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ValueClass", DbType="NVarChar(50)")] string valueClass, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PhoneEmail", DbType="NVarChar(100)")] string phoneEmail, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Address", DbType="NVarChar(250)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Subjects", DbType="NVarChar(250)")] string subjects, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SkillSupport", DbType="NVarChar(250)")] string skillSupport, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TimeSupport", DbType="NVarChar(250)")] string timeSupport, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FormTeach", DbType="NVarChar(50)")] string formTeach)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MAIL_SendMailStudentReq")]
+		public void MAIL_SendMailStudentReq([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Name", DbType="NVarChar(250)")] string name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StudentID", DbType="NVarChar(50)")] string studentID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ValueClass", DbType="NVarChar(50)")] string valueClass, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PhoneEmail", DbType="NVarChar(100)")] string phoneEmail, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Address", DbType="NVarChar(250)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Subjects", DbType="NVarChar(250)")] string subjects, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SkillSupport", DbType="NVarChar(250)")] string skillSupport, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TimeSupport", DbType="NVarChar(250)")] string timeSupport, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FormTeach", DbType="NVarChar(50)")] string formTeach)
 		{
-			return ((object)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), name, studentID, valueClass, phoneEmail, address, subjects, skillSupport, timeSupport, formTeach).ReturnValue));
+			this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), name, studentID, valueClass, phoneEmail, address, subjects, skillSupport, timeSupport, formTeach);
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MAIL_StudentConfimMoney", IsComposable=true)]
-		public object MAIL_StudentConfimMoney([global::System.Data.Linq.Mapping.ParameterAttribute(Name="StudentName", DbType="NVarChar(250)")] string studentName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StudentID", DbType="NVarChar(50)")] string studentID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(250)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Area", DbType="NVarChar(500)")] string area, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Address", DbType="NVarChar(500)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MotelType", DbType="NVarChar(250)")] string motelType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="QuantityP", DbType="Int")] System.Nullable<int> quantityP, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PriceMax", DbType="NVarChar(50)")] string priceMax, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PrintMin", DbType="NVarChar(50)")] string printMin, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Require", DbType="NVarChar(250)")] string require, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IsGroup", DbType="NVarChar(50)")] string isGroup, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BillCode", DbType="NVarChar(10)")] string billCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Radius", DbType="NVarChar(10)")] string radius)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MAIL_StudentConfimMoney")]
+		public void MAIL_StudentConfimMoney([global::System.Data.Linq.Mapping.ParameterAttribute(Name="StudentName", DbType="NVarChar(250)")] string studentName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StudentID", DbType="NVarChar(50)")] string studentID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(250)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Area", DbType="NVarChar(500)")] string area, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Address", DbType="NVarChar(500)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MotelType", DbType="NVarChar(250)")] string motelType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="QuantityP", DbType="Int")] System.Nullable<int> quantityP, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PriceMax", DbType="NVarChar(50)")] string priceMax, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PrintMin", DbType="NVarChar(50)")] string printMin, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Require", DbType="NVarChar(250)")] string require, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IsGroup", DbType="NVarChar(50)")] string isGroup, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BillCode", DbType="NVarChar(10)")] string billCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Radius", DbType="NVarChar(10)")] string radius)
 		{
-			return ((object)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), studentName, studentID, email, area, address, motelType, quantityP, priceMax, printMin, require, isGroup, billCode, radius).ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GS_GetLessonLst")]
-		public ISingleResult<GS_GetLessonLstResult> GS_GetLessonLst([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Month", DbType="NVarChar(7)")] string month, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ClassID", DbType="NVarChar(50)")] string classID)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), month, classID);
-			return ((ISingleResult<GS_GetLessonLstResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GS_GetExcelStudentLst")]
-		public ISingleResult<GS_GetExcelStudentLstResult> GS_GetExcelStudentLst([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PageNumber", DbType="Int")] System.Nullable<int> pageNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RowspPage", DbType="Int")] System.Nullable<int> rowspPage, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Search", DbType="NVarChar(100)")] string search)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), pageNumber, rowspPage, search);
-			return ((ISingleResult<GS_GetExcelStudentLstResult>)(result.ReturnValue));
+			this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), studentName, studentID, email, area, address, motelType, quantityP, priceMax, printMin, require, isGroup, billCode, radius);
 		}
 	}
 	
@@ -6163,256 +6162,6 @@ namespace GiaSuBK.DAL
 		}
 	}
 	
-	public partial class RP_GetDashboadByTimeResult
-	{
-		
-		private System.Nullable<int> _QuantiTyParentAll;
-		
-		private System.Nullable<int> _QuantityMonthStt1;
-		
-		private System.Nullable<int> _QuantityTodayStt1;
-		
-		private System.Nullable<int> _QuantiTyParentAll2;
-		
-		private System.Nullable<int> _QuantityMonthStt2;
-		
-		private System.Nullable<int> _QuantityTodayStt2;
-		
-		private System.Nullable<int> _QuantiTyParentAll3;
-		
-		private System.Nullable<int> _QuantityMonthStt3;
-		
-		private System.Nullable<int> _QuantityTodayStt3;
-		
-		private System.Nullable<int> _QuantiTyParentAll4;
-		
-		private System.Nullable<int> _QuantityMonthStt4;
-		
-		private System.Nullable<int> _QuantityTodayStt4;
-		
-		public RP_GetDashboadByTimeResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuantiTyParentAll", DbType="Int")]
-		public System.Nullable<int> QuantiTyParentAll
-		{
-			get
-			{
-				return this._QuantiTyParentAll;
-			}
-			set
-			{
-				if ((this._QuantiTyParentAll != value))
-				{
-					this._QuantiTyParentAll = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuantityMonthStt1", DbType="Int")]
-		public System.Nullable<int> QuantityMonthStt1
-		{
-			get
-			{
-				return this._QuantityMonthStt1;
-			}
-			set
-			{
-				if ((this._QuantityMonthStt1 != value))
-				{
-					this._QuantityMonthStt1 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuantityTodayStt1", DbType="Int")]
-		public System.Nullable<int> QuantityTodayStt1
-		{
-			get
-			{
-				return this._QuantityTodayStt1;
-			}
-			set
-			{
-				if ((this._QuantityTodayStt1 != value))
-				{
-					this._QuantityTodayStt1 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuantiTyParentAll2", DbType="Int")]
-		public System.Nullable<int> QuantiTyParentAll2
-		{
-			get
-			{
-				return this._QuantiTyParentAll2;
-			}
-			set
-			{
-				if ((this._QuantiTyParentAll2 != value))
-				{
-					this._QuantiTyParentAll2 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuantityMonthStt2", DbType="Int")]
-		public System.Nullable<int> QuantityMonthStt2
-		{
-			get
-			{
-				return this._QuantityMonthStt2;
-			}
-			set
-			{
-				if ((this._QuantityMonthStt2 != value))
-				{
-					this._QuantityMonthStt2 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuantityTodayStt2", DbType="Int")]
-		public System.Nullable<int> QuantityTodayStt2
-		{
-			get
-			{
-				return this._QuantityTodayStt2;
-			}
-			set
-			{
-				if ((this._QuantityTodayStt2 != value))
-				{
-					this._QuantityTodayStt2 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuantiTyParentAll3", DbType="Int")]
-		public System.Nullable<int> QuantiTyParentAll3
-		{
-			get
-			{
-				return this._QuantiTyParentAll3;
-			}
-			set
-			{
-				if ((this._QuantiTyParentAll3 != value))
-				{
-					this._QuantiTyParentAll3 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuantityMonthStt3", DbType="Int")]
-		public System.Nullable<int> QuantityMonthStt3
-		{
-			get
-			{
-				return this._QuantityMonthStt3;
-			}
-			set
-			{
-				if ((this._QuantityMonthStt3 != value))
-				{
-					this._QuantityMonthStt3 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuantityTodayStt3", DbType="Int")]
-		public System.Nullable<int> QuantityTodayStt3
-		{
-			get
-			{
-				return this._QuantityTodayStt3;
-			}
-			set
-			{
-				if ((this._QuantityTodayStt3 != value))
-				{
-					this._QuantityTodayStt3 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuantiTyParentAll4", DbType="Int")]
-		public System.Nullable<int> QuantiTyParentAll4
-		{
-			get
-			{
-				return this._QuantiTyParentAll4;
-			}
-			set
-			{
-				if ((this._QuantiTyParentAll4 != value))
-				{
-					this._QuantiTyParentAll4 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuantityMonthStt4", DbType="Int")]
-		public System.Nullable<int> QuantityMonthStt4
-		{
-			get
-			{
-				return this._QuantityMonthStt4;
-			}
-			set
-			{
-				if ((this._QuantityMonthStt4 != value))
-				{
-					this._QuantityMonthStt4 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuantityTodayStt4", DbType="Int")]
-		public System.Nullable<int> QuantityTodayStt4
-		{
-			get
-			{
-				return this._QuantityTodayStt4;
-			}
-			set
-			{
-				if ((this._QuantityTodayStt4 != value))
-				{
-					this._QuantityTodayStt4 = value;
-				}
-			}
-		}
-	}
-	
-	public partial class GetCityResult
-	{
-		
-		private string _City;
-		
-		public GetCityResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_City", DbType="NVarChar(250)")]
-		public string City
-		{
-			get
-			{
-				return this._City;
-			}
-			set
-			{
-				if ((this._City != value))
-				{
-					this._City = value;
-				}
-			}
-		}
-	}
-	
 	public partial class GetCommuneResult
 	{
 		
@@ -6995,3320 +6744,6 @@ namespace GiaSuBK.DAL
 		}
 	}
 	
-	public partial class GS_GetFindingClassLstResult
-	{
-		
-		private string _ClassID;
-		
-		private string _ReqParentID;
-		
-		private string _NameParent;
-		
-		private string _PhoneEmail;
-		
-		private string _City;
-		
-		private string _District;
-		
-		private string _Ward;
-		
-		private string _StudentID;
-		
-		private string _StudentName;
-		
-		private string _PhoneStudent;
-		
-		private System.Nullable<int> _Status;
-		
-		private string _Apply;
-		
-		private System.Nullable<int> _NumberApply;
-		
-		private string _NameSupport;
-		
-		private string _Money;
-		
-		private string _MoneyStatus;
-		
-		private string _FormTeach;
-		
-		private string _InfoMore;
-		
-		private string _NameSupports;
-		
-		private string _Subjects;
-		
-		private string _ValueClass;
-		
-		private string _AddressParent;
-		
-		private string _Lessons;
-		
-		private int _RowID;
-		
-		private System.Nullable<System.DateTime> _TimeCreate;
-		
-		private string _Level;
-		
-		private string _ParentCmt;
-		
-		private string _StudentCmt;
-		
-		private System.Nullable<int> _TotalRows;
-		
-		public GS_GetFindingClassLstResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClassID", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string ClassID
-		{
-			get
-			{
-				return this._ClassID;
-			}
-			set
-			{
-				if ((this._ClassID != value))
-				{
-					this._ClassID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReqParentID", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string ReqParentID
-		{
-			get
-			{
-				return this._ReqParentID;
-			}
-			set
-			{
-				if ((this._ReqParentID != value))
-				{
-					this._ReqParentID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NameParent", DbType="NVarChar(450)")]
-		public string NameParent
-		{
-			get
-			{
-				return this._NameParent;
-			}
-			set
-			{
-				if ((this._NameParent != value))
-				{
-					this._NameParent = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhoneEmail", DbType="NVarChar(450)")]
-		public string PhoneEmail
-		{
-			get
-			{
-				return this._PhoneEmail;
-			}
-			set
-			{
-				if ((this._PhoneEmail != value))
-				{
-					this._PhoneEmail = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_City", DbType="NVarChar(150)")]
-		public string City
-		{
-			get
-			{
-				return this._City;
-			}
-			set
-			{
-				if ((this._City != value))
-				{
-					this._City = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_District", DbType="NVarChar(150)")]
-		public string District
-		{
-			get
-			{
-				return this._District;
-			}
-			set
-			{
-				if ((this._District != value))
-				{
-					this._District = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ward", DbType="NVarChar(150)")]
-		public string Ward
-		{
-			get
-			{
-				return this._Ward;
-			}
-			set
-			{
-				if ((this._Ward != value))
-				{
-					this._Ward = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StudentID", DbType="NVarChar(10)")]
-		public string StudentID
-		{
-			get
-			{
-				return this._StudentID;
-			}
-			set
-			{
-				if ((this._StudentID != value))
-				{
-					this._StudentID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StudentName", DbType="NVarChar(250)")]
-		public string StudentName
-		{
-			get
-			{
-				return this._StudentName;
-			}
-			set
-			{
-				if ((this._StudentName != value))
-				{
-					this._StudentName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhoneStudent", DbType="NVarChar(50)")]
-		public string PhoneStudent
-		{
-			get
-			{
-				return this._PhoneStudent;
-			}
-			set
-			{
-				if ((this._PhoneStudent != value))
-				{
-					this._PhoneStudent = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int")]
-		public System.Nullable<int> Status
-		{
-			get
-			{
-				return this._Status;
-			}
-			set
-			{
-				if ((this._Status != value))
-				{
-					this._Status = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Apply", DbType="NVarChar(MAX)")]
-		public string Apply
-		{
-			get
-			{
-				return this._Apply;
-			}
-			set
-			{
-				if ((this._Apply != value))
-				{
-					this._Apply = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumberApply", DbType="Int")]
-		public System.Nullable<int> NumberApply
-		{
-			get
-			{
-				return this._NumberApply;
-			}
-			set
-			{
-				if ((this._NumberApply != value))
-				{
-					this._NumberApply = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NameSupport", DbType="NVarChar(MAX)")]
-		public string NameSupport
-		{
-			get
-			{
-				return this._NameSupport;
-			}
-			set
-			{
-				if ((this._NameSupport != value))
-				{
-					this._NameSupport = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Money", DbType="NVarChar(50)")]
-		public string Money
-		{
-			get
-			{
-				return this._Money;
-			}
-			set
-			{
-				if ((this._Money != value))
-				{
-					this._Money = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MoneyStatus", DbType="NVarChar(50)")]
-		public string MoneyStatus
-		{
-			get
-			{
-				return this._MoneyStatus;
-			}
-			set
-			{
-				if ((this._MoneyStatus != value))
-				{
-					this._MoneyStatus = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FormTeach", DbType="NVarChar(50)")]
-		public string FormTeach
-		{
-			get
-			{
-				return this._FormTeach;
-			}
-			set
-			{
-				if ((this._FormTeach != value))
-				{
-					this._FormTeach = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InfoMore", DbType="NVarChar(500)")]
-		public string InfoMore
-		{
-			get
-			{
-				return this._InfoMore;
-			}
-			set
-			{
-				if ((this._InfoMore != value))
-				{
-					this._InfoMore = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NameSupports", DbType="NVarChar(MAX)")]
-		public string NameSupports
-		{
-			get
-			{
-				return this._NameSupports;
-			}
-			set
-			{
-				if ((this._NameSupports != value))
-				{
-					this._NameSupports = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Subjects", DbType="NVarChar(500)")]
-		public string Subjects
-		{
-			get
-			{
-				return this._Subjects;
-			}
-			set
-			{
-				if ((this._Subjects != value))
-				{
-					this._Subjects = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ValueClass", DbType="NVarChar(100)")]
-		public string ValueClass
-		{
-			get
-			{
-				return this._ValueClass;
-			}
-			set
-			{
-				if ((this._ValueClass != value))
-				{
-					this._ValueClass = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AddressParent", DbType="NVarChar(450)")]
-		public string AddressParent
-		{
-			get
-			{
-				return this._AddressParent;
-			}
-			set
-			{
-				if ((this._AddressParent != value))
-				{
-					this._AddressParent = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lessons", DbType="NVarChar(MAX)")]
-		public string Lessons
-		{
-			get
-			{
-				return this._Lessons;
-			}
-			set
-			{
-				if ((this._Lessons != value))
-				{
-					this._Lessons = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RowID", DbType="Int NOT NULL")]
-		public int RowID
-		{
-			get
-			{
-				return this._RowID;
-			}
-			set
-			{
-				if ((this._RowID != value))
-				{
-					this._RowID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeCreate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> TimeCreate
-		{
-			get
-			{
-				return this._TimeCreate;
-			}
-			set
-			{
-				if ((this._TimeCreate != value))
-				{
-					this._TimeCreate = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Level]", Storage="_Level", DbType="NVarChar(50)")]
-		public string Level
-		{
-			get
-			{
-				return this._Level;
-			}
-			set
-			{
-				if ((this._Level != value))
-				{
-					this._Level = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ParentCmt", DbType="NVarChar(MAX)")]
-		public string ParentCmt
-		{
-			get
-			{
-				return this._ParentCmt;
-			}
-			set
-			{
-				if ((this._ParentCmt != value))
-				{
-					this._ParentCmt = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StudentCmt", DbType="NVarChar(MAX)")]
-		public string StudentCmt
-		{
-			get
-			{
-				return this._StudentCmt;
-			}
-			set
-			{
-				if ((this._StudentCmt != value))
-				{
-					this._StudentCmt = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalRows", DbType="Int")]
-		public System.Nullable<int> TotalRows
-		{
-			get
-			{
-				return this._TotalRows;
-			}
-			set
-			{
-				if ((this._TotalRows != value))
-				{
-					this._TotalRows = value;
-				}
-			}
-		}
-	}
-	
-	public partial class GS_GetParentLstResult
-	{
-		
-		private int _RowID;
-		
-		private string _ReqParentID;
-		
-		private string _ParentID;
-		
-		private string _NameParent;
-		
-		private string _PhoneEmail;
-		
-		private string _AddressParent;
-		
-		private string _FormTeach;
-		
-		private string _InfoMore;
-		
-		private string _Level;
-		
-		private string _Latitude;
-		
-		private string _Longitude;
-		
-		private string _NeedMore;
-		
-		private string _SexTeacher;
-		
-		private string _QuantityStudent;
-		
-		private string _SelectSchool;
-		
-		private string _ValueClass;
-		
-		private System.Nullable<int> _Status;
-		
-		private System.Nullable<System.DateTime> _TimeCreate;
-		
-		private string _NameSupports;
-		
-		private string _Subjects;
-		
-		private string _TimeSupport;
-		
-		private string _SkillSupport;
-		
-		private string _District;
-		
-		private string _City;
-		
-		private string _Ward;
-		
-		private System.Nullable<System.DateTime> _TimeModify;
-		
-		private string _ModifierID;
-		
-		private System.Nullable<int> _TotalRows;
-		
-		public GS_GetParentLstResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RowID", DbType="Int NOT NULL")]
-		public int RowID
-		{
-			get
-			{
-				return this._RowID;
-			}
-			set
-			{
-				if ((this._RowID != value))
-				{
-					this._RowID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReqParentID", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string ReqParentID
-		{
-			get
-			{
-				return this._ReqParentID;
-			}
-			set
-			{
-				if ((this._ReqParentID != value))
-				{
-					this._ReqParentID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ParentID", DbType="NVarChar(50)")]
-		public string ParentID
-		{
-			get
-			{
-				return this._ParentID;
-			}
-			set
-			{
-				if ((this._ParentID != value))
-				{
-					this._ParentID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NameParent", DbType="NVarChar(450)")]
-		public string NameParent
-		{
-			get
-			{
-				return this._NameParent;
-			}
-			set
-			{
-				if ((this._NameParent != value))
-				{
-					this._NameParent = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhoneEmail", DbType="NVarChar(150)")]
-		public string PhoneEmail
-		{
-			get
-			{
-				return this._PhoneEmail;
-			}
-			set
-			{
-				if ((this._PhoneEmail != value))
-				{
-					this._PhoneEmail = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AddressParent", DbType="NVarChar(450)")]
-		public string AddressParent
-		{
-			get
-			{
-				return this._AddressParent;
-			}
-			set
-			{
-				if ((this._AddressParent != value))
-				{
-					this._AddressParent = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FormTeach", DbType="NVarChar(50)")]
-		public string FormTeach
-		{
-			get
-			{
-				return this._FormTeach;
-			}
-			set
-			{
-				if ((this._FormTeach != value))
-				{
-					this._FormTeach = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InfoMore", DbType="NVarChar(500)")]
-		public string InfoMore
-		{
-			get
-			{
-				return this._InfoMore;
-			}
-			set
-			{
-				if ((this._InfoMore != value))
-				{
-					this._InfoMore = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Level]", Storage="_Level", DbType="NVarChar(50)")]
-		public string Level
-		{
-			get
-			{
-				return this._Level;
-			}
-			set
-			{
-				if ((this._Level != value))
-				{
-					this._Level = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Latitude", DbType="NVarChar(100)")]
-		public string Latitude
-		{
-			get
-			{
-				return this._Latitude;
-			}
-			set
-			{
-				if ((this._Latitude != value))
-				{
-					this._Latitude = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Longitude", DbType="NVarChar(100)")]
-		public string Longitude
-		{
-			get
-			{
-				return this._Longitude;
-			}
-			set
-			{
-				if ((this._Longitude != value))
-				{
-					this._Longitude = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NeedMore", DbType="NVarChar(500)")]
-		public string NeedMore
-		{
-			get
-			{
-				return this._NeedMore;
-			}
-			set
-			{
-				if ((this._NeedMore != value))
-				{
-					this._NeedMore = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SexTeacher", DbType="NVarChar(50)")]
-		public string SexTeacher
-		{
-			get
-			{
-				return this._SexTeacher;
-			}
-			set
-			{
-				if ((this._SexTeacher != value))
-				{
-					this._SexTeacher = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuantityStudent", DbType="NVarChar(100)")]
-		public string QuantityStudent
-		{
-			get
-			{
-				return this._QuantityStudent;
-			}
-			set
-			{
-				if ((this._QuantityStudent != value))
-				{
-					this._QuantityStudent = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SelectSchool", DbType="NVarChar(100)")]
-		public string SelectSchool
-		{
-			get
-			{
-				return this._SelectSchool;
-			}
-			set
-			{
-				if ((this._SelectSchool != value))
-				{
-					this._SelectSchool = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ValueClass", DbType="NVarChar(100)")]
-		public string ValueClass
-		{
-			get
-			{
-				return this._ValueClass;
-			}
-			set
-			{
-				if ((this._ValueClass != value))
-				{
-					this._ValueClass = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int")]
-		public System.Nullable<int> Status
-		{
-			get
-			{
-				return this._Status;
-			}
-			set
-			{
-				if ((this._Status != value))
-				{
-					this._Status = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeCreate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> TimeCreate
-		{
-			get
-			{
-				return this._TimeCreate;
-			}
-			set
-			{
-				if ((this._TimeCreate != value))
-				{
-					this._TimeCreate = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NameSupports", DbType="NVarChar(MAX)")]
-		public string NameSupports
-		{
-			get
-			{
-				return this._NameSupports;
-			}
-			set
-			{
-				if ((this._NameSupports != value))
-				{
-					this._NameSupports = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Subjects", DbType="NVarChar(500)")]
-		public string Subjects
-		{
-			get
-			{
-				return this._Subjects;
-			}
-			set
-			{
-				if ((this._Subjects != value))
-				{
-					this._Subjects = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeSupport", DbType="NVarChar(MAX)")]
-		public string TimeSupport
-		{
-			get
-			{
-				return this._TimeSupport;
-			}
-			set
-			{
-				if ((this._TimeSupport != value))
-				{
-					this._TimeSupport = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SkillSupport", DbType="NVarChar(500)")]
-		public string SkillSupport
-		{
-			get
-			{
-				return this._SkillSupport;
-			}
-			set
-			{
-				if ((this._SkillSupport != value))
-				{
-					this._SkillSupport = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_District", DbType="NVarChar(150)")]
-		public string District
-		{
-			get
-			{
-				return this._District;
-			}
-			set
-			{
-				if ((this._District != value))
-				{
-					this._District = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_City", DbType="NVarChar(150)")]
-		public string City
-		{
-			get
-			{
-				return this._City;
-			}
-			set
-			{
-				if ((this._City != value))
-				{
-					this._City = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ward", DbType="NVarChar(150)")]
-		public string Ward
-		{
-			get
-			{
-				return this._Ward;
-			}
-			set
-			{
-				if ((this._Ward != value))
-				{
-					this._Ward = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeModify", DbType="DateTime")]
-		public System.Nullable<System.DateTime> TimeModify
-		{
-			get
-			{
-				return this._TimeModify;
-			}
-			set
-			{
-				if ((this._TimeModify != value))
-				{
-					this._TimeModify = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifierID", DbType="NVarChar(50)")]
-		public string ModifierID
-		{
-			get
-			{
-				return this._ModifierID;
-			}
-			set
-			{
-				if ((this._ModifierID != value))
-				{
-					this._ModifierID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalRows", DbType="Int")]
-		public System.Nullable<int> TotalRows
-		{
-			get
-			{
-				return this._TotalRows;
-			}
-			set
-			{
-				if ((this._TotalRows != value))
-				{
-					this._TotalRows = value;
-				}
-			}
-		}
-	}
-	
-	public partial class GS_GetStudentByDistanceResult
-	{
-		
-		private int _RowID;
-		
-		private string _StudentID;
-		
-		private string _Address;
-		
-		private string _StudentName;
-		
-		private string _Email;
-		
-		private string _City;
-		
-		private string _District;
-		
-		private string _Ward;
-		
-		private string _Phone;
-		
-		private string _Latitude;
-		
-		private string _Longitude;
-		
-		private string _OtherEmail;
-		
-		private string _Type;
-		
-		private string _TypeHome;
-		
-		private System.Nullable<int> _Status;
-		
-		private string _CPA;
-		
-		private string _GPA;
-		
-		private string _Subjects;
-		
-		private string _FormTeach;
-		
-		private string _TimeSupport;
-		
-		private string _Experience;
-		
-		private string _Achievement;
-		
-		private string _Apply;
-		
-		private string _Teaching;
-		
-		private string _Done;
-		
-		private string _InfoMore;
-		
-		private string _Level;
-		
-		private string _SexStudent;
-		
-		private System.Nullable<double> _Distance;
-		
-		public GS_GetStudentByDistanceResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RowID", DbType="Int NOT NULL")]
-		public int RowID
-		{
-			get
-			{
-				return this._RowID;
-			}
-			set
-			{
-				if ((this._RowID != value))
-				{
-					this._RowID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StudentID", DbType="NVarChar(10) NOT NULL", CanBeNull=false)]
-		public string StudentID
-		{
-			get
-			{
-				return this._StudentID;
-			}
-			set
-			{
-				if ((this._StudentID != value))
-				{
-					this._StudentID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="NVarChar(400)")]
-		public string Address
-		{
-			get
-			{
-				return this._Address;
-			}
-			set
-			{
-				if ((this._Address != value))
-				{
-					this._Address = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StudentName", DbType="NVarChar(250)")]
-		public string StudentName
-		{
-			get
-			{
-				return this._StudentName;
-			}
-			set
-			{
-				if ((this._StudentName != value))
-				{
-					this._StudentName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(150)")]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					this._Email = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_City", DbType="NVarChar(250)")]
-		public string City
-		{
-			get
-			{
-				return this._City;
-			}
-			set
-			{
-				if ((this._City != value))
-				{
-					this._City = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_District", DbType="NVarChar(250)")]
-		public string District
-		{
-			get
-			{
-				return this._District;
-			}
-			set
-			{
-				if ((this._District != value))
-				{
-					this._District = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ward", DbType="NVarChar(250)")]
-		public string Ward
-		{
-			get
-			{
-				return this._Ward;
-			}
-			set
-			{
-				if ((this._Ward != value))
-				{
-					this._Ward = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Phone", DbType="NVarChar(50)")]
-		public string Phone
-		{
-			get
-			{
-				return this._Phone;
-			}
-			set
-			{
-				if ((this._Phone != value))
-				{
-					this._Phone = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Latitude", DbType="NVarChar(50)")]
-		public string Latitude
-		{
-			get
-			{
-				return this._Latitude;
-			}
-			set
-			{
-				if ((this._Latitude != value))
-				{
-					this._Latitude = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Longitude", DbType="NVarChar(50)")]
-		public string Longitude
-		{
-			get
-			{
-				return this._Longitude;
-			}
-			set
-			{
-				if ((this._Longitude != value))
-				{
-					this._Longitude = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OtherEmail", DbType="NVarChar(150)")]
-		public string OtherEmail
-		{
-			get
-			{
-				return this._OtherEmail;
-			}
-			set
-			{
-				if ((this._OtherEmail != value))
-				{
-					this._OtherEmail = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Type", DbType="NVarChar(50)")]
-		public string Type
-		{
-			get
-			{
-				return this._Type;
-			}
-			set
-			{
-				if ((this._Type != value))
-				{
-					this._Type = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TypeHome", DbType="NVarChar(50)")]
-		public string TypeHome
-		{
-			get
-			{
-				return this._TypeHome;
-			}
-			set
-			{
-				if ((this._TypeHome != value))
-				{
-					this._TypeHome = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int")]
-		public System.Nullable<int> Status
-		{
-			get
-			{
-				return this._Status;
-			}
-			set
-			{
-				if ((this._Status != value))
-				{
-					this._Status = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CPA", DbType="NVarChar(50)")]
-		public string CPA
-		{
-			get
-			{
-				return this._CPA;
-			}
-			set
-			{
-				if ((this._CPA != value))
-				{
-					this._CPA = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GPA", DbType="NVarChar(50)")]
-		public string GPA
-		{
-			get
-			{
-				return this._GPA;
-			}
-			set
-			{
-				if ((this._GPA != value))
-				{
-					this._GPA = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Subjects", DbType="NVarChar(500)")]
-		public string Subjects
-		{
-			get
-			{
-				return this._Subjects;
-			}
-			set
-			{
-				if ((this._Subjects != value))
-				{
-					this._Subjects = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FormTeach", DbType="NVarChar(500)")]
-		public string FormTeach
-		{
-			get
-			{
-				return this._FormTeach;
-			}
-			set
-			{
-				if ((this._FormTeach != value))
-				{
-					this._FormTeach = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeSupport", DbType="NVarChar(MAX)")]
-		public string TimeSupport
-		{
-			get
-			{
-				return this._TimeSupport;
-			}
-			set
-			{
-				if ((this._TimeSupport != value))
-				{
-					this._TimeSupport = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Experience", DbType="NVarChar(MAX)")]
-		public string Experience
-		{
-			get
-			{
-				return this._Experience;
-			}
-			set
-			{
-				if ((this._Experience != value))
-				{
-					this._Experience = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Achievement", DbType="NVarChar(MAX)")]
-		public string Achievement
-		{
-			get
-			{
-				return this._Achievement;
-			}
-			set
-			{
-				if ((this._Achievement != value))
-				{
-					this._Achievement = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Apply", DbType="NVarChar(MAX)")]
-		public string Apply
-		{
-			get
-			{
-				return this._Apply;
-			}
-			set
-			{
-				if ((this._Apply != value))
-				{
-					this._Apply = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Teaching", DbType="NVarChar(MAX)")]
-		public string Teaching
-		{
-			get
-			{
-				return this._Teaching;
-			}
-			set
-			{
-				if ((this._Teaching != value))
-				{
-					this._Teaching = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Done", DbType="NVarChar(MAX)")]
-		public string Done
-		{
-			get
-			{
-				return this._Done;
-			}
-			set
-			{
-				if ((this._Done != value))
-				{
-					this._Done = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InfoMore", DbType="NVarChar(50)")]
-		public string InfoMore
-		{
-			get
-			{
-				return this._InfoMore;
-			}
-			set
-			{
-				if ((this._InfoMore != value))
-				{
-					this._InfoMore = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Level]", Storage="_Level", DbType="NVarChar(100)")]
-		public string Level
-		{
-			get
-			{
-				return this._Level;
-			}
-			set
-			{
-				if ((this._Level != value))
-				{
-					this._Level = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SexStudent", DbType="NVarChar(400)")]
-		public string SexStudent
-		{
-			get
-			{
-				return this._SexStudent;
-			}
-			set
-			{
-				if ((this._SexStudent != value))
-				{
-					this._SexStudent = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Distance", DbType="Float")]
-		public System.Nullable<double> Distance
-		{
-			get
-			{
-				return this._Distance;
-			}
-			set
-			{
-				if ((this._Distance != value))
-				{
-					this._Distance = value;
-				}
-			}
-		}
-	}
-	
-	public partial class GS_GetStudentLstResult
-	{
-		
-		private int _RowID;
-		
-		private string _StudentID;
-		
-		private string _StudentName;
-		
-		private string _Phone;
-		
-		private string _Address;
-		
-		private string _Radius;
-		
-		private string _FormTeach;
-		
-		private string _InfoMore;
-		
-		private string _Level;
-		
-		private string _Longitude;
-		
-		private string _Latitude;
-		
-		private string _Need;
-		
-		private string _SexStudent;
-		
-		private string _Perpose;
-		
-		private string _NameSupports;
-		
-		private string _Subjects;
-		
-		private string _TimeSupport;
-		
-		private string _SkillSupport;
-		
-		private string _District;
-		
-		private string _City;
-		
-		private string _Ward;
-		
-		private System.Nullable<int> _Status;
-		
-		private System.Nullable<System.DateTime> _TimeCreate;
-		
-		private System.Nullable<System.DateTime> _TimeModify;
-		
-		private string _ModifierID;
-		
-		private string _Email;
-		
-		private string _SelectSchool;
-		
-		private string _Achievement;
-		
-		private string _Experience;
-		
-		private System.Nullable<int> _TotalRows;
-		
-		public GS_GetStudentLstResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RowID", DbType="Int NOT NULL")]
-		public int RowID
-		{
-			get
-			{
-				return this._RowID;
-			}
-			set
-			{
-				if ((this._RowID != value))
-				{
-					this._RowID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StudentID", DbType="NVarChar(50)")]
-		public string StudentID
-		{
-			get
-			{
-				return this._StudentID;
-			}
-			set
-			{
-				if ((this._StudentID != value))
-				{
-					this._StudentID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StudentName", DbType="NVarChar(450)")]
-		public string StudentName
-		{
-			get
-			{
-				return this._StudentName;
-			}
-			set
-			{
-				if ((this._StudentName != value))
-				{
-					this._StudentName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Phone", DbType="NVarChar(150)")]
-		public string Phone
-		{
-			get
-			{
-				return this._Phone;
-			}
-			set
-			{
-				if ((this._Phone != value))
-				{
-					this._Phone = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="NVarChar(450)")]
-		public string Address
-		{
-			get
-			{
-				return this._Address;
-			}
-			set
-			{
-				if ((this._Address != value))
-				{
-					this._Address = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Radius", DbType="NVarChar(50)")]
-		public string Radius
-		{
-			get
-			{
-				return this._Radius;
-			}
-			set
-			{
-				if ((this._Radius != value))
-				{
-					this._Radius = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FormTeach", DbType="NVarChar(500)")]
-		public string FormTeach
-		{
-			get
-			{
-				return this._FormTeach;
-			}
-			set
-			{
-				if ((this._FormTeach != value))
-				{
-					this._FormTeach = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InfoMore", DbType="NVarChar(50)")]
-		public string InfoMore
-		{
-			get
-			{
-				return this._InfoMore;
-			}
-			set
-			{
-				if ((this._InfoMore != value))
-				{
-					this._InfoMore = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Level]", Storage="_Level", DbType="NVarChar(100)")]
-		public string Level
-		{
-			get
-			{
-				return this._Level;
-			}
-			set
-			{
-				if ((this._Level != value))
-				{
-					this._Level = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Longitude", DbType="NVarChar(100)")]
-		public string Longitude
-		{
-			get
-			{
-				return this._Longitude;
-			}
-			set
-			{
-				if ((this._Longitude != value))
-				{
-					this._Longitude = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Latitude", DbType="NVarChar(100)")]
-		public string Latitude
-		{
-			get
-			{
-				return this._Latitude;
-			}
-			set
-			{
-				if ((this._Latitude != value))
-				{
-					this._Latitude = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Need", DbType="NVarChar(50)")]
-		public string Need
-		{
-			get
-			{
-				return this._Need;
-			}
-			set
-			{
-				if ((this._Need != value))
-				{
-					this._Need = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SexStudent", DbType="NVarChar(400)")]
-		public string SexStudent
-		{
-			get
-			{
-				return this._SexStudent;
-			}
-			set
-			{
-				if ((this._SexStudent != value))
-				{
-					this._SexStudent = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Perpose", DbType="NVarChar(1000)")]
-		public string Perpose
-		{
-			get
-			{
-				return this._Perpose;
-			}
-			set
-			{
-				if ((this._Perpose != value))
-				{
-					this._Perpose = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NameSupports", DbType="NVarChar(MAX)")]
-		public string NameSupports
-		{
-			get
-			{
-				return this._NameSupports;
-			}
-			set
-			{
-				if ((this._NameSupports != value))
-				{
-					this._NameSupports = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Subjects", DbType="NVarChar(500)")]
-		public string Subjects
-		{
-			get
-			{
-				return this._Subjects;
-			}
-			set
-			{
-				if ((this._Subjects != value))
-				{
-					this._Subjects = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeSupport", DbType="NVarChar(MAX)")]
-		public string TimeSupport
-		{
-			get
-			{
-				return this._TimeSupport;
-			}
-			set
-			{
-				if ((this._TimeSupport != value))
-				{
-					this._TimeSupport = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SkillSupport", DbType="NVarChar(500)")]
-		public string SkillSupport
-		{
-			get
-			{
-				return this._SkillSupport;
-			}
-			set
-			{
-				if ((this._SkillSupport != value))
-				{
-					this._SkillSupport = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_District", DbType="NVarChar(150)")]
-		public string District
-		{
-			get
-			{
-				return this._District;
-			}
-			set
-			{
-				if ((this._District != value))
-				{
-					this._District = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_City", DbType="NVarChar(150)")]
-		public string City
-		{
-			get
-			{
-				return this._City;
-			}
-			set
-			{
-				if ((this._City != value))
-				{
-					this._City = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ward", DbType="NVarChar(150)")]
-		public string Ward
-		{
-			get
-			{
-				return this._Ward;
-			}
-			set
-			{
-				if ((this._Ward != value))
-				{
-					this._Ward = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int")]
-		public System.Nullable<int> Status
-		{
-			get
-			{
-				return this._Status;
-			}
-			set
-			{
-				if ((this._Status != value))
-				{
-					this._Status = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeCreate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> TimeCreate
-		{
-			get
-			{
-				return this._TimeCreate;
-			}
-			set
-			{
-				if ((this._TimeCreate != value))
-				{
-					this._TimeCreate = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeModify", DbType="DateTime")]
-		public System.Nullable<System.DateTime> TimeModify
-		{
-			get
-			{
-				return this._TimeModify;
-			}
-			set
-			{
-				if ((this._TimeModify != value))
-				{
-					this._TimeModify = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifierID", DbType="NVarChar(50)")]
-		public string ModifierID
-		{
-			get
-			{
-				return this._ModifierID;
-			}
-			set
-			{
-				if ((this._ModifierID != value))
-				{
-					this._ModifierID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(150)")]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					this._Email = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SelectSchool", DbType="NVarChar(50)")]
-		public string SelectSchool
-		{
-			get
-			{
-				return this._SelectSchool;
-			}
-			set
-			{
-				if ((this._SelectSchool != value))
-				{
-					this._SelectSchool = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Achievement", DbType="NVarChar(MAX)")]
-		public string Achievement
-		{
-			get
-			{
-				return this._Achievement;
-			}
-			set
-			{
-				if ((this._Achievement != value))
-				{
-					this._Achievement = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Experience", DbType="NVarChar(MAX)")]
-		public string Experience
-		{
-			get
-			{
-				return this._Experience;
-			}
-			set
-			{
-				if ((this._Experience != value))
-				{
-					this._Experience = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalRows", DbType="Int")]
-		public System.Nullable<int> TotalRows
-		{
-			get
-			{
-				return this._TotalRows;
-			}
-			set
-			{
-				if ((this._TotalRows != value))
-				{
-					this._TotalRows = value;
-				}
-			}
-		}
-	}
-	
-	public partial class GS_GetStudentLst2Result
-	{
-		
-		private int _RowID;
-		
-		private string _StudentID;
-		
-		private string _StudentName;
-		
-		private string _Phone;
-		
-		private string _Address;
-		
-		private string _Radius;
-		
-		private string _FormTeach;
-		
-		private string _InfoMore;
-		
-		private string _Level;
-		
-		private string _Longitude;
-		
-		private string _Latitude;
-		
-		private string _Need;
-		
-		private string _SexStudent;
-		
-		private string _Perpose;
-		
-		private string _NameSupports;
-		
-		private string _Subjects;
-		
-		private string _TimeSupport;
-		
-		private string _SkillSupport;
-		
-		private string _District;
-		
-		private string _City;
-		
-		private string _Ward;
-		
-		private System.Nullable<int> _Status;
-		
-		private System.Nullable<System.DateTime> _TimeCreate;
-		
-		private System.Nullable<System.DateTime> _TimeModify;
-		
-		private string _ModifierID;
-		
-		private string _Email;
-		
-		private string _SelectSchool;
-		
-		private string _Achievement;
-		
-		private string _Experience;
-		
-		private System.Nullable<int> _TotalRows;
-		
-		public GS_GetStudentLst2Result()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RowID", DbType="Int NOT NULL")]
-		public int RowID
-		{
-			get
-			{
-				return this._RowID;
-			}
-			set
-			{
-				if ((this._RowID != value))
-				{
-					this._RowID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StudentID", DbType="NVarChar(50)")]
-		public string StudentID
-		{
-			get
-			{
-				return this._StudentID;
-			}
-			set
-			{
-				if ((this._StudentID != value))
-				{
-					this._StudentID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StudentName", DbType="NVarChar(450)")]
-		public string StudentName
-		{
-			get
-			{
-				return this._StudentName;
-			}
-			set
-			{
-				if ((this._StudentName != value))
-				{
-					this._StudentName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Phone", DbType="NVarChar(150)")]
-		public string Phone
-		{
-			get
-			{
-				return this._Phone;
-			}
-			set
-			{
-				if ((this._Phone != value))
-				{
-					this._Phone = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="NVarChar(450)")]
-		public string Address
-		{
-			get
-			{
-				return this._Address;
-			}
-			set
-			{
-				if ((this._Address != value))
-				{
-					this._Address = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Radius", DbType="NVarChar(50)")]
-		public string Radius
-		{
-			get
-			{
-				return this._Radius;
-			}
-			set
-			{
-				if ((this._Radius != value))
-				{
-					this._Radius = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FormTeach", DbType="NVarChar(500)")]
-		public string FormTeach
-		{
-			get
-			{
-				return this._FormTeach;
-			}
-			set
-			{
-				if ((this._FormTeach != value))
-				{
-					this._FormTeach = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InfoMore", DbType="NVarChar(50)")]
-		public string InfoMore
-		{
-			get
-			{
-				return this._InfoMore;
-			}
-			set
-			{
-				if ((this._InfoMore != value))
-				{
-					this._InfoMore = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Level]", Storage="_Level", DbType="NVarChar(100)")]
-		public string Level
-		{
-			get
-			{
-				return this._Level;
-			}
-			set
-			{
-				if ((this._Level != value))
-				{
-					this._Level = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Longitude", DbType="NVarChar(100)")]
-		public string Longitude
-		{
-			get
-			{
-				return this._Longitude;
-			}
-			set
-			{
-				if ((this._Longitude != value))
-				{
-					this._Longitude = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Latitude", DbType="NVarChar(100)")]
-		public string Latitude
-		{
-			get
-			{
-				return this._Latitude;
-			}
-			set
-			{
-				if ((this._Latitude != value))
-				{
-					this._Latitude = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Need", DbType="NVarChar(50)")]
-		public string Need
-		{
-			get
-			{
-				return this._Need;
-			}
-			set
-			{
-				if ((this._Need != value))
-				{
-					this._Need = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SexStudent", DbType="NVarChar(400)")]
-		public string SexStudent
-		{
-			get
-			{
-				return this._SexStudent;
-			}
-			set
-			{
-				if ((this._SexStudent != value))
-				{
-					this._SexStudent = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Perpose", DbType="NVarChar(1000)")]
-		public string Perpose
-		{
-			get
-			{
-				return this._Perpose;
-			}
-			set
-			{
-				if ((this._Perpose != value))
-				{
-					this._Perpose = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NameSupports", DbType="NVarChar(MAX)")]
-		public string NameSupports
-		{
-			get
-			{
-				return this._NameSupports;
-			}
-			set
-			{
-				if ((this._NameSupports != value))
-				{
-					this._NameSupports = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Subjects", DbType="NVarChar(500)")]
-		public string Subjects
-		{
-			get
-			{
-				return this._Subjects;
-			}
-			set
-			{
-				if ((this._Subjects != value))
-				{
-					this._Subjects = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeSupport", DbType="NVarChar(MAX)")]
-		public string TimeSupport
-		{
-			get
-			{
-				return this._TimeSupport;
-			}
-			set
-			{
-				if ((this._TimeSupport != value))
-				{
-					this._TimeSupport = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SkillSupport", DbType="NVarChar(500)")]
-		public string SkillSupport
-		{
-			get
-			{
-				return this._SkillSupport;
-			}
-			set
-			{
-				if ((this._SkillSupport != value))
-				{
-					this._SkillSupport = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_District", DbType="NVarChar(150)")]
-		public string District
-		{
-			get
-			{
-				return this._District;
-			}
-			set
-			{
-				if ((this._District != value))
-				{
-					this._District = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_City", DbType="NVarChar(150)")]
-		public string City
-		{
-			get
-			{
-				return this._City;
-			}
-			set
-			{
-				if ((this._City != value))
-				{
-					this._City = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ward", DbType="NVarChar(150)")]
-		public string Ward
-		{
-			get
-			{
-				return this._Ward;
-			}
-			set
-			{
-				if ((this._Ward != value))
-				{
-					this._Ward = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int")]
-		public System.Nullable<int> Status
-		{
-			get
-			{
-				return this._Status;
-			}
-			set
-			{
-				if ((this._Status != value))
-				{
-					this._Status = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeCreate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> TimeCreate
-		{
-			get
-			{
-				return this._TimeCreate;
-			}
-			set
-			{
-				if ((this._TimeCreate != value))
-				{
-					this._TimeCreate = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeModify", DbType="DateTime")]
-		public System.Nullable<System.DateTime> TimeModify
-		{
-			get
-			{
-				return this._TimeModify;
-			}
-			set
-			{
-				if ((this._TimeModify != value))
-				{
-					this._TimeModify = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifierID", DbType="NVarChar(50)")]
-		public string ModifierID
-		{
-			get
-			{
-				return this._ModifierID;
-			}
-			set
-			{
-				if ((this._ModifierID != value))
-				{
-					this._ModifierID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(150)")]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					this._Email = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SelectSchool", DbType="NVarChar(50)")]
-		public string SelectSchool
-		{
-			get
-			{
-				return this._SelectSchool;
-			}
-			set
-			{
-				if ((this._SelectSchool != value))
-				{
-					this._SelectSchool = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Achievement", DbType="NVarChar(MAX)")]
-		public string Achievement
-		{
-			get
-			{
-				return this._Achievement;
-			}
-			set
-			{
-				if ((this._Achievement != value))
-				{
-					this._Achievement = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Experience", DbType="NVarChar(MAX)")]
-		public string Experience
-		{
-			get
-			{
-				return this._Experience;
-			}
-			set
-			{
-				if ((this._Experience != value))
-				{
-					this._Experience = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalRows", DbType="Int")]
-		public System.Nullable<int> TotalRows
-		{
-			get
-			{
-				return this._TotalRows;
-			}
-			set
-			{
-				if ((this._TotalRows != value))
-				{
-					this._TotalRows = value;
-				}
-			}
-		}
-	}
-	
-	public partial class GS_SearchStudentResult
-	{
-		
-		private int _RowID;
-		
-		private string _StudentID;
-		
-		private string _Address;
-		
-		private string _StudentName;
-		
-		private string _Email;
-		
-		private string _City;
-		
-		private string _District;
-		
-		private string _Ward;
-		
-		private string _Phone;
-		
-		private string _Latitude;
-		
-		private string _Longitude;
-		
-		private string _OtherEmail;
-		
-		private string _Type;
-		
-		private string _TypeHome;
-		
-		private System.Nullable<int> _Status;
-		
-		private string _CPA;
-		
-		private string _GPA;
-		
-		private string _Subjects;
-		
-		private string _FormTeach;
-		
-		private string _TimeSupport;
-		
-		private string _Experience;
-		
-		private string _Achievement;
-		
-		private string _Apply;
-		
-		private string _Teaching;
-		
-		private string _Done;
-		
-		private string _InfoMore;
-		
-		private string _Level;
-		
-		private string _SexStudent;
-		
-		private System.Nullable<double> _Distance;
-		
-		public GS_SearchStudentResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RowID", DbType="Int NOT NULL")]
-		public int RowID
-		{
-			get
-			{
-				return this._RowID;
-			}
-			set
-			{
-				if ((this._RowID != value))
-				{
-					this._RowID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StudentID", DbType="NVarChar(10) NOT NULL", CanBeNull=false)]
-		public string StudentID
-		{
-			get
-			{
-				return this._StudentID;
-			}
-			set
-			{
-				if ((this._StudentID != value))
-				{
-					this._StudentID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="NVarChar(400)")]
-		public string Address
-		{
-			get
-			{
-				return this._Address;
-			}
-			set
-			{
-				if ((this._Address != value))
-				{
-					this._Address = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StudentName", DbType="NVarChar(250)")]
-		public string StudentName
-		{
-			get
-			{
-				return this._StudentName;
-			}
-			set
-			{
-				if ((this._StudentName != value))
-				{
-					this._StudentName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(150)")]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					this._Email = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_City", DbType="NVarChar(250)")]
-		public string City
-		{
-			get
-			{
-				return this._City;
-			}
-			set
-			{
-				if ((this._City != value))
-				{
-					this._City = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_District", DbType="NVarChar(250)")]
-		public string District
-		{
-			get
-			{
-				return this._District;
-			}
-			set
-			{
-				if ((this._District != value))
-				{
-					this._District = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ward", DbType="NVarChar(250)")]
-		public string Ward
-		{
-			get
-			{
-				return this._Ward;
-			}
-			set
-			{
-				if ((this._Ward != value))
-				{
-					this._Ward = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Phone", DbType="NVarChar(50)")]
-		public string Phone
-		{
-			get
-			{
-				return this._Phone;
-			}
-			set
-			{
-				if ((this._Phone != value))
-				{
-					this._Phone = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Latitude", DbType="NVarChar(50)")]
-		public string Latitude
-		{
-			get
-			{
-				return this._Latitude;
-			}
-			set
-			{
-				if ((this._Latitude != value))
-				{
-					this._Latitude = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Longitude", DbType="NVarChar(50)")]
-		public string Longitude
-		{
-			get
-			{
-				return this._Longitude;
-			}
-			set
-			{
-				if ((this._Longitude != value))
-				{
-					this._Longitude = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OtherEmail", DbType="NVarChar(150)")]
-		public string OtherEmail
-		{
-			get
-			{
-				return this._OtherEmail;
-			}
-			set
-			{
-				if ((this._OtherEmail != value))
-				{
-					this._OtherEmail = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Type", DbType="NVarChar(50)")]
-		public string Type
-		{
-			get
-			{
-				return this._Type;
-			}
-			set
-			{
-				if ((this._Type != value))
-				{
-					this._Type = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TypeHome", DbType="NVarChar(50)")]
-		public string TypeHome
-		{
-			get
-			{
-				return this._TypeHome;
-			}
-			set
-			{
-				if ((this._TypeHome != value))
-				{
-					this._TypeHome = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int")]
-		public System.Nullable<int> Status
-		{
-			get
-			{
-				return this._Status;
-			}
-			set
-			{
-				if ((this._Status != value))
-				{
-					this._Status = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CPA", DbType="NVarChar(50)")]
-		public string CPA
-		{
-			get
-			{
-				return this._CPA;
-			}
-			set
-			{
-				if ((this._CPA != value))
-				{
-					this._CPA = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GPA", DbType="NVarChar(50)")]
-		public string GPA
-		{
-			get
-			{
-				return this._GPA;
-			}
-			set
-			{
-				if ((this._GPA != value))
-				{
-					this._GPA = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Subjects", DbType="NVarChar(500)")]
-		public string Subjects
-		{
-			get
-			{
-				return this._Subjects;
-			}
-			set
-			{
-				if ((this._Subjects != value))
-				{
-					this._Subjects = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FormTeach", DbType="NVarChar(500)")]
-		public string FormTeach
-		{
-			get
-			{
-				return this._FormTeach;
-			}
-			set
-			{
-				if ((this._FormTeach != value))
-				{
-					this._FormTeach = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeSupport", DbType="NVarChar(MAX)")]
-		public string TimeSupport
-		{
-			get
-			{
-				return this._TimeSupport;
-			}
-			set
-			{
-				if ((this._TimeSupport != value))
-				{
-					this._TimeSupport = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Experience", DbType="NVarChar(MAX)")]
-		public string Experience
-		{
-			get
-			{
-				return this._Experience;
-			}
-			set
-			{
-				if ((this._Experience != value))
-				{
-					this._Experience = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Achievement", DbType="NVarChar(MAX)")]
-		public string Achievement
-		{
-			get
-			{
-				return this._Achievement;
-			}
-			set
-			{
-				if ((this._Achievement != value))
-				{
-					this._Achievement = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Apply", DbType="NVarChar(MAX)")]
-		public string Apply
-		{
-			get
-			{
-				return this._Apply;
-			}
-			set
-			{
-				if ((this._Apply != value))
-				{
-					this._Apply = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Teaching", DbType="NVarChar(MAX)")]
-		public string Teaching
-		{
-			get
-			{
-				return this._Teaching;
-			}
-			set
-			{
-				if ((this._Teaching != value))
-				{
-					this._Teaching = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Done", DbType="NVarChar(MAX)")]
-		public string Done
-		{
-			get
-			{
-				return this._Done;
-			}
-			set
-			{
-				if ((this._Done != value))
-				{
-					this._Done = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InfoMore", DbType="NVarChar(50)")]
-		public string InfoMore
-		{
-			get
-			{
-				return this._InfoMore;
-			}
-			set
-			{
-				if ((this._InfoMore != value))
-				{
-					this._InfoMore = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Level]", Storage="_Level", DbType="NVarChar(100)")]
-		public string Level
-		{
-			get
-			{
-				return this._Level;
-			}
-			set
-			{
-				if ((this._Level != value))
-				{
-					this._Level = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SexStudent", DbType="NVarChar(400)")]
-		public string SexStudent
-		{
-			get
-			{
-				return this._SexStudent;
-			}
-			set
-			{
-				if ((this._SexStudent != value))
-				{
-					this._SexStudent = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Distance", DbType="Float")]
-		public System.Nullable<double> Distance
-		{
-			get
-			{
-				return this._Distance;
-			}
-			set
-			{
-				if ((this._Distance != value))
-				{
-					this._Distance = value;
-				}
-			}
-		}
-	}
-	
-	public partial class GS_GetLessonLstResult
-	{
-		
-		private string _LessonID;
-		
-		private string _ClassID;
-		
-		private System.DateTime _Date;
-		
-		private string _Status;
-		
-		private string _Comment;
-		
-		private System.Nullable<int> _TotalRows;
-		
-		public GS_GetLessonLstResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LessonID", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string LessonID
-		{
-			get
-			{
-				return this._LessonID;
-			}
-			set
-			{
-				if ((this._LessonID != value))
-				{
-					this._LessonID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClassID", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string ClassID
-		{
-			get
-			{
-				return this._ClassID;
-			}
-			set
-			{
-				if ((this._ClassID != value))
-				{
-					this._ClassID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime NOT NULL")]
-		public System.DateTime Date
-		{
-			get
-			{
-				return this._Date;
-			}
-			set
-			{
-				if ((this._Date != value))
-				{
-					this._Date = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="NVarChar(50)")]
-		public string Status
-		{
-			get
-			{
-				return this._Status;
-			}
-			set
-			{
-				if ((this._Status != value))
-				{
-					this._Status = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comment", DbType="NVarChar(MAX)")]
-		public string Comment
-		{
-			get
-			{
-				return this._Comment;
-			}
-			set
-			{
-				if ((this._Comment != value))
-				{
-					this._Comment = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalRows", DbType="Int")]
-		public System.Nullable<int> TotalRows
-		{
-			get
-			{
-				return this._TotalRows;
-			}
-			set
-			{
-				if ((this._TotalRows != value))
-				{
-					this._TotalRows = value;
-				}
-			}
-		}
-	}
-	
 	public partial class GS_GetExcelStudentLstResult
 	{
 		
@@ -10870,6 +7305,3940 @@ namespace GiaSuBK.DAL
 				if ((this._TotalRows != value))
 				{
 					this._TotalRows = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GS_GetFindingClassLstResult
+	{
+		
+		private string _ClassID;
+		
+		private string _ReqParentID;
+		
+		private string _NameParent;
+		
+		private string _PhoneEmail;
+		
+		private string _City;
+		
+		private string _District;
+		
+		private string _Ward;
+		
+		private string _StudentID;
+		
+		private string _StudentName;
+		
+		private string _PhoneStudent;
+		
+		private System.Nullable<int> _Status;
+		
+		private string _Apply;
+		
+		private System.Nullable<int> _NumberApply;
+		
+		private string _NameSupport;
+		
+		private string _Money;
+		
+		private string _MoneyStatus;
+		
+		private string _FormTeach;
+		
+		private string _InfoMore;
+		
+		private string _NameSupports;
+		
+		private string _Subjects;
+		
+		private string _ValueClass;
+		
+		private string _AddressParent;
+		
+		private string _Lessons;
+		
+		private int _RowID;
+		
+		private System.Nullable<System.DateTime> _TimeCreate;
+		
+		private string _Level;
+		
+		private string _ParentCmt;
+		
+		private string _StudentCmt;
+		
+		private System.Nullable<int> _TotalRows;
+		
+		public GS_GetFindingClassLstResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClassID", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string ClassID
+		{
+			get
+			{
+				return this._ClassID;
+			}
+			set
+			{
+				if ((this._ClassID != value))
+				{
+					this._ClassID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReqParentID", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string ReqParentID
+		{
+			get
+			{
+				return this._ReqParentID;
+			}
+			set
+			{
+				if ((this._ReqParentID != value))
+				{
+					this._ReqParentID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NameParent", DbType="NVarChar(450)")]
+		public string NameParent
+		{
+			get
+			{
+				return this._NameParent;
+			}
+			set
+			{
+				if ((this._NameParent != value))
+				{
+					this._NameParent = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhoneEmail", DbType="NVarChar(450)")]
+		public string PhoneEmail
+		{
+			get
+			{
+				return this._PhoneEmail;
+			}
+			set
+			{
+				if ((this._PhoneEmail != value))
+				{
+					this._PhoneEmail = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_City", DbType="NVarChar(150)")]
+		public string City
+		{
+			get
+			{
+				return this._City;
+			}
+			set
+			{
+				if ((this._City != value))
+				{
+					this._City = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_District", DbType="NVarChar(150)")]
+		public string District
+		{
+			get
+			{
+				return this._District;
+			}
+			set
+			{
+				if ((this._District != value))
+				{
+					this._District = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ward", DbType="NVarChar(150)")]
+		public string Ward
+		{
+			get
+			{
+				return this._Ward;
+			}
+			set
+			{
+				if ((this._Ward != value))
+				{
+					this._Ward = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StudentID", DbType="NVarChar(10)")]
+		public string StudentID
+		{
+			get
+			{
+				return this._StudentID;
+			}
+			set
+			{
+				if ((this._StudentID != value))
+				{
+					this._StudentID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StudentName", DbType="NVarChar(250)")]
+		public string StudentName
+		{
+			get
+			{
+				return this._StudentName;
+			}
+			set
+			{
+				if ((this._StudentName != value))
+				{
+					this._StudentName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhoneStudent", DbType="NVarChar(50)")]
+		public string PhoneStudent
+		{
+			get
+			{
+				return this._PhoneStudent;
+			}
+			set
+			{
+				if ((this._PhoneStudent != value))
+				{
+					this._PhoneStudent = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int")]
+		public System.Nullable<int> Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this._Status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Apply", DbType="NVarChar(MAX)")]
+		public string Apply
+		{
+			get
+			{
+				return this._Apply;
+			}
+			set
+			{
+				if ((this._Apply != value))
+				{
+					this._Apply = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumberApply", DbType="Int")]
+		public System.Nullable<int> NumberApply
+		{
+			get
+			{
+				return this._NumberApply;
+			}
+			set
+			{
+				if ((this._NumberApply != value))
+				{
+					this._NumberApply = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NameSupport", DbType="NVarChar(MAX)")]
+		public string NameSupport
+		{
+			get
+			{
+				return this._NameSupport;
+			}
+			set
+			{
+				if ((this._NameSupport != value))
+				{
+					this._NameSupport = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Money", DbType="NVarChar(50)")]
+		public string Money
+		{
+			get
+			{
+				return this._Money;
+			}
+			set
+			{
+				if ((this._Money != value))
+				{
+					this._Money = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MoneyStatus", DbType="NVarChar(50)")]
+		public string MoneyStatus
+		{
+			get
+			{
+				return this._MoneyStatus;
+			}
+			set
+			{
+				if ((this._MoneyStatus != value))
+				{
+					this._MoneyStatus = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FormTeach", DbType="NVarChar(50)")]
+		public string FormTeach
+		{
+			get
+			{
+				return this._FormTeach;
+			}
+			set
+			{
+				if ((this._FormTeach != value))
+				{
+					this._FormTeach = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InfoMore", DbType="NVarChar(500)")]
+		public string InfoMore
+		{
+			get
+			{
+				return this._InfoMore;
+			}
+			set
+			{
+				if ((this._InfoMore != value))
+				{
+					this._InfoMore = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NameSupports", DbType="NVarChar(MAX)")]
+		public string NameSupports
+		{
+			get
+			{
+				return this._NameSupports;
+			}
+			set
+			{
+				if ((this._NameSupports != value))
+				{
+					this._NameSupports = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Subjects", DbType="NVarChar(500)")]
+		public string Subjects
+		{
+			get
+			{
+				return this._Subjects;
+			}
+			set
+			{
+				if ((this._Subjects != value))
+				{
+					this._Subjects = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ValueClass", DbType="NVarChar(100)")]
+		public string ValueClass
+		{
+			get
+			{
+				return this._ValueClass;
+			}
+			set
+			{
+				if ((this._ValueClass != value))
+				{
+					this._ValueClass = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AddressParent", DbType="NVarChar(450)")]
+		public string AddressParent
+		{
+			get
+			{
+				return this._AddressParent;
+			}
+			set
+			{
+				if ((this._AddressParent != value))
+				{
+					this._AddressParent = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lessons", DbType="NVarChar(MAX)")]
+		public string Lessons
+		{
+			get
+			{
+				return this._Lessons;
+			}
+			set
+			{
+				if ((this._Lessons != value))
+				{
+					this._Lessons = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RowID", DbType="Int NOT NULL")]
+		public int RowID
+		{
+			get
+			{
+				return this._RowID;
+			}
+			set
+			{
+				if ((this._RowID != value))
+				{
+					this._RowID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeCreate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> TimeCreate
+		{
+			get
+			{
+				return this._TimeCreate;
+			}
+			set
+			{
+				if ((this._TimeCreate != value))
+				{
+					this._TimeCreate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Level]", Storage="_Level", DbType="NVarChar(50)")]
+		public string Level
+		{
+			get
+			{
+				return this._Level;
+			}
+			set
+			{
+				if ((this._Level != value))
+				{
+					this._Level = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ParentCmt", DbType="NVarChar(MAX)")]
+		public string ParentCmt
+		{
+			get
+			{
+				return this._ParentCmt;
+			}
+			set
+			{
+				if ((this._ParentCmt != value))
+				{
+					this._ParentCmt = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StudentCmt", DbType="NVarChar(MAX)")]
+		public string StudentCmt
+		{
+			get
+			{
+				return this._StudentCmt;
+			}
+			set
+			{
+				if ((this._StudentCmt != value))
+				{
+					this._StudentCmt = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalRows", DbType="Int")]
+		public System.Nullable<int> TotalRows
+		{
+			get
+			{
+				return this._TotalRows;
+			}
+			set
+			{
+				if ((this._TotalRows != value))
+				{
+					this._TotalRows = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GS_GetLessonLstResult
+	{
+		
+		private string _LessonID;
+		
+		private string _ClassID;
+		
+		private System.DateTime _Date;
+		
+		private string _Status;
+		
+		private string _Comment;
+		
+		private System.Nullable<int> _TotalRows;
+		
+		public GS_GetLessonLstResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LessonID", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string LessonID
+		{
+			get
+			{
+				return this._LessonID;
+			}
+			set
+			{
+				if ((this._LessonID != value))
+				{
+					this._LessonID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClassID", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string ClassID
+		{
+			get
+			{
+				return this._ClassID;
+			}
+			set
+			{
+				if ((this._ClassID != value))
+				{
+					this._ClassID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="Date NOT NULL")]
+		public System.DateTime Date
+		{
+			get
+			{
+				return this._Date;
+			}
+			set
+			{
+				if ((this._Date != value))
+				{
+					this._Date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="NVarChar(50)")]
+		public string Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this._Status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comment", DbType="NVarChar(MAX)")]
+		public string Comment
+		{
+			get
+			{
+				return this._Comment;
+			}
+			set
+			{
+				if ((this._Comment != value))
+				{
+					this._Comment = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalRows", DbType="Int")]
+		public System.Nullable<int> TotalRows
+		{
+			get
+			{
+				return this._TotalRows;
+			}
+			set
+			{
+				if ((this._TotalRows != value))
+				{
+					this._TotalRows = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GS_GetParentLstResult
+	{
+		
+		private int _RowID;
+		
+		private string _ReqParentID;
+		
+		private string _ParentID;
+		
+		private string _NameParent;
+		
+		private string _PhoneEmail;
+		
+		private string _AddressParent;
+		
+		private string _FormTeach;
+		
+		private string _InfoMore;
+		
+		private string _Level;
+		
+		private string _Latitude;
+		
+		private string _Longitude;
+		
+		private string _NeedMore;
+		
+		private string _SexTeacher;
+		
+		private string _QuantityStudent;
+		
+		private string _SelectSchool;
+		
+		private string _ValueClass;
+		
+		private System.Nullable<int> _Status;
+		
+		private System.Nullable<System.DateTime> _TimeCreate;
+		
+		private string _NameSupports;
+		
+		private string _Subjects;
+		
+		private string _TimeSupport;
+		
+		private string _SkillSupport;
+		
+		private string _District;
+		
+		private string _City;
+		
+		private string _Ward;
+		
+		private System.Nullable<System.DateTime> _TimeModify;
+		
+		private string _ModifierID;
+		
+		private System.Nullable<int> _TotalRows;
+		
+		public GS_GetParentLstResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RowID", DbType="Int NOT NULL")]
+		public int RowID
+		{
+			get
+			{
+				return this._RowID;
+			}
+			set
+			{
+				if ((this._RowID != value))
+				{
+					this._RowID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReqParentID", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string ReqParentID
+		{
+			get
+			{
+				return this._ReqParentID;
+			}
+			set
+			{
+				if ((this._ReqParentID != value))
+				{
+					this._ReqParentID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ParentID", DbType="NVarChar(50)")]
+		public string ParentID
+		{
+			get
+			{
+				return this._ParentID;
+			}
+			set
+			{
+				if ((this._ParentID != value))
+				{
+					this._ParentID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NameParent", DbType="NVarChar(450)")]
+		public string NameParent
+		{
+			get
+			{
+				return this._NameParent;
+			}
+			set
+			{
+				if ((this._NameParent != value))
+				{
+					this._NameParent = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhoneEmail", DbType="NVarChar(150)")]
+		public string PhoneEmail
+		{
+			get
+			{
+				return this._PhoneEmail;
+			}
+			set
+			{
+				if ((this._PhoneEmail != value))
+				{
+					this._PhoneEmail = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AddressParent", DbType="NVarChar(450)")]
+		public string AddressParent
+		{
+			get
+			{
+				return this._AddressParent;
+			}
+			set
+			{
+				if ((this._AddressParent != value))
+				{
+					this._AddressParent = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FormTeach", DbType="NVarChar(50)")]
+		public string FormTeach
+		{
+			get
+			{
+				return this._FormTeach;
+			}
+			set
+			{
+				if ((this._FormTeach != value))
+				{
+					this._FormTeach = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InfoMore", DbType="NVarChar(500)")]
+		public string InfoMore
+		{
+			get
+			{
+				return this._InfoMore;
+			}
+			set
+			{
+				if ((this._InfoMore != value))
+				{
+					this._InfoMore = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Level]", Storage="_Level", DbType="NVarChar(50)")]
+		public string Level
+		{
+			get
+			{
+				return this._Level;
+			}
+			set
+			{
+				if ((this._Level != value))
+				{
+					this._Level = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Latitude", DbType="NVarChar(100)")]
+		public string Latitude
+		{
+			get
+			{
+				return this._Latitude;
+			}
+			set
+			{
+				if ((this._Latitude != value))
+				{
+					this._Latitude = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Longitude", DbType="NVarChar(100)")]
+		public string Longitude
+		{
+			get
+			{
+				return this._Longitude;
+			}
+			set
+			{
+				if ((this._Longitude != value))
+				{
+					this._Longitude = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NeedMore", DbType="NVarChar(500)")]
+		public string NeedMore
+		{
+			get
+			{
+				return this._NeedMore;
+			}
+			set
+			{
+				if ((this._NeedMore != value))
+				{
+					this._NeedMore = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SexTeacher", DbType="NVarChar(50)")]
+		public string SexTeacher
+		{
+			get
+			{
+				return this._SexTeacher;
+			}
+			set
+			{
+				if ((this._SexTeacher != value))
+				{
+					this._SexTeacher = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuantityStudent", DbType="NVarChar(100)")]
+		public string QuantityStudent
+		{
+			get
+			{
+				return this._QuantityStudent;
+			}
+			set
+			{
+				if ((this._QuantityStudent != value))
+				{
+					this._QuantityStudent = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SelectSchool", DbType="NVarChar(100)")]
+		public string SelectSchool
+		{
+			get
+			{
+				return this._SelectSchool;
+			}
+			set
+			{
+				if ((this._SelectSchool != value))
+				{
+					this._SelectSchool = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ValueClass", DbType="NVarChar(100)")]
+		public string ValueClass
+		{
+			get
+			{
+				return this._ValueClass;
+			}
+			set
+			{
+				if ((this._ValueClass != value))
+				{
+					this._ValueClass = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int")]
+		public System.Nullable<int> Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this._Status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeCreate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> TimeCreate
+		{
+			get
+			{
+				return this._TimeCreate;
+			}
+			set
+			{
+				if ((this._TimeCreate != value))
+				{
+					this._TimeCreate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NameSupports", DbType="NVarChar(MAX)")]
+		public string NameSupports
+		{
+			get
+			{
+				return this._NameSupports;
+			}
+			set
+			{
+				if ((this._NameSupports != value))
+				{
+					this._NameSupports = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Subjects", DbType="NVarChar(500)")]
+		public string Subjects
+		{
+			get
+			{
+				return this._Subjects;
+			}
+			set
+			{
+				if ((this._Subjects != value))
+				{
+					this._Subjects = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeSupport", DbType="NVarChar(MAX)")]
+		public string TimeSupport
+		{
+			get
+			{
+				return this._TimeSupport;
+			}
+			set
+			{
+				if ((this._TimeSupport != value))
+				{
+					this._TimeSupport = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SkillSupport", DbType="NVarChar(500)")]
+		public string SkillSupport
+		{
+			get
+			{
+				return this._SkillSupport;
+			}
+			set
+			{
+				if ((this._SkillSupport != value))
+				{
+					this._SkillSupport = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_District", DbType="NVarChar(150)")]
+		public string District
+		{
+			get
+			{
+				return this._District;
+			}
+			set
+			{
+				if ((this._District != value))
+				{
+					this._District = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_City", DbType="NVarChar(150)")]
+		public string City
+		{
+			get
+			{
+				return this._City;
+			}
+			set
+			{
+				if ((this._City != value))
+				{
+					this._City = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ward", DbType="NVarChar(150)")]
+		public string Ward
+		{
+			get
+			{
+				return this._Ward;
+			}
+			set
+			{
+				if ((this._Ward != value))
+				{
+					this._Ward = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeModify", DbType="DateTime")]
+		public System.Nullable<System.DateTime> TimeModify
+		{
+			get
+			{
+				return this._TimeModify;
+			}
+			set
+			{
+				if ((this._TimeModify != value))
+				{
+					this._TimeModify = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifierID", DbType="NVarChar(50)")]
+		public string ModifierID
+		{
+			get
+			{
+				return this._ModifierID;
+			}
+			set
+			{
+				if ((this._ModifierID != value))
+				{
+					this._ModifierID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalRows", DbType="Int")]
+		public System.Nullable<int> TotalRows
+		{
+			get
+			{
+				return this._TotalRows;
+			}
+			set
+			{
+				if ((this._TotalRows != value))
+				{
+					this._TotalRows = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GS_GetStudentApplyClassResult
+	{
+		
+		private System.Nullable<int> _RowID;
+		
+		private string _StudentID;
+		
+		private string _Address;
+		
+		private string _StudentName;
+		
+		private string _Email;
+		
+		private string _City;
+		
+		private string _District;
+		
+		private string _Ward;
+		
+		private string _Phone;
+		
+		private string _Latitude;
+		
+		private string _Longitude;
+		
+		private string _OtherEmail;
+		
+		private string _Type;
+		
+		private string _TypeHome;
+		
+		private System.Nullable<int> _Status;
+		
+		private string _CPA;
+		
+		private string _GPA;
+		
+		private string _Subjects;
+		
+		private string _FormTeach;
+		
+		private string _TimeSupport;
+		
+		private string _Experience;
+		
+		private string _Achievement;
+		
+		private string _Apply;
+		
+		private string _Teaching;
+		
+		private string _Done;
+		
+		private string _InfoMore;
+		
+		private string _Level;
+		
+		private string _SexStudent;
+		
+		private string _ParentComment;
+		
+		private System.Nullable<long> _OrderID;
+		
+		public GS_GetStudentApplyClassResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RowID", DbType="Int")]
+		public System.Nullable<int> RowID
+		{
+			get
+			{
+				return this._RowID;
+			}
+			set
+			{
+				if ((this._RowID != value))
+				{
+					this._RowID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StudentID", DbType="NVarChar(10)")]
+		public string StudentID
+		{
+			get
+			{
+				return this._StudentID;
+			}
+			set
+			{
+				if ((this._StudentID != value))
+				{
+					this._StudentID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="NVarChar(400)")]
+		public string Address
+		{
+			get
+			{
+				return this._Address;
+			}
+			set
+			{
+				if ((this._Address != value))
+				{
+					this._Address = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StudentName", DbType="NVarChar(250)")]
+		public string StudentName
+		{
+			get
+			{
+				return this._StudentName;
+			}
+			set
+			{
+				if ((this._StudentName != value))
+				{
+					this._StudentName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(150)")]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this._Email = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_City", DbType="NVarChar(250)")]
+		public string City
+		{
+			get
+			{
+				return this._City;
+			}
+			set
+			{
+				if ((this._City != value))
+				{
+					this._City = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_District", DbType="NVarChar(250)")]
+		public string District
+		{
+			get
+			{
+				return this._District;
+			}
+			set
+			{
+				if ((this._District != value))
+				{
+					this._District = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ward", DbType="NVarChar(250)")]
+		public string Ward
+		{
+			get
+			{
+				return this._Ward;
+			}
+			set
+			{
+				if ((this._Ward != value))
+				{
+					this._Ward = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Phone", DbType="NVarChar(50)")]
+		public string Phone
+		{
+			get
+			{
+				return this._Phone;
+			}
+			set
+			{
+				if ((this._Phone != value))
+				{
+					this._Phone = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Latitude", DbType="NVarChar(50)")]
+		public string Latitude
+		{
+			get
+			{
+				return this._Latitude;
+			}
+			set
+			{
+				if ((this._Latitude != value))
+				{
+					this._Latitude = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Longitude", DbType="NVarChar(50)")]
+		public string Longitude
+		{
+			get
+			{
+				return this._Longitude;
+			}
+			set
+			{
+				if ((this._Longitude != value))
+				{
+					this._Longitude = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OtherEmail", DbType="NVarChar(150)")]
+		public string OtherEmail
+		{
+			get
+			{
+				return this._OtherEmail;
+			}
+			set
+			{
+				if ((this._OtherEmail != value))
+				{
+					this._OtherEmail = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Type", DbType="NVarChar(50)")]
+		public string Type
+		{
+			get
+			{
+				return this._Type;
+			}
+			set
+			{
+				if ((this._Type != value))
+				{
+					this._Type = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TypeHome", DbType="NVarChar(50)")]
+		public string TypeHome
+		{
+			get
+			{
+				return this._TypeHome;
+			}
+			set
+			{
+				if ((this._TypeHome != value))
+				{
+					this._TypeHome = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int")]
+		public System.Nullable<int> Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this._Status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CPA", DbType="NVarChar(50)")]
+		public string CPA
+		{
+			get
+			{
+				return this._CPA;
+			}
+			set
+			{
+				if ((this._CPA != value))
+				{
+					this._CPA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GPA", DbType="NVarChar(50)")]
+		public string GPA
+		{
+			get
+			{
+				return this._GPA;
+			}
+			set
+			{
+				if ((this._GPA != value))
+				{
+					this._GPA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Subjects", DbType="NVarChar(500)")]
+		public string Subjects
+		{
+			get
+			{
+				return this._Subjects;
+			}
+			set
+			{
+				if ((this._Subjects != value))
+				{
+					this._Subjects = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FormTeach", DbType="NVarChar(500)")]
+		public string FormTeach
+		{
+			get
+			{
+				return this._FormTeach;
+			}
+			set
+			{
+				if ((this._FormTeach != value))
+				{
+					this._FormTeach = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeSupport", DbType="NVarChar(MAX)")]
+		public string TimeSupport
+		{
+			get
+			{
+				return this._TimeSupport;
+			}
+			set
+			{
+				if ((this._TimeSupport != value))
+				{
+					this._TimeSupport = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Experience", DbType="NVarChar(MAX)")]
+		public string Experience
+		{
+			get
+			{
+				return this._Experience;
+			}
+			set
+			{
+				if ((this._Experience != value))
+				{
+					this._Experience = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Achievement", DbType="NVarChar(MAX)")]
+		public string Achievement
+		{
+			get
+			{
+				return this._Achievement;
+			}
+			set
+			{
+				if ((this._Achievement != value))
+				{
+					this._Achievement = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Apply", DbType="NVarChar(MAX)")]
+		public string Apply
+		{
+			get
+			{
+				return this._Apply;
+			}
+			set
+			{
+				if ((this._Apply != value))
+				{
+					this._Apply = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Teaching", DbType="NVarChar(MAX)")]
+		public string Teaching
+		{
+			get
+			{
+				return this._Teaching;
+			}
+			set
+			{
+				if ((this._Teaching != value))
+				{
+					this._Teaching = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Done", DbType="NVarChar(MAX)")]
+		public string Done
+		{
+			get
+			{
+				return this._Done;
+			}
+			set
+			{
+				if ((this._Done != value))
+				{
+					this._Done = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InfoMore", DbType="NVarChar(50)")]
+		public string InfoMore
+		{
+			get
+			{
+				return this._InfoMore;
+			}
+			set
+			{
+				if ((this._InfoMore != value))
+				{
+					this._InfoMore = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Level]", Storage="_Level", DbType="NVarChar(100)")]
+		public string Level
+		{
+			get
+			{
+				return this._Level;
+			}
+			set
+			{
+				if ((this._Level != value))
+				{
+					this._Level = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SexStudent", DbType="NVarChar(400)")]
+		public string SexStudent
+		{
+			get
+			{
+				return this._SexStudent;
+			}
+			set
+			{
+				if ((this._SexStudent != value))
+				{
+					this._SexStudent = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ParentComment", DbType="NVarChar(MAX)")]
+		public string ParentComment
+		{
+			get
+			{
+				return this._ParentComment;
+			}
+			set
+			{
+				if ((this._ParentComment != value))
+				{
+					this._ParentComment = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderID", DbType="BigInt")]
+		public System.Nullable<long> OrderID
+		{
+			get
+			{
+				return this._OrderID;
+			}
+			set
+			{
+				if ((this._OrderID != value))
+				{
+					this._OrderID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GS_GetStudentByDistanceResult
+	{
+		
+		private int _RowID;
+		
+		private string _StudentID;
+		
+		private string _Address;
+		
+		private string _StudentName;
+		
+		private string _Email;
+		
+		private string _City;
+		
+		private string _District;
+		
+		private string _Ward;
+		
+		private string _Phone;
+		
+		private string _Latitude;
+		
+		private string _Longitude;
+		
+		private string _OtherEmail;
+		
+		private string _Type;
+		
+		private string _TypeHome;
+		
+		private System.Nullable<int> _Status;
+		
+		private string _CPA;
+		
+		private string _GPA;
+		
+		private string _Subjects;
+		
+		private string _FormTeach;
+		
+		private string _TimeSupport;
+		
+		private string _Experience;
+		
+		private string _Achievement;
+		
+		private string _Apply;
+		
+		private string _Teaching;
+		
+		private string _Done;
+		
+		private string _InfoMore;
+		
+		private string _Level;
+		
+		private string _SexStudent;
+		
+		private string _ParentComment;
+		
+		private System.Nullable<double> _Distance;
+		
+		public GS_GetStudentByDistanceResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RowID", DbType="Int NOT NULL")]
+		public int RowID
+		{
+			get
+			{
+				return this._RowID;
+			}
+			set
+			{
+				if ((this._RowID != value))
+				{
+					this._RowID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StudentID", DbType="NVarChar(10) NOT NULL", CanBeNull=false)]
+		public string StudentID
+		{
+			get
+			{
+				return this._StudentID;
+			}
+			set
+			{
+				if ((this._StudentID != value))
+				{
+					this._StudentID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="NVarChar(400)")]
+		public string Address
+		{
+			get
+			{
+				return this._Address;
+			}
+			set
+			{
+				if ((this._Address != value))
+				{
+					this._Address = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StudentName", DbType="NVarChar(250)")]
+		public string StudentName
+		{
+			get
+			{
+				return this._StudentName;
+			}
+			set
+			{
+				if ((this._StudentName != value))
+				{
+					this._StudentName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(150)")]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this._Email = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_City", DbType="NVarChar(250)")]
+		public string City
+		{
+			get
+			{
+				return this._City;
+			}
+			set
+			{
+				if ((this._City != value))
+				{
+					this._City = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_District", DbType="NVarChar(250)")]
+		public string District
+		{
+			get
+			{
+				return this._District;
+			}
+			set
+			{
+				if ((this._District != value))
+				{
+					this._District = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ward", DbType="NVarChar(250)")]
+		public string Ward
+		{
+			get
+			{
+				return this._Ward;
+			}
+			set
+			{
+				if ((this._Ward != value))
+				{
+					this._Ward = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Phone", DbType="NVarChar(50)")]
+		public string Phone
+		{
+			get
+			{
+				return this._Phone;
+			}
+			set
+			{
+				if ((this._Phone != value))
+				{
+					this._Phone = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Latitude", DbType="NVarChar(50)")]
+		public string Latitude
+		{
+			get
+			{
+				return this._Latitude;
+			}
+			set
+			{
+				if ((this._Latitude != value))
+				{
+					this._Latitude = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Longitude", DbType="NVarChar(50)")]
+		public string Longitude
+		{
+			get
+			{
+				return this._Longitude;
+			}
+			set
+			{
+				if ((this._Longitude != value))
+				{
+					this._Longitude = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OtherEmail", DbType="NVarChar(150)")]
+		public string OtherEmail
+		{
+			get
+			{
+				return this._OtherEmail;
+			}
+			set
+			{
+				if ((this._OtherEmail != value))
+				{
+					this._OtherEmail = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Type", DbType="NVarChar(50)")]
+		public string Type
+		{
+			get
+			{
+				return this._Type;
+			}
+			set
+			{
+				if ((this._Type != value))
+				{
+					this._Type = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TypeHome", DbType="NVarChar(50)")]
+		public string TypeHome
+		{
+			get
+			{
+				return this._TypeHome;
+			}
+			set
+			{
+				if ((this._TypeHome != value))
+				{
+					this._TypeHome = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int")]
+		public System.Nullable<int> Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this._Status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CPA", DbType="NVarChar(50)")]
+		public string CPA
+		{
+			get
+			{
+				return this._CPA;
+			}
+			set
+			{
+				if ((this._CPA != value))
+				{
+					this._CPA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GPA", DbType="NVarChar(50)")]
+		public string GPA
+		{
+			get
+			{
+				return this._GPA;
+			}
+			set
+			{
+				if ((this._GPA != value))
+				{
+					this._GPA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Subjects", DbType="NVarChar(500)")]
+		public string Subjects
+		{
+			get
+			{
+				return this._Subjects;
+			}
+			set
+			{
+				if ((this._Subjects != value))
+				{
+					this._Subjects = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FormTeach", DbType="NVarChar(500)")]
+		public string FormTeach
+		{
+			get
+			{
+				return this._FormTeach;
+			}
+			set
+			{
+				if ((this._FormTeach != value))
+				{
+					this._FormTeach = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeSupport", DbType="NVarChar(MAX)")]
+		public string TimeSupport
+		{
+			get
+			{
+				return this._TimeSupport;
+			}
+			set
+			{
+				if ((this._TimeSupport != value))
+				{
+					this._TimeSupport = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Experience", DbType="NVarChar(MAX)")]
+		public string Experience
+		{
+			get
+			{
+				return this._Experience;
+			}
+			set
+			{
+				if ((this._Experience != value))
+				{
+					this._Experience = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Achievement", DbType="NVarChar(MAX)")]
+		public string Achievement
+		{
+			get
+			{
+				return this._Achievement;
+			}
+			set
+			{
+				if ((this._Achievement != value))
+				{
+					this._Achievement = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Apply", DbType="NVarChar(MAX)")]
+		public string Apply
+		{
+			get
+			{
+				return this._Apply;
+			}
+			set
+			{
+				if ((this._Apply != value))
+				{
+					this._Apply = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Teaching", DbType="NVarChar(MAX)")]
+		public string Teaching
+		{
+			get
+			{
+				return this._Teaching;
+			}
+			set
+			{
+				if ((this._Teaching != value))
+				{
+					this._Teaching = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Done", DbType="NVarChar(MAX)")]
+		public string Done
+		{
+			get
+			{
+				return this._Done;
+			}
+			set
+			{
+				if ((this._Done != value))
+				{
+					this._Done = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InfoMore", DbType="NVarChar(50)")]
+		public string InfoMore
+		{
+			get
+			{
+				return this._InfoMore;
+			}
+			set
+			{
+				if ((this._InfoMore != value))
+				{
+					this._InfoMore = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Level]", Storage="_Level", DbType="NVarChar(100)")]
+		public string Level
+		{
+			get
+			{
+				return this._Level;
+			}
+			set
+			{
+				if ((this._Level != value))
+				{
+					this._Level = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SexStudent", DbType="NVarChar(400)")]
+		public string SexStudent
+		{
+			get
+			{
+				return this._SexStudent;
+			}
+			set
+			{
+				if ((this._SexStudent != value))
+				{
+					this._SexStudent = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ParentComment", DbType="NVarChar(MAX)")]
+		public string ParentComment
+		{
+			get
+			{
+				return this._ParentComment;
+			}
+			set
+			{
+				if ((this._ParentComment != value))
+				{
+					this._ParentComment = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Distance", DbType="Float")]
+		public System.Nullable<double> Distance
+		{
+			get
+			{
+				return this._Distance;
+			}
+			set
+			{
+				if ((this._Distance != value))
+				{
+					this._Distance = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GS_GetStudentLstResult
+	{
+		
+		private int _RowID;
+		
+		private string _StudentID;
+		
+		private string _StudentName;
+		
+		private string _Phone;
+		
+		private string _Address;
+		
+		private string _Radius;
+		
+		private string _FormTeach;
+		
+		private string _InfoMore;
+		
+		private string _Level;
+		
+		private string _Longitude;
+		
+		private string _Latitude;
+		
+		private string _Need;
+		
+		private string _SexStudent;
+		
+		private string _Perpose;
+		
+		private string _NameSupports;
+		
+		private string _Subjects;
+		
+		private string _TimeSupport;
+		
+		private string _SkillSupport;
+		
+		private string _District;
+		
+		private string _City;
+		
+		private string _Ward;
+		
+		private System.Nullable<int> _Status;
+		
+		private System.Nullable<System.DateTime> _TimeCreate;
+		
+		private System.Nullable<System.DateTime> _TimeModify;
+		
+		private string _ModifierID;
+		
+		private string _Email;
+		
+		private string _SelectSchool;
+		
+		private string _Achievement;
+		
+		private string _Experience;
+		
+		private string _ReqStudentID;
+		
+		private System.Nullable<int> _TotalRows;
+		
+		public GS_GetStudentLstResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RowID", DbType="Int NOT NULL")]
+		public int RowID
+		{
+			get
+			{
+				return this._RowID;
+			}
+			set
+			{
+				if ((this._RowID != value))
+				{
+					this._RowID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StudentID", DbType="NVarChar(50)")]
+		public string StudentID
+		{
+			get
+			{
+				return this._StudentID;
+			}
+			set
+			{
+				if ((this._StudentID != value))
+				{
+					this._StudentID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StudentName", DbType="NVarChar(450)")]
+		public string StudentName
+		{
+			get
+			{
+				return this._StudentName;
+			}
+			set
+			{
+				if ((this._StudentName != value))
+				{
+					this._StudentName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Phone", DbType="NVarChar(150)")]
+		public string Phone
+		{
+			get
+			{
+				return this._Phone;
+			}
+			set
+			{
+				if ((this._Phone != value))
+				{
+					this._Phone = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="NVarChar(450)")]
+		public string Address
+		{
+			get
+			{
+				return this._Address;
+			}
+			set
+			{
+				if ((this._Address != value))
+				{
+					this._Address = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Radius", DbType="NVarChar(50)")]
+		public string Radius
+		{
+			get
+			{
+				return this._Radius;
+			}
+			set
+			{
+				if ((this._Radius != value))
+				{
+					this._Radius = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FormTeach", DbType="NVarChar(500)")]
+		public string FormTeach
+		{
+			get
+			{
+				return this._FormTeach;
+			}
+			set
+			{
+				if ((this._FormTeach != value))
+				{
+					this._FormTeach = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InfoMore", DbType="NVarChar(50)")]
+		public string InfoMore
+		{
+			get
+			{
+				return this._InfoMore;
+			}
+			set
+			{
+				if ((this._InfoMore != value))
+				{
+					this._InfoMore = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Level]", Storage="_Level", DbType="NVarChar(100)")]
+		public string Level
+		{
+			get
+			{
+				return this._Level;
+			}
+			set
+			{
+				if ((this._Level != value))
+				{
+					this._Level = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Longitude", DbType="NVarChar(100)")]
+		public string Longitude
+		{
+			get
+			{
+				return this._Longitude;
+			}
+			set
+			{
+				if ((this._Longitude != value))
+				{
+					this._Longitude = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Latitude", DbType="NVarChar(100)")]
+		public string Latitude
+		{
+			get
+			{
+				return this._Latitude;
+			}
+			set
+			{
+				if ((this._Latitude != value))
+				{
+					this._Latitude = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Need", DbType="NVarChar(50)")]
+		public string Need
+		{
+			get
+			{
+				return this._Need;
+			}
+			set
+			{
+				if ((this._Need != value))
+				{
+					this._Need = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SexStudent", DbType="NVarChar(400)")]
+		public string SexStudent
+		{
+			get
+			{
+				return this._SexStudent;
+			}
+			set
+			{
+				if ((this._SexStudent != value))
+				{
+					this._SexStudent = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Perpose", DbType="NVarChar(1000)")]
+		public string Perpose
+		{
+			get
+			{
+				return this._Perpose;
+			}
+			set
+			{
+				if ((this._Perpose != value))
+				{
+					this._Perpose = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NameSupports", DbType="NVarChar(MAX)")]
+		public string NameSupports
+		{
+			get
+			{
+				return this._NameSupports;
+			}
+			set
+			{
+				if ((this._NameSupports != value))
+				{
+					this._NameSupports = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Subjects", DbType="NVarChar(500)")]
+		public string Subjects
+		{
+			get
+			{
+				return this._Subjects;
+			}
+			set
+			{
+				if ((this._Subjects != value))
+				{
+					this._Subjects = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeSupport", DbType="NVarChar(MAX)")]
+		public string TimeSupport
+		{
+			get
+			{
+				return this._TimeSupport;
+			}
+			set
+			{
+				if ((this._TimeSupport != value))
+				{
+					this._TimeSupport = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SkillSupport", DbType="NVarChar(500)")]
+		public string SkillSupport
+		{
+			get
+			{
+				return this._SkillSupport;
+			}
+			set
+			{
+				if ((this._SkillSupport != value))
+				{
+					this._SkillSupport = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_District", DbType="NVarChar(150)")]
+		public string District
+		{
+			get
+			{
+				return this._District;
+			}
+			set
+			{
+				if ((this._District != value))
+				{
+					this._District = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_City", DbType="NVarChar(150)")]
+		public string City
+		{
+			get
+			{
+				return this._City;
+			}
+			set
+			{
+				if ((this._City != value))
+				{
+					this._City = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ward", DbType="NVarChar(150)")]
+		public string Ward
+		{
+			get
+			{
+				return this._Ward;
+			}
+			set
+			{
+				if ((this._Ward != value))
+				{
+					this._Ward = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int")]
+		public System.Nullable<int> Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this._Status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeCreate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> TimeCreate
+		{
+			get
+			{
+				return this._TimeCreate;
+			}
+			set
+			{
+				if ((this._TimeCreate != value))
+				{
+					this._TimeCreate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeModify", DbType="DateTime")]
+		public System.Nullable<System.DateTime> TimeModify
+		{
+			get
+			{
+				return this._TimeModify;
+			}
+			set
+			{
+				if ((this._TimeModify != value))
+				{
+					this._TimeModify = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifierID", DbType="NVarChar(50)")]
+		public string ModifierID
+		{
+			get
+			{
+				return this._ModifierID;
+			}
+			set
+			{
+				if ((this._ModifierID != value))
+				{
+					this._ModifierID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(150)")]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this._Email = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SelectSchool", DbType="NVarChar(50)")]
+		public string SelectSchool
+		{
+			get
+			{
+				return this._SelectSchool;
+			}
+			set
+			{
+				if ((this._SelectSchool != value))
+				{
+					this._SelectSchool = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Achievement", DbType="NVarChar(MAX)")]
+		public string Achievement
+		{
+			get
+			{
+				return this._Achievement;
+			}
+			set
+			{
+				if ((this._Achievement != value))
+				{
+					this._Achievement = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Experience", DbType="NVarChar(MAX)")]
+		public string Experience
+		{
+			get
+			{
+				return this._Experience;
+			}
+			set
+			{
+				if ((this._Experience != value))
+				{
+					this._Experience = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReqStudentID", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string ReqStudentID
+		{
+			get
+			{
+				return this._ReqStudentID;
+			}
+			set
+			{
+				if ((this._ReqStudentID != value))
+				{
+					this._ReqStudentID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalRows", DbType="Int")]
+		public System.Nullable<int> TotalRows
+		{
+			get
+			{
+				return this._TotalRows;
+			}
+			set
+			{
+				if ((this._TotalRows != value))
+				{
+					this._TotalRows = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GS_GetStudentLst2Result
+	{
+		
+		private int _RowID;
+		
+		private string _StudentID;
+		
+		private string _StudentName;
+		
+		private string _Phone;
+		
+		private string _Address;
+		
+		private string _Radius;
+		
+		private string _FormTeach;
+		
+		private string _InfoMore;
+		
+		private string _Level;
+		
+		private string _Longitude;
+		
+		private string _Latitude;
+		
+		private string _Need;
+		
+		private string _SexStudent;
+		
+		private string _Perpose;
+		
+		private string _NameSupports;
+		
+		private string _Subjects;
+		
+		private string _TimeSupport;
+		
+		private string _SkillSupport;
+		
+		private string _District;
+		
+		private string _City;
+		
+		private string _Ward;
+		
+		private System.Nullable<int> _Status;
+		
+		private System.Nullable<System.DateTime> _TimeCreate;
+		
+		private System.Nullable<System.DateTime> _TimeModify;
+		
+		private string _ModifierID;
+		
+		private string _Email;
+		
+		private string _SelectSchool;
+		
+		private string _Achievement;
+		
+		private string _Experience;
+		
+		private string _ReqStudentID;
+		
+		private System.Nullable<int> _TotalRows;
+		
+		public GS_GetStudentLst2Result()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RowID", DbType="Int NOT NULL")]
+		public int RowID
+		{
+			get
+			{
+				return this._RowID;
+			}
+			set
+			{
+				if ((this._RowID != value))
+				{
+					this._RowID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StudentID", DbType="NVarChar(50)")]
+		public string StudentID
+		{
+			get
+			{
+				return this._StudentID;
+			}
+			set
+			{
+				if ((this._StudentID != value))
+				{
+					this._StudentID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StudentName", DbType="NVarChar(450)")]
+		public string StudentName
+		{
+			get
+			{
+				return this._StudentName;
+			}
+			set
+			{
+				if ((this._StudentName != value))
+				{
+					this._StudentName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Phone", DbType="NVarChar(150)")]
+		public string Phone
+		{
+			get
+			{
+				return this._Phone;
+			}
+			set
+			{
+				if ((this._Phone != value))
+				{
+					this._Phone = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="NVarChar(450)")]
+		public string Address
+		{
+			get
+			{
+				return this._Address;
+			}
+			set
+			{
+				if ((this._Address != value))
+				{
+					this._Address = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Radius", DbType="NVarChar(50)")]
+		public string Radius
+		{
+			get
+			{
+				return this._Radius;
+			}
+			set
+			{
+				if ((this._Radius != value))
+				{
+					this._Radius = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FormTeach", DbType="NVarChar(500)")]
+		public string FormTeach
+		{
+			get
+			{
+				return this._FormTeach;
+			}
+			set
+			{
+				if ((this._FormTeach != value))
+				{
+					this._FormTeach = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InfoMore", DbType="NVarChar(50)")]
+		public string InfoMore
+		{
+			get
+			{
+				return this._InfoMore;
+			}
+			set
+			{
+				if ((this._InfoMore != value))
+				{
+					this._InfoMore = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Level]", Storage="_Level", DbType="NVarChar(100)")]
+		public string Level
+		{
+			get
+			{
+				return this._Level;
+			}
+			set
+			{
+				if ((this._Level != value))
+				{
+					this._Level = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Longitude", DbType="NVarChar(100)")]
+		public string Longitude
+		{
+			get
+			{
+				return this._Longitude;
+			}
+			set
+			{
+				if ((this._Longitude != value))
+				{
+					this._Longitude = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Latitude", DbType="NVarChar(100)")]
+		public string Latitude
+		{
+			get
+			{
+				return this._Latitude;
+			}
+			set
+			{
+				if ((this._Latitude != value))
+				{
+					this._Latitude = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Need", DbType="NVarChar(50)")]
+		public string Need
+		{
+			get
+			{
+				return this._Need;
+			}
+			set
+			{
+				if ((this._Need != value))
+				{
+					this._Need = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SexStudent", DbType="NVarChar(400)")]
+		public string SexStudent
+		{
+			get
+			{
+				return this._SexStudent;
+			}
+			set
+			{
+				if ((this._SexStudent != value))
+				{
+					this._SexStudent = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Perpose", DbType="NVarChar(1000)")]
+		public string Perpose
+		{
+			get
+			{
+				return this._Perpose;
+			}
+			set
+			{
+				if ((this._Perpose != value))
+				{
+					this._Perpose = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NameSupports", DbType="NVarChar(MAX)")]
+		public string NameSupports
+		{
+			get
+			{
+				return this._NameSupports;
+			}
+			set
+			{
+				if ((this._NameSupports != value))
+				{
+					this._NameSupports = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Subjects", DbType="NVarChar(500)")]
+		public string Subjects
+		{
+			get
+			{
+				return this._Subjects;
+			}
+			set
+			{
+				if ((this._Subjects != value))
+				{
+					this._Subjects = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeSupport", DbType="NVarChar(MAX)")]
+		public string TimeSupport
+		{
+			get
+			{
+				return this._TimeSupport;
+			}
+			set
+			{
+				if ((this._TimeSupport != value))
+				{
+					this._TimeSupport = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SkillSupport", DbType="NVarChar(500)")]
+		public string SkillSupport
+		{
+			get
+			{
+				return this._SkillSupport;
+			}
+			set
+			{
+				if ((this._SkillSupport != value))
+				{
+					this._SkillSupport = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_District", DbType="NVarChar(150)")]
+		public string District
+		{
+			get
+			{
+				return this._District;
+			}
+			set
+			{
+				if ((this._District != value))
+				{
+					this._District = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_City", DbType="NVarChar(150)")]
+		public string City
+		{
+			get
+			{
+				return this._City;
+			}
+			set
+			{
+				if ((this._City != value))
+				{
+					this._City = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ward", DbType="NVarChar(150)")]
+		public string Ward
+		{
+			get
+			{
+				return this._Ward;
+			}
+			set
+			{
+				if ((this._Ward != value))
+				{
+					this._Ward = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int")]
+		public System.Nullable<int> Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this._Status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeCreate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> TimeCreate
+		{
+			get
+			{
+				return this._TimeCreate;
+			}
+			set
+			{
+				if ((this._TimeCreate != value))
+				{
+					this._TimeCreate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeModify", DbType="DateTime")]
+		public System.Nullable<System.DateTime> TimeModify
+		{
+			get
+			{
+				return this._TimeModify;
+			}
+			set
+			{
+				if ((this._TimeModify != value))
+				{
+					this._TimeModify = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifierID", DbType="NVarChar(50)")]
+		public string ModifierID
+		{
+			get
+			{
+				return this._ModifierID;
+			}
+			set
+			{
+				if ((this._ModifierID != value))
+				{
+					this._ModifierID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(150)")]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this._Email = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SelectSchool", DbType="NVarChar(50)")]
+		public string SelectSchool
+		{
+			get
+			{
+				return this._SelectSchool;
+			}
+			set
+			{
+				if ((this._SelectSchool != value))
+				{
+					this._SelectSchool = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Achievement", DbType="NVarChar(MAX)")]
+		public string Achievement
+		{
+			get
+			{
+				return this._Achievement;
+			}
+			set
+			{
+				if ((this._Achievement != value))
+				{
+					this._Achievement = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Experience", DbType="NVarChar(MAX)")]
+		public string Experience
+		{
+			get
+			{
+				return this._Experience;
+			}
+			set
+			{
+				if ((this._Experience != value))
+				{
+					this._Experience = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReqStudentID", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string ReqStudentID
+		{
+			get
+			{
+				return this._ReqStudentID;
+			}
+			set
+			{
+				if ((this._ReqStudentID != value))
+				{
+					this._ReqStudentID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalRows", DbType="Int")]
+		public System.Nullable<int> TotalRows
+		{
+			get
+			{
+				return this._TotalRows;
+			}
+			set
+			{
+				if ((this._TotalRows != value))
+				{
+					this._TotalRows = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GS_SearchStudentResult
+	{
+		
+		private int _RowID;
+		
+		private string _StudentID;
+		
+		private string _Address;
+		
+		private string _StudentName;
+		
+		private string _Email;
+		
+		private string _City;
+		
+		private string _District;
+		
+		private string _Ward;
+		
+		private string _Phone;
+		
+		private string _Latitude;
+		
+		private string _Longitude;
+		
+		private string _OtherEmail;
+		
+		private string _Type;
+		
+		private string _TypeHome;
+		
+		private System.Nullable<int> _Status;
+		
+		private string _CPA;
+		
+		private string _GPA;
+		
+		private string _Subjects;
+		
+		private string _FormTeach;
+		
+		private string _TimeSupport;
+		
+		private string _Experience;
+		
+		private string _Achievement;
+		
+		private string _Apply;
+		
+		private string _Teaching;
+		
+		private string _Done;
+		
+		private string _InfoMore;
+		
+		private string _Level;
+		
+		private string _SexStudent;
+		
+		private string _ParentComment;
+		
+		private System.Nullable<double> _Distance;
+		
+		public GS_SearchStudentResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RowID", DbType="Int NOT NULL")]
+		public int RowID
+		{
+			get
+			{
+				return this._RowID;
+			}
+			set
+			{
+				if ((this._RowID != value))
+				{
+					this._RowID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StudentID", DbType="NVarChar(10) NOT NULL", CanBeNull=false)]
+		public string StudentID
+		{
+			get
+			{
+				return this._StudentID;
+			}
+			set
+			{
+				if ((this._StudentID != value))
+				{
+					this._StudentID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="NVarChar(400)")]
+		public string Address
+		{
+			get
+			{
+				return this._Address;
+			}
+			set
+			{
+				if ((this._Address != value))
+				{
+					this._Address = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StudentName", DbType="NVarChar(250)")]
+		public string StudentName
+		{
+			get
+			{
+				return this._StudentName;
+			}
+			set
+			{
+				if ((this._StudentName != value))
+				{
+					this._StudentName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(150)")]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this._Email = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_City", DbType="NVarChar(250)")]
+		public string City
+		{
+			get
+			{
+				return this._City;
+			}
+			set
+			{
+				if ((this._City != value))
+				{
+					this._City = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_District", DbType="NVarChar(250)")]
+		public string District
+		{
+			get
+			{
+				return this._District;
+			}
+			set
+			{
+				if ((this._District != value))
+				{
+					this._District = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ward", DbType="NVarChar(250)")]
+		public string Ward
+		{
+			get
+			{
+				return this._Ward;
+			}
+			set
+			{
+				if ((this._Ward != value))
+				{
+					this._Ward = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Phone", DbType="NVarChar(50)")]
+		public string Phone
+		{
+			get
+			{
+				return this._Phone;
+			}
+			set
+			{
+				if ((this._Phone != value))
+				{
+					this._Phone = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Latitude", DbType="NVarChar(50)")]
+		public string Latitude
+		{
+			get
+			{
+				return this._Latitude;
+			}
+			set
+			{
+				if ((this._Latitude != value))
+				{
+					this._Latitude = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Longitude", DbType="NVarChar(50)")]
+		public string Longitude
+		{
+			get
+			{
+				return this._Longitude;
+			}
+			set
+			{
+				if ((this._Longitude != value))
+				{
+					this._Longitude = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OtherEmail", DbType="NVarChar(150)")]
+		public string OtherEmail
+		{
+			get
+			{
+				return this._OtherEmail;
+			}
+			set
+			{
+				if ((this._OtherEmail != value))
+				{
+					this._OtherEmail = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Type", DbType="NVarChar(50)")]
+		public string Type
+		{
+			get
+			{
+				return this._Type;
+			}
+			set
+			{
+				if ((this._Type != value))
+				{
+					this._Type = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TypeHome", DbType="NVarChar(50)")]
+		public string TypeHome
+		{
+			get
+			{
+				return this._TypeHome;
+			}
+			set
+			{
+				if ((this._TypeHome != value))
+				{
+					this._TypeHome = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int")]
+		public System.Nullable<int> Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this._Status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CPA", DbType="NVarChar(50)")]
+		public string CPA
+		{
+			get
+			{
+				return this._CPA;
+			}
+			set
+			{
+				if ((this._CPA != value))
+				{
+					this._CPA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GPA", DbType="NVarChar(50)")]
+		public string GPA
+		{
+			get
+			{
+				return this._GPA;
+			}
+			set
+			{
+				if ((this._GPA != value))
+				{
+					this._GPA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Subjects", DbType="NVarChar(500)")]
+		public string Subjects
+		{
+			get
+			{
+				return this._Subjects;
+			}
+			set
+			{
+				if ((this._Subjects != value))
+				{
+					this._Subjects = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FormTeach", DbType="NVarChar(500)")]
+		public string FormTeach
+		{
+			get
+			{
+				return this._FormTeach;
+			}
+			set
+			{
+				if ((this._FormTeach != value))
+				{
+					this._FormTeach = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeSupport", DbType="NVarChar(MAX)")]
+		public string TimeSupport
+		{
+			get
+			{
+				return this._TimeSupport;
+			}
+			set
+			{
+				if ((this._TimeSupport != value))
+				{
+					this._TimeSupport = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Experience", DbType="NVarChar(MAX)")]
+		public string Experience
+		{
+			get
+			{
+				return this._Experience;
+			}
+			set
+			{
+				if ((this._Experience != value))
+				{
+					this._Experience = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Achievement", DbType="NVarChar(MAX)")]
+		public string Achievement
+		{
+			get
+			{
+				return this._Achievement;
+			}
+			set
+			{
+				if ((this._Achievement != value))
+				{
+					this._Achievement = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Apply", DbType="NVarChar(MAX)")]
+		public string Apply
+		{
+			get
+			{
+				return this._Apply;
+			}
+			set
+			{
+				if ((this._Apply != value))
+				{
+					this._Apply = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Teaching", DbType="NVarChar(MAX)")]
+		public string Teaching
+		{
+			get
+			{
+				return this._Teaching;
+			}
+			set
+			{
+				if ((this._Teaching != value))
+				{
+					this._Teaching = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Done", DbType="NVarChar(MAX)")]
+		public string Done
+		{
+			get
+			{
+				return this._Done;
+			}
+			set
+			{
+				if ((this._Done != value))
+				{
+					this._Done = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InfoMore", DbType="NVarChar(50)")]
+		public string InfoMore
+		{
+			get
+			{
+				return this._InfoMore;
+			}
+			set
+			{
+				if ((this._InfoMore != value))
+				{
+					this._InfoMore = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Level]", Storage="_Level", DbType="NVarChar(100)")]
+		public string Level
+		{
+			get
+			{
+				return this._Level;
+			}
+			set
+			{
+				if ((this._Level != value))
+				{
+					this._Level = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SexStudent", DbType="NVarChar(400)")]
+		public string SexStudent
+		{
+			get
+			{
+				return this._SexStudent;
+			}
+			set
+			{
+				if ((this._SexStudent != value))
+				{
+					this._SexStudent = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ParentComment", DbType="NVarChar(MAX)")]
+		public string ParentComment
+		{
+			get
+			{
+				return this._ParentComment;
+			}
+			set
+			{
+				if ((this._ParentComment != value))
+				{
+					this._ParentComment = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Distance", DbType="Float")]
+		public System.Nullable<double> Distance
+		{
+			get
+			{
+				return this._Distance;
+			}
+			set
+			{
+				if ((this._Distance != value))
+				{
+					this._Distance = value;
 				}
 			}
 		}

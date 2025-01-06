@@ -54,6 +54,7 @@ namespace GiaSuBK.BLL
                             var studentInfo = new GSStudentInfo
                             {
                                 RowID = p.RowID,
+                                ReqStudentID = p.ReqStudentID,
                                 StudentID = p.StudentID,
                                 StudentName = p.StudentName,
                                 Phone = p.Phone,
