@@ -3843,6 +3843,8 @@ namespace GiaSuBK.MD.GiaSuBKMessages
         
         private string RespTextField;
         
+        private int TotalApplyNumberField;
+        
         private GiaSuBK.MD.GiaSuBKMessages.StudentBasicList StudentListField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
@@ -3883,7 +3885,20 @@ namespace GiaSuBK.MD.GiaSuBKMessages
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int TotalApplyNumber
+        {
+            get
+            {
+                return this.TotalApplyNumberField;
+            }
+            set
+            {
+                this.TotalApplyNumberField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=3)]
         public GiaSuBK.MD.GiaSuBKMessages.StudentBasicList StudentList
         {
             get

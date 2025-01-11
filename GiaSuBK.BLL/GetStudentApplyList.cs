@@ -42,6 +42,17 @@ namespace GiaSuBK.BLL
                         return objRes;
                     }
 
+                    var existClass = db.GS_Classes.FirstOrDefault(p => p.ClassID == objReq.ClassID);
+                    if(existClass == null)
+                    {
+                        objRes.RespCode = -2;
+                        objRes.RespText = "No exist Class";
+                        Log.Warn($"[{objRes.RespCode}:{objRes.RespText}]");
+                        return objRes;
+                    }
+
+                    objRes.TotalApplyNumber = (int)existClass.NumberApply;
+
                     // Fetch Student List
                     var studentListData = db.GS_GetStudentApplyClass(objReq.ClassID).ToList();
 

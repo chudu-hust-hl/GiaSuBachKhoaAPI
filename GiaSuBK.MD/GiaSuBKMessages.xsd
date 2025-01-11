@@ -381,6 +381,7 @@
 		<xs:sequence>
 			<xs:element name="RespCode" type="xs:int" />
 			<xs:element name="RespText" type="xs:string" />
+			<xs:element name="TotalApplyNumber" type="xs:int" />
 			<xs:element name="StudentList" type="mstns:StudentBasicList"/>
 		</xs:sequence>
 	</xs:complexType>
