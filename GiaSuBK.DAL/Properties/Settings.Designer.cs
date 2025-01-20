@@ -27,7 +27,7 @@ namespace GiaSuBK.DAL.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=202.191.56.71;Initial Catalog=GiaSuBK;Persist Security Info=True;User" +
-            " ID=dungnt;Password=Trungdung&2474")]
+            " ID=dungnt;Password=aB3#xY8!kL2z")]
         public string GiaSuBKConnectionString {
             get {
                 return ((string)(this["GiaSuBKConnectionString"]));
