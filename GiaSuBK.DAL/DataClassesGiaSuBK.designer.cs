@@ -63,9 +63,6 @@ namespace GiaSuBK.DAL
     partial void InsertGS_Student(GS_Student instance);
     partial void UpdateGS_Student(GS_Student instance);
     partial void DeleteGS_Student(GS_Student instance);
-    partial void InsertGS_ZaloUserInfo(GS_ZaloUserInfo instance);
-    partial void UpdateGS_ZaloUserInfo(GS_ZaloUserInfo instance);
-    partial void DeleteGS_ZaloUserInfo(GS_ZaloUserInfo instance);
     partial void InsertUser(User instance);
     partial void UpdateUser(User instance);
     partial void DeleteUser(User instance);
@@ -208,14 +205,6 @@ namespace GiaSuBK.DAL
 			}
 		}
 		
-		public System.Data.Linq.Table<GS_ZaloUserInfo> GS_ZaloUserInfos
-		{
-			get
-			{
-				return this.GetTable<GS_ZaloUserInfo>();
-			}
-		}
-		
 		public System.Data.Linq.Table<User> Users
 		{
 			get
@@ -232,6 +221,14 @@ namespace GiaSuBK.DAL
 			}
 		}
 		
+		public System.Data.Linq.Table<GS_ZaloUserInfo> GS_ZaloUserInfos
+		{
+			get
+			{
+				return this.GetTable<GS_ZaloUserInfo>();
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetCommune")]
 		public ISingleResult<GetCommuneResult> GetCommune([global::System.Data.Linq.Mapping.ParameterAttribute(Name="City", DbType="NVarChar(50)")] string city, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="District", DbType="NVarChar(50)")] string district)
 		{
@@ -239,10 +236,10 @@ namespace GiaSuBK.DAL
 			return ((ISingleResult<GetCommuneResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MAIL_StudentReceivedMoney")]
-		public void MAIL_StudentReceivedMoney([global::System.Data.Linq.Mapping.ParameterAttribute(Name="StudentName", DbType="NVarChar(250)")] string studentName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StudentID", DbType="NVarChar(50)")] string studentID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(250)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Area", DbType="NVarChar(500)")] string area, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Address", DbType="NVarChar(500)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MotelType", DbType="NVarChar(250)")] string motelType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="QuantityP", DbType="Int")] System.Nullable<int> quantityP, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PriceMax", DbType="NVarChar(50)")] string priceMax, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PrintMin", DbType="NVarChar(50)")] string printMin, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Require", DbType="NVarChar(250)")] string require, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IsGroup", DbType="NVarChar(50)")] string isGroup, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BillCode", DbType="NVarChar(10)")] string billCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Radius", DbType="NVarChar(10)")] string radius)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MAIL_StudentReceivedMoney", IsComposable=true)]
+		public object MAIL_StudentReceivedMoney([global::System.Data.Linq.Mapping.ParameterAttribute(Name="StudentName", DbType="NVarChar(250)")] string studentName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StudentID", DbType="NVarChar(50)")] string studentID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(250)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Area", DbType="NVarChar(500)")] string area, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Address", DbType="NVarChar(500)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MotelType", DbType="NVarChar(250)")] string motelType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="QuantityP", DbType="Int")] System.Nullable<int> quantityP, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PriceMax", DbType="NVarChar(50)")] string priceMax, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PrintMin", DbType="NVarChar(50)")] string printMin, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Require", DbType="NVarChar(250)")] string require, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IsGroup", DbType="NVarChar(50)")] string isGroup, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BillCode", DbType="NVarChar(10)")] string billCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Radius", DbType="NVarChar(10)")] string radius)
 		{
-			this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), studentName, studentID, email, area, address, motelType, quantityP, priceMax, printMin, require, isGroup, billCode, radius);
+			return ((object)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), studentName, studentID, email, area, address, motelType, quantityP, priceMax, printMin, require, isGroup, billCode, radius).ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetDistrict")]
@@ -301,10 +298,10 @@ namespace GiaSuBK.DAL
 			return ((ISingleResult<GS_GetStudentByDistanceResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GS_GetStudentByReqParentID")]
-		public void GS_GetStudentByReqParentID([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ReqParentID", DbType="NVarChar(50)")] string reqParentID)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GS_GetStudentByReqParentID", IsComposable=true)]
+		public object GS_GetStudentByReqParentID([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ReqParentID", DbType="NVarChar(50)")] string reqParentID)
 		{
-			this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), reqParentID);
+			return ((object)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), reqParentID).ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GS_GetStudentLst")]
@@ -321,10 +318,10 @@ namespace GiaSuBK.DAL
 			return ((ISingleResult<GS_GetStudentLst2Result>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GS_GetStudentMotelResgisterLst")]
-		public void GS_GetStudentMotelResgisterLst([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PageNumber", DbType="Int")] System.Nullable<int> pageNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RowspPage", DbType="Int")] System.Nullable<int> rowspPage, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Search", DbType="NVarChar(100)")] string search)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GS_GetStudentMotelResgisterLst", IsComposable=true)]
+		public object GS_GetStudentMotelResgisterLst([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PageNumber", DbType="Int")] System.Nullable<int> pageNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RowspPage", DbType="Int")] System.Nullable<int> rowspPage, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Search", DbType="NVarChar(100)")] string search)
 		{
-			this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), pageNumber, rowspPage, search);
+			return ((object)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), pageNumber, rowspPage, search).ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GS_SearchStudent")]
@@ -334,34 +331,34 @@ namespace GiaSuBK.DAL
 			return ((ISingleResult<GS_SearchStudentResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MAIL_SendMailMotelSelected")]
-		public void MAIL_SendMailMotelSelected([global::System.Data.Linq.Mapping.ParameterAttribute(Name="StudentReqID", DbType="Int")] System.Nullable<int> studentReqID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NameStudent", DbType="NVarChar(250)")] string nameStudent, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmailStudent", DbType="NVarChar(250)")] string emailStudent)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MAIL_SendMailMotelSelected", IsComposable=true)]
+		public object MAIL_SendMailMotelSelected([global::System.Data.Linq.Mapping.ParameterAttribute(Name="StudentReqID", DbType="Int")] System.Nullable<int> studentReqID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NameStudent", DbType="NVarChar(250)")] string nameStudent, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmailStudent", DbType="NVarChar(250)")] string emailStudent)
 		{
-			this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), studentReqID, nameStudent, emailStudent);
+			return ((object)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), studentReqID, nameStudent, emailStudent).ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MAIL_SendMailParentReq")]
-		public void MAIL_SendMailParentReq([global::System.Data.Linq.Mapping.ParameterAttribute(Name="NameParent", DbType="NVarChar(250)")] string nameParent, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ValueClass", DbType="NVarChar(50)")] string valueClass, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PhoneEmail", DbType="NVarChar(100)")] string phoneEmail, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AddressParent", DbType="NVarChar(250)")] string addressParent, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Subjects", DbType="NVarChar(250)")] string subjects, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SkillSupport", DbType="NVarChar(250)")] string skillSupport, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TimeSupport", DbType="NVarChar(250)")] string timeSupport, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FormTeach", DbType="NVarChar(50)")] string formTeach)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MAIL_SendMailParentReq", IsComposable=true)]
+		public object MAIL_SendMailParentReq([global::System.Data.Linq.Mapping.ParameterAttribute(Name="NameParent", DbType="NVarChar(250)")] string nameParent, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ValueClass", DbType="NVarChar(50)")] string valueClass, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PhoneEmail", DbType="NVarChar(100)")] string phoneEmail, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AddressParent", DbType="NVarChar(250)")] string addressParent, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Subjects", DbType="NVarChar(250)")] string subjects, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SkillSupport", DbType="NVarChar(250)")] string skillSupport, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TimeSupport", DbType="NVarChar(250)")] string timeSupport, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FormTeach", DbType="NVarChar(50)")] string formTeach)
 		{
-			this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nameParent, valueClass, phoneEmail, addressParent, subjects, skillSupport, timeSupport, formTeach);
+			return ((object)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nameParent, valueClass, phoneEmail, addressParent, subjects, skillSupport, timeSupport, formTeach).ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MAIL_SendMailStudentApply")]
-		public void MAIL_SendMailStudentApply([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ReqParent", DbType="NVarChar(50)")] string reqParent, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StudentID", DbType="NVarChar(50)")] string studentID)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MAIL_SendMailStudentApply", IsComposable=true)]
+		public object MAIL_SendMailStudentApply([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ReqParent", DbType="NVarChar(50)")] string reqParent, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StudentID", DbType="NVarChar(50)")] string studentID)
 		{
-			this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), reqParent, studentID);
+			return ((object)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), reqParent, studentID).ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MAIL_SendMailStudentReq")]
-		public void MAIL_SendMailStudentReq([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Name", DbType="NVarChar(250)")] string name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StudentID", DbType="NVarChar(50)")] string studentID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ValueClass", DbType="NVarChar(50)")] string valueClass, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PhoneEmail", DbType="NVarChar(100)")] string phoneEmail, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Address", DbType="NVarChar(250)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Subjects", DbType="NVarChar(250)")] string subjects, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SkillSupport", DbType="NVarChar(250)")] string skillSupport, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TimeSupport", DbType="NVarChar(250)")] string timeSupport, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FormTeach", DbType="NVarChar(50)")] string formTeach)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MAIL_SendMailStudentReq", IsComposable=true)]
+		public object MAIL_SendMailStudentReq([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Name", DbType="NVarChar(250)")] string name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StudentID", DbType="NVarChar(50)")] string studentID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ValueClass", DbType="NVarChar(50)")] string valueClass, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PhoneEmail", DbType="NVarChar(100)")] string phoneEmail, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Address", DbType="NVarChar(250)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Subjects", DbType="NVarChar(250)")] string subjects, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SkillSupport", DbType="NVarChar(250)")] string skillSupport, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TimeSupport", DbType="NVarChar(250)")] string timeSupport, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FormTeach", DbType="NVarChar(50)")] string formTeach)
 		{
-			this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), name, studentID, valueClass, phoneEmail, address, subjects, skillSupport, timeSupport, formTeach);
+			return ((object)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), name, studentID, valueClass, phoneEmail, address, subjects, skillSupport, timeSupport, formTeach).ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MAIL_StudentConfimMoney")]
-		public void MAIL_StudentConfimMoney([global::System.Data.Linq.Mapping.ParameterAttribute(Name="StudentName", DbType="NVarChar(250)")] string studentName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StudentID", DbType="NVarChar(50)")] string studentID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(250)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Area", DbType="NVarChar(500)")] string area, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Address", DbType="NVarChar(500)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MotelType", DbType="NVarChar(250)")] string motelType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="QuantityP", DbType="Int")] System.Nullable<int> quantityP, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PriceMax", DbType="NVarChar(50)")] string priceMax, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PrintMin", DbType="NVarChar(50)")] string printMin, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Require", DbType="NVarChar(250)")] string require, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IsGroup", DbType="NVarChar(50)")] string isGroup, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BillCode", DbType="NVarChar(10)")] string billCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Radius", DbType="NVarChar(10)")] string radius)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MAIL_StudentConfimMoney", IsComposable=true)]
+		public object MAIL_StudentConfimMoney([global::System.Data.Linq.Mapping.ParameterAttribute(Name="StudentName", DbType="NVarChar(250)")] string studentName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StudentID", DbType="NVarChar(50)")] string studentID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(250)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Area", DbType="NVarChar(500)")] string area, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Address", DbType="NVarChar(500)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MotelType", DbType="NVarChar(250)")] string motelType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="QuantityP", DbType="Int")] System.Nullable<int> quantityP, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PriceMax", DbType="NVarChar(50)")] string priceMax, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PrintMin", DbType="NVarChar(50)")] string printMin, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Require", DbType="NVarChar(250)")] string require, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IsGroup", DbType="NVarChar(50)")] string isGroup, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BillCode", DbType="NVarChar(10)")] string billCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Radius", DbType="NVarChar(10)")] string radius)
 		{
-			this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), studentName, studentID, email, area, address, motelType, quantityP, priceMax, printMin, require, isGroup, billCode, radius);
+			return ((object)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), studentName, studentID, email, area, address, motelType, quantityP, priceMax, printMin, require, isGroup, billCode, radius).ReturnValue));
 		}
 	}
 	
@@ -5520,212 +5517,6 @@ namespace GiaSuBK.DAL
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.GS_ZaloUserInfo")]
-	public partial class GS_ZaloUserInfo : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _TokenCode;
-		
-		private string _Avatar;
-		
-		private string _Name;
-		
-		private string _PhoneNumber;
-		
-		private string _StudentID;
-		
-		private int _RowID;
-		
-		private string _ZaloUserID;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnTokenCodeChanging(string value);
-    partial void OnTokenCodeChanged();
-    partial void OnAvatarChanging(string value);
-    partial void OnAvatarChanged();
-    partial void OnNameChanging(string value);
-    partial void OnNameChanged();
-    partial void OnPhoneNumberChanging(string value);
-    partial void OnPhoneNumberChanged();
-    partial void OnStudentIDChanging(string value);
-    partial void OnStudentIDChanged();
-    partial void OnRowIDChanging(int value);
-    partial void OnRowIDChanged();
-    partial void OnZaloUserIDChanging(string value);
-    partial void OnZaloUserIDChanged();
-    #endregion
-		
-		public GS_ZaloUserInfo()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TokenCode", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string TokenCode
-		{
-			get
-			{
-				return this._TokenCode;
-			}
-			set
-			{
-				if ((this._TokenCode != value))
-				{
-					this.OnTokenCodeChanging(value);
-					this.SendPropertyChanging();
-					this._TokenCode = value;
-					this.SendPropertyChanged("TokenCode");
-					this.OnTokenCodeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Avatar", DbType="NVarChar(MAX)")]
-		public string Avatar
-		{
-			get
-			{
-				return this._Avatar;
-			}
-			set
-			{
-				if ((this._Avatar != value))
-				{
-					this.OnAvatarChanging(value);
-					this.SendPropertyChanging();
-					this._Avatar = value;
-					this.SendPropertyChanged("Avatar");
-					this.OnAvatarChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(250)")]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhoneNumber", DbType="NVarChar(50)")]
-		public string PhoneNumber
-		{
-			get
-			{
-				return this._PhoneNumber;
-			}
-			set
-			{
-				if ((this._PhoneNumber != value))
-				{
-					this.OnPhoneNumberChanging(value);
-					this.SendPropertyChanging();
-					this._PhoneNumber = value;
-					this.SendPropertyChanged("PhoneNumber");
-					this.OnPhoneNumberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StudentID", DbType="NVarChar(10)")]
-		public string StudentID
-		{
-			get
-			{
-				return this._StudentID;
-			}
-			set
-			{
-				if ((this._StudentID != value))
-				{
-					this.OnStudentIDChanging(value);
-					this.SendPropertyChanging();
-					this._StudentID = value;
-					this.SendPropertyChanged("StudentID");
-					this.OnStudentIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RowID", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
-		public int RowID
-		{
-			get
-			{
-				return this._RowID;
-			}
-			set
-			{
-				if ((this._RowID != value))
-				{
-					this.OnRowIDChanging(value);
-					this.SendPropertyChanging();
-					this._RowID = value;
-					this.SendPropertyChanged("RowID");
-					this.OnRowIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ZaloUserID", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string ZaloUserID
-		{
-			get
-			{
-				return this._ZaloUserID;
-			}
-			set
-			{
-				if ((this._ZaloUserID != value))
-				{
-					this.OnZaloUserIDChanging(value);
-					this.SendPropertyChanging();
-					this._ZaloUserID = value;
-					this.SendPropertyChanged("ZaloUserID");
-					this.OnZaloUserIDChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[User]")]
 	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -6158,6 +5949,141 @@ namespace GiaSuBK.DAL
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.GS_ZaloUserInfo")]
+	public partial class GS_ZaloUserInfo
+	{
+		
+		private string _TokenCode;
+		
+		private string _Avatar;
+		
+		private string _Name;
+		
+		private string _PhoneNumber;
+		
+		private string _StudentID;
+		
+		private int _RowID;
+		
+		private string _ZaloUserID;
+		
+		public GS_ZaloUserInfo()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TokenCode", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string TokenCode
+		{
+			get
+			{
+				return this._TokenCode;
+			}
+			set
+			{
+				if ((this._TokenCode != value))
+				{
+					this._TokenCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Avatar", DbType="NVarChar(MAX)")]
+		public string Avatar
+		{
+			get
+			{
+				return this._Avatar;
+			}
+			set
+			{
+				if ((this._Avatar != value))
+				{
+					this._Avatar = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(250)")]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this._Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhoneNumber", DbType="NVarChar(50)")]
+		public string PhoneNumber
+		{
+			get
+			{
+				return this._PhoneNumber;
+			}
+			set
+			{
+				if ((this._PhoneNumber != value))
+				{
+					this._PhoneNumber = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StudentID", DbType="NVarChar(10)")]
+		public string StudentID
+		{
+			get
+			{
+				return this._StudentID;
+			}
+			set
+			{
+				if ((this._StudentID != value))
+				{
+					this._StudentID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RowID", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+		public int RowID
+		{
+			get
+			{
+				return this._RowID;
+			}
+			set
+			{
+				if ((this._RowID != value))
+				{
+					this._RowID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ZaloUserID", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string ZaloUserID
+		{
+			get
+			{
+				return this._ZaloUserID;
+			}
+			set
+			{
+				if ((this._ZaloUserID != value))
+				{
+					this._ZaloUserID = value;
+				}
 			}
 		}
 	}

@@ -42,8 +42,15 @@ namespace GiaSuBK.BLL
                         var existTokenCode = db.GS_ZaloUserInfos.Where(p => p.TokenCode == objReq.Token).FirstOrDefault();
                         if(existTokenCode != null)
                         {
-                            objRes.RespCode = -2;
-                            objRes.RespText = "The Token code have exist and do not need to update new one";
+                            existTokenCode.Avatar = objReq.ZaloUserInfo.Avatar;
+                            existTokenCode.Name = objReq.ZaloUserInfo.Name;
+                            existTokenCode.StudentID = objReq.ZaloUserInfo.StudentID;
+                            existTokenCode.PhoneNumber = objReq.ZaloUserInfo.PhoneNumber;
+
+                            db.SubmitChanges();
+
+                            objRes.RespCode = 0;
+                            objRes.RespText = "The Token code have exist and updated";
                             return objRes;
                         }
 
