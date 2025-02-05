@@ -870,6 +870,138 @@ namespace GiaSuBK.MD.GiaSuBKMessages
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GSGetZaloUserPhoneNumReq", Namespace="http://cpc1hn.vn/LabManager/Message/v1")]
+    public partial class GSGetZaloUserPhoneNumReq : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string UserIDField;
+        
+        private string TokenField;
+        
+        private string PhoneTokenField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string UserID
+        {
+            get
+            {
+                return this.UserIDField;
+            }
+            set
+            {
+                this.UserIDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=1)]
+        public string Token
+        {
+            get
+            {
+                return this.TokenField;
+            }
+            set
+            {
+                this.TokenField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=2)]
+        public string PhoneToken
+        {
+            get
+            {
+                return this.PhoneTokenField;
+            }
+            set
+            {
+                this.PhoneTokenField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GSGetZaloUserPhoneNumRes", Namespace="http://cpc1hn.vn/LabManager/Message/v1")]
+    public partial class GSGetZaloUserPhoneNumRes : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private int RespCodeField;
+        
+        private string RespTextField;
+        
+        private string ZaloUserPhoneNumField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int RespCode
+        {
+            get
+            {
+                return this.RespCodeField;
+            }
+            set
+            {
+                this.RespCodeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string RespText
+        {
+            get
+            {
+                return this.RespTextField;
+            }
+            set
+            {
+                this.RespTextField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string ZaloUserPhoneNum
+        {
+            get
+            {
+                return this.ZaloUserPhoneNumField;
+            }
+            set
+            {
+                this.ZaloUserPhoneNumField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="GSCreateParentInfoReq", Namespace="http://cpc1hn.vn/LabManager/Message/v1")]
     public partial class GSCreateParentInfoReq : object, System.Runtime.Serialization.IExtensibleDataObject
     {

@@ -78,6 +78,7 @@
     <Compile Include="GetStudentReqInfo.cs" />
     <Compile Include="GetStudentReqList.cs" />
     <Compile Include="GetZaloUserInfo.cs" />
+    <Compile Include="GetZaloUserPhoneNum.cs" />
     <Compile Include="StoreZaloUserInfo.cs" />
     <Compile Include="StudentApplyClass.cs" />
     <Compile Include="StudentRequest.cs" />

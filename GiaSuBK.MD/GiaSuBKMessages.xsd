@@ -91,6 +91,21 @@
 		</xs:sequence>
 	</xs:complexType>
 
+	<xs:complexType name="GSGetZaloUserPhoneNumReq">
+		<xs:sequence>
+			<xs:element name="UserID" type="xs:string" />
+			<xs:element name="Token" type="xs:string" />
+			<xs:element name="PhoneToken" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GSGetZaloUserPhoneNumRes">
+		<xs:sequence>
+			<xs:element name="RespCode" type="xs:int" />
+			<xs:element name="RespText" type="xs:string" />
+			<xs:element name="ZaloUserPhoneNum" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+
 	<xs:complexType name ="GSZaloUserInfo">
 		<xs:sequence>
 			<xs:element name="UserID" type="xs:string" />
@@ -102,8 +117,6 @@
 		</xs:sequence>
 	</xs:complexType>
 	
-
-
 	<xs:complexType name ="GSUserInfo">
 		<xs:sequence>
 			<xs:element name ="RowID" type="xs:int"/>
