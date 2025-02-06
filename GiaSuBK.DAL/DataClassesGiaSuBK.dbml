@@ -279,7 +279,7 @@
   </Table>
   <Table Name="dbo.GS_ZaloUserInfo" Member="GS_ZaloUserInfos">
     <Type Name="GS_ZaloUserInfo">
-      <Column Name="TokenCode" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="TokenCode" Type="System.String" DbType="NVarChar(450) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Avatar" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="Name" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
       <Column Name="PhoneNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />

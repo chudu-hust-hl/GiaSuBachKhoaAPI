@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 18.375, 16.25" name="DataClassesGiaSuBK">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 18, 16.25" name="DataClassesGiaSuBK">
   <DataContextMoniker Name="/DataClassesGiaSuBKDataContext" />
   <nestedChildShapes>
     <classShape Id="790dcfc8-e2fa-4606-ab6a-8b5f83f8f83e" absoluteBounds="6.75, 6.75, 2, 2.5401025390624996">
@@ -113,10 +113,10 @@
         <classShapeMoniker Id="43256a04-0ffb-4e3c-8668-40d5db8126ab" />
       </nodes>
     </associationConnector>
-    <classShape Id="09764945-47cb-415d-a8fc-419a9aabc716" absoluteBounds="16.125, 10.75, 2, 2.1554996744791666">
+    <classShape Id="ee912968-9be5-4684-b4ea-bab0833aeee4" absoluteBounds="15.75, 10, 2, 2.1554996744791666">
       <DataClassMoniker Name="/DataClassesGiaSuBKDataContext/GS_ZaloUserInfo" />
       <nestedChildShapes>
-        <elementListCompartment Id="66cf66be-ab04-499b-85e7-f95e35e3ed03" absoluteBounds="16.14, 11.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="d5322196-3d87-4252-afa8-a129c910d92d" absoluteBounds="15.765, 10.46, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

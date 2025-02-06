@@ -69,6 +69,9 @@ namespace GiaSuBK.DAL
     partial void InsertUserRole(UserRole instance);
     partial void UpdateUserRole(UserRole instance);
     partial void DeleteUserRole(UserRole instance);
+    partial void InsertGS_ZaloUserInfo(GS_ZaloUserInfo instance);
+    partial void UpdateGS_ZaloUserInfo(GS_ZaloUserInfo instance);
+    partial void DeleteGS_ZaloUserInfo(GS_ZaloUserInfo instance);
     #endregion
 		
 		public DataClassesGiaSuBKDataContext() : 
@@ -5954,8 +5957,10 @@ namespace GiaSuBK.DAL
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.GS_ZaloUserInfo")]
-	public partial class GS_ZaloUserInfo
+	public partial class GS_ZaloUserInfo : INotifyPropertyChanging, INotifyPropertyChanged
 	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private string _TokenCode;
 		
@@ -5971,11 +5976,32 @@ namespace GiaSuBK.DAL
 		
 		private string _ZaloUserID;
 		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnTokenCodeChanging(string value);
+    partial void OnTokenCodeChanged();
+    partial void OnAvatarChanging(string value);
+    partial void OnAvatarChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnPhoneNumberChanging(string value);
+    partial void OnPhoneNumberChanged();
+    partial void OnStudentIDChanging(string value);
+    partial void OnStudentIDChanged();
+    partial void OnRowIDChanging(int value);
+    partial void OnRowIDChanged();
+    partial void OnZaloUserIDChanging(string value);
+    partial void OnZaloUserIDChanged();
+    #endregion
+		
 		public GS_ZaloUserInfo()
 		{
+			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TokenCode", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TokenCode", DbType="NVarChar(450) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string TokenCode
 		{
 			get
@@ -5986,7 +6012,11 @@ namespace GiaSuBK.DAL
 			{
 				if ((this._TokenCode != value))
 				{
+					this.OnTokenCodeChanging(value);
+					this.SendPropertyChanging();
 					this._TokenCode = value;
+					this.SendPropertyChanged("TokenCode");
+					this.OnTokenCodeChanged();
 				}
 			}
 		}
@@ -6002,7 +6032,11 @@ namespace GiaSuBK.DAL
 			{
 				if ((this._Avatar != value))
 				{
+					this.OnAvatarChanging(value);
+					this.SendPropertyChanging();
 					this._Avatar = value;
+					this.SendPropertyChanged("Avatar");
+					this.OnAvatarChanged();
 				}
 			}
 		}
@@ -6018,7 +6052,11 @@ namespace GiaSuBK.DAL
 			{
 				if ((this._Name != value))
 				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
 					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
 				}
 			}
 		}
@@ -6034,7 +6072,11 @@ namespace GiaSuBK.DAL
 			{
 				if ((this._PhoneNumber != value))
 				{
+					this.OnPhoneNumberChanging(value);
+					this.SendPropertyChanging();
 					this._PhoneNumber = value;
+					this.SendPropertyChanged("PhoneNumber");
+					this.OnPhoneNumberChanged();
 				}
 			}
 		}
@@ -6050,7 +6092,11 @@ namespace GiaSuBK.DAL
 			{
 				if ((this._StudentID != value))
 				{
+					this.OnStudentIDChanging(value);
+					this.SendPropertyChanging();
 					this._StudentID = value;
+					this.SendPropertyChanged("StudentID");
+					this.OnStudentIDChanged();
 				}
 			}
 		}
@@ -6066,7 +6112,11 @@ namespace GiaSuBK.DAL
 			{
 				if ((this._RowID != value))
 				{
+					this.OnRowIDChanging(value);
+					this.SendPropertyChanging();
 					this._RowID = value;
+					this.SendPropertyChanged("RowID");
+					this.OnRowIDChanged();
 				}
 			}
 		}
@@ -6082,8 +6132,32 @@ namespace GiaSuBK.DAL
 			{
 				if ((this._ZaloUserID != value))
 				{
+					this.OnZaloUserIDChanging(value);
+					this.SendPropertyChanging();
 					this._ZaloUserID = value;
+					this.SendPropertyChanged("ZaloUserID");
+					this.OnZaloUserIDChanged();
 				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
