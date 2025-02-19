@@ -21,3 +21,6 @@ C:\University Files\iCTSV\Dự án Gia sư\Dev\GiaSuBachKhoaAPI\GiaSuBK.BLL\bin\
 C:\University Files\iCTSV\Dự án Gia sư\Dev\GiaSuBachKhoaAPI\GiaSuBK.BLL\obj\Debug\GiaSuBK.BLL.csproj.CopyComplete
 C:\University Files\iCTSV\Dự án Gia sư\Dev\GiaSuBachKhoaAPI\GiaSuBK.BLL\obj\Debug\GiaSuBK.BLL.dll
 C:\University Files\iCTSV\Dự án Gia sư\Dev\GiaSuBachKhoaAPI\GiaSuBK.BLL\obj\Debug\GiaSuBK.BLL.pdb
+C:\University Files\iCTSV\Dự án Gia sư\Dev\GiaSuBachKhoaAPI\GiaSuBK.BLL\bin\Debug\System.Net.Http.Formatting.dll
+C:\University Files\iCTSV\Dự án Gia sư\Dev\GiaSuBachKhoaAPI\GiaSuBK.BLL\bin\Debug\ZaloDotNetSDK.dll
+C:\University Files\iCTSV\Dự án Gia sư\Dev\GiaSuBachKhoaAPI\GiaSuBK.BLL\bin\Debug\System.Net.Http.Formatting.xml
