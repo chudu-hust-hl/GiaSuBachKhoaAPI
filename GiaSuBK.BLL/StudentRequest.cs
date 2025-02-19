@@ -35,24 +35,6 @@ namespace GiaSuBK.BLL
                         var adminToken = db.UserTokens.Where(p => p.TokenCode == objReq.Token).FirstOrDefault();
 
 
-                        if (userToken == null)
-                        {
-                            objRes.RespCode = -1;
-                            objRes.RespText = "Session expired or invalid token";
-                            Log.Warn(string.Format("[{0}:{1}]", objRes.RespCode, objRes.RespText));
-                            return objRes;
-                        }
-                        else
-                        {
-                            if (userToken.StudentID != null && userToken.StudentID != objReq.StudentInfo.StudentID)
-                            {
-                                objRes.RespCode = -2;
-                                objRes.RespText = "One User can only assign for one StudentID";
-                                Log.Warn(string.Format("[{0}:{1}]", objRes.RespCode, objRes.RespText));
-                                return objRes;
-                            }
-                        }
-
                         var random = new Random();
                         var randomCode = random.Next(10000, 99999); // Generate a 5-digit random number
                         var reqStudentID = $"{objReq.StudentInfo.StudentID}-{randomCode}";
