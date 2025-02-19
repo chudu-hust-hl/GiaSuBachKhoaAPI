@@ -84,3 +84,4 @@ C:\University Files\iCTSV\Dự án Gia sư\Dev\GiaSuBachKhoaAPI\GiaSuBachKhoaAPI
 C:\University Files\iCTSV\Dự án Gia sư\Dev\GiaSuBachKhoaAPI\GiaSuBachKhoaAPI\obj\Debug\GiaSuBachKhoaAPI.csproj.CopyComplete
 C:\University Files\iCTSV\Dự án Gia sư\Dev\GiaSuBachKhoaAPI\GiaSuBachKhoaAPI\obj\Debug\GiaSuBachKhoaAPI.dll
 C:\University Files\iCTSV\Dự án Gia sư\Dev\GiaSuBachKhoaAPI\GiaSuBachKhoaAPI\obj\Debug\GiaSuBachKhoaAPI.pdb
+C:\University Files\iCTSV\Dự án Gia sư\Dev\GiaSuBachKhoaAPI\GiaSuBachKhoaAPI\bin\ZaloDotNetSDK.dll

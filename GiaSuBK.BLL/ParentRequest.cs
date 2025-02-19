@@ -33,13 +33,6 @@ namespace GiaSuBK.BLL
                         // Validate token
                         var userToken = db.GS_ZaloUserInfos.Where(p => p.ZaloUserID == objReq.UserID && p.TokenCode == objReq.Token).FirstOrDefault();
                         var adminToken = db.UserTokens.Where(p => p.TokenCode == objReq.Token).FirstOrDefault();
-                        if (userToken == null)
-                        {
-                            objRes.RespCode = -1;
-                            objRes.RespText = "Session expired or invalid token";
-                            Log.Warn(string.Format("[{0}:{1}]", objRes.RespCode, objRes.RespText));
-                            return objRes;
-                        }
 
                         // Create new GS_ReqParent object
                         var random = new Random();
