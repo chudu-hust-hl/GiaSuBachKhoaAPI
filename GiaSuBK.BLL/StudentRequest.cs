@@ -89,7 +89,11 @@ namespace GiaSuBK.BLL
                             ModifierID = null
                         };
 
-                        userToken.StudentID = objReq.StudentInfo.StudentID;
+                        if(userToken != null)
+                        {
+                            userToken.StudentID = objReq.StudentInfo.StudentID;
+                        }
+                        
 
                         // Add and save changes
                         db.GS_ReqStudents.InsertOnSubmit(newStudentReq);
