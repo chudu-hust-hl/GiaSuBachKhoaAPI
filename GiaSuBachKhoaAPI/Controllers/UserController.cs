@@ -222,5 +222,108 @@ namespace GiaSuBKAPI.Controllers
             return objRes;
         }
 
+
+        [Route("User/GSGetCity")]
+        [HttpPost]
+        public GSGetCityRes GSGetCity(GSGetCityReq objReq)
+        {
+            var objRes = new GSGetCityRes
+            {
+                RespCode = -1,
+                RespText = "Nothing",
+            };
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            try
+            {
+                if (!WriteIncommingMessage2Log("Get City", js.Serialize(objReq), 0))
+                    Log.Warn("Loi ghi log ban tin request");
+                objRes = new GiaSuBK.BLL.GetCity().GSGetCity(objReq);
+                if (!WriteIncommingMessage2Log("Get City", js.Serialize(objRes), 1))
+                    Log.Warn("Loi ghi log ban tin response");
+            }
+            catch (WebException wex)
+            {
+                objRes.RespCode = 8;
+                objRes.RespText = wex.Message;
+                Log.Error(string.Format("[{0}: {1}]", objRes.RespCode, objRes.RespText));
+            }
+            catch (Exception ex)
+            {
+                objRes.RespCode = 9;
+                objRes.RespText = ex.Message;
+                Log.Error(string.Format("[{0}: {1}]", objRes.RespCode, objRes.RespText));
+
+            }
+            return objRes;
+        }
+
+        [Route("User/GSGetDistrict")]
+        [HttpPost]
+        public GSGetDistrictRes GSGetDistrict(GSGetDistrictReq objReq)
+        {
+            var objRes = new GSGetDistrictRes
+            {
+                RespCode = -1,
+                RespText = "Nothing",
+            };
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            try
+            {
+                if (!WriteIncommingMessage2Log("Get District", js.Serialize(objReq), 0))
+                    Log.Warn("Loi ghi log ban tin request");
+                objRes = new GiaSuBK.BLL.GetDistrict().GSGetDistrict(objReq);
+                if (!WriteIncommingMessage2Log("Get District", js.Serialize(objRes), 1))
+                    Log.Warn("Loi ghi log ban tin response");
+            }
+            catch (WebException wex)
+            {
+                objRes.RespCode = 8;
+                objRes.RespText = wex.Message;
+                Log.Error(string.Format("[{0}: {1}]", objRes.RespCode, objRes.RespText));
+            }
+            catch (Exception ex)
+            {
+                objRes.RespCode = 9;
+                objRes.RespText = ex.Message;
+                Log.Error(string.Format("[{0}: {1}]", objRes.RespCode, objRes.RespText));
+
+            }
+            return objRes;
+        }
+
+        [Route("User/GSGetCommune")]
+        [HttpPost]
+        public GSGetCommuneRes GSGetCommune(GSGetCommuneReq objReq)
+        {
+            var objRes = new GSGetCommuneRes
+            {
+                RespCode = -1,
+                RespText = "Nothing",
+            };
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            try
+            {
+                if (!WriteIncommingMessage2Log("Get Commune", js.Serialize(objReq), 0))
+                    Log.Warn("Loi ghi log ban tin request");
+                objRes = new GiaSuBK.BLL.GetCommune().GSGetCommune(objReq);
+                if (!WriteIncommingMessage2Log("Get Commune", js.Serialize(objRes), 1))
+                    Log.Warn("Loi ghi log ban tin response");
+            }
+            catch (WebException wex)
+            {
+                objRes.RespCode = 8;
+                objRes.RespText = wex.Message;
+                Log.Error(string.Format("[{0}: {1}]", objRes.RespCode, objRes.RespText));
+            }
+            catch (Exception ex)
+            {
+                objRes.RespCode = 9;
+                objRes.RespText = ex.Message;
+                Log.Error(string.Format("[{0}: {1}]", objRes.RespCode, objRes.RespText));
+
+            }
+            return objRes;
+        }
+
     }
 }

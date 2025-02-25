@@ -232,24 +232,10 @@ namespace GiaSuBK.DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetCommune")]
-		public ISingleResult<GetCommuneResult> GetCommune([global::System.Data.Linq.Mapping.ParameterAttribute(Name="City", DbType="NVarChar(50)")] string city, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="District", DbType="NVarChar(50)")] string district)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), city, district);
-			return ((ISingleResult<GetCommuneResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MAIL_StudentReceivedMoney", IsComposable=true)]
 		public object MAIL_StudentReceivedMoney([global::System.Data.Linq.Mapping.ParameterAttribute(Name="StudentName", DbType="NVarChar(250)")] string studentName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StudentID", DbType="NVarChar(50)")] string studentID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(250)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Area", DbType="NVarChar(500)")] string area, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Address", DbType="NVarChar(500)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MotelType", DbType="NVarChar(250)")] string motelType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="QuantityP", DbType="Int")] System.Nullable<int> quantityP, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PriceMax", DbType="NVarChar(50)")] string priceMax, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PrintMin", DbType="NVarChar(50)")] string printMin, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Require", DbType="NVarChar(250)")] string require, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IsGroup", DbType="NVarChar(50)")] string isGroup, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BillCode", DbType="NVarChar(10)")] string billCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Radius", DbType="NVarChar(10)")] string radius)
 		{
 			return ((object)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), studentName, studentID, email, area, address, motelType, quantityP, priceMax, printMin, require, isGroup, billCode, radius).ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetDistrict")]
-		public ISingleResult<GetDistrictResult> GetDistrict([global::System.Data.Linq.Mapping.ParameterAttribute(Name="City", DbType="NVarChar(50)")] string city)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), city);
-			return ((ISingleResult<GetDistrictResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GS_GetClassLst")]
@@ -362,6 +348,27 @@ namespace GiaSuBK.DAL
 		public object MAIL_StudentConfimMoney([global::System.Data.Linq.Mapping.ParameterAttribute(Name="StudentName", DbType="NVarChar(250)")] string studentName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StudentID", DbType="NVarChar(50)")] string studentID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(250)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Area", DbType="NVarChar(500)")] string area, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Address", DbType="NVarChar(500)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MotelType", DbType="NVarChar(250)")] string motelType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="QuantityP", DbType="Int")] System.Nullable<int> quantityP, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PriceMax", DbType="NVarChar(50)")] string priceMax, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PrintMin", DbType="NVarChar(50)")] string printMin, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Require", DbType="NVarChar(250)")] string require, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IsGroup", DbType="NVarChar(50)")] string isGroup, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BillCode", DbType="NVarChar(10)")] string billCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Radius", DbType="NVarChar(10)")] string radius)
 		{
 			return ((object)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), studentName, studentID, email, area, address, motelType, quantityP, priceMax, printMin, require, isGroup, billCode, radius).ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetCity")]
+		public ISingleResult<GetCityResult> GetCity()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<GetCityResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetCommune")]
+		public ISingleResult<GetCommuneResult> GetCommune([global::System.Data.Linq.Mapping.ParameterAttribute(Name="City", DbType="NVarChar(50)")] string city, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="District", DbType="NVarChar(50)")] string district)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), city, district);
+			return ((ISingleResult<GetCommuneResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetDistrict")]
+		public ISingleResult<GetDistrictResult> GetDistrict([global::System.Data.Linq.Mapping.ParameterAttribute(Name="City", DbType="NVarChar(50)")] string city)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), city);
+			return ((ISingleResult<GetDistrictResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -6162,58 +6169,6 @@ namespace GiaSuBK.DAL
 		}
 	}
 	
-	public partial class GetCommuneResult
-	{
-		
-		private string _Commune;
-		
-		public GetCommuneResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Commune", DbType="NVarChar(250)")]
-		public string Commune
-		{
-			get
-			{
-				return this._Commune;
-			}
-			set
-			{
-				if ((this._Commune != value))
-				{
-					this._Commune = value;
-				}
-			}
-		}
-	}
-	
-	public partial class GetDistrictResult
-	{
-		
-		private string _District;
-		
-		public GetDistrictResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_District", DbType="NVarChar(250)")]
-		public string District
-		{
-			get
-			{
-				return this._District;
-			}
-			set
-			{
-				if ((this._District != value))
-				{
-					this._District = value;
-				}
-			}
-		}
-	}
-	
 	public partial class GS_GetClassLstResult
 	{
 		
@@ -11239,6 +11194,84 @@ namespace GiaSuBK.DAL
 				if ((this._Distance != value))
 				{
 					this._Distance = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GetCityResult
+	{
+		
+		private string _City;
+		
+		public GetCityResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_City", DbType="NVarChar(250)")]
+		public string City
+		{
+			get
+			{
+				return this._City;
+			}
+			set
+			{
+				if ((this._City != value))
+				{
+					this._City = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GetCommuneResult
+	{
+		
+		private string _Commune;
+		
+		public GetCommuneResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Commune", DbType="NVarChar(250)")]
+		public string Commune
+		{
+			get
+			{
+				return this._Commune;
+			}
+			set
+			{
+				if ((this._Commune != value))
+				{
+					this._Commune = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GetDistrictResult
+	{
+		
+		private string _District;
+		
+		public GetDistrictResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_District", DbType="NVarChar(250)")]
+		public string District
+		{
+			get
+			{
+				return this._District;
+			}
+			set
+			{
+				if ((this._District != value))
+				{
+					this._District = value;
 				}
 			}
 		}

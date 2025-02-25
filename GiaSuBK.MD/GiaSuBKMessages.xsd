@@ -129,6 +129,62 @@
 			<xs:element name ="TimeCreate" type="xs:string"/>
 		</xs:sequence>
 	</xs:complexType>
+
+	<!--Location API-->
+	<xs:complexType name="GSGetCityReq">
+		<xs:sequence>
+			<xs:element name="UserID" type="xs:string" />
+			<xs:element name="Token" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="GSGetCityRes">
+		<xs:sequence>
+			<xs:element name="RespCode" type="xs:int" />
+			<xs:element name="RespText" type="xs:string" />
+			<xs:element name="LocationLst" type="mstns:LocationList" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="GSGetDistrictReq">
+		<xs:sequence>
+			<xs:element name="UserID" type="xs:string" />
+			<xs:element name="Token" type="xs:string" />
+			<xs:element name="City" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="GSGetDistrictRes">
+		<xs:sequence>
+			<xs:element name="RespCode" type="xs:int" />
+			<xs:element name="RespText" type="xs:string" />
+			<xs:element name="LocationLst" type="mstns:LocationList" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="GSGetCommuneReq">
+		<xs:sequence>
+			<xs:element name="UserID" type="xs:string" />
+			<xs:element name="Token" type="xs:string" />
+			<xs:element name="City" type="xs:string" />
+			<xs:element name="District" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="GSGetCommuneRes">
+		<xs:sequence>
+			<xs:element name="RespCode" type="xs:int" />
+			<xs:element name="RespText" type="xs:string" />
+			<xs:element name="LocationLst" type="mstns:LocationList" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name ="LocationList">
+		<xs:sequence>
+			<xs:element name="Location" type="xs:string" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
 	
 	<!--API for Parent-->
 	
