@@ -70,9 +70,12 @@
   <ItemGroup>
     <Compile Include="Admin.cs" />
     <Compile Include="CreateStudentDailyCmt.cs" />
+    <Compile Include="GetCity.cs" />
     <Compile Include="GetClassInfo.cs" />
     <Compile Include="GetClassList.cs" />
     <Compile Include="CreateParentComment.cs" />
+    <Compile Include="GetCommune.cs" />
+    <Compile Include="GetDistrict.cs" />
     <Compile Include="GetExcelStudentReqList.cs" />
     <Compile Include="GetFindingClassList.cs" />
     <Compile Include="GetParentBasicInfo.cs" />

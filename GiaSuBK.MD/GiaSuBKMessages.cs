@@ -1002,6 +1002,409 @@ namespace GiaSuBK.MD.GiaSuBKMessages
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GSGetCityReq", Namespace="http://cpc1hn.vn/LabManager/Message/v1")]
+    public partial class GSGetCityReq : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string UserIDField;
+        
+        private string TokenField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string UserID
+        {
+            get
+            {
+                return this.UserIDField;
+            }
+            set
+            {
+                this.UserIDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=1)]
+        public string Token
+        {
+            get
+            {
+                return this.TokenField;
+            }
+            set
+            {
+                this.TokenField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GSGetCityRes", Namespace="http://cpc1hn.vn/LabManager/Message/v1")]
+    public partial class GSGetCityRes : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private int RespCodeField;
+        
+        private string RespTextField;
+        
+        private GiaSuBK.MD.GiaSuBKMessages.LocationList LocationLstField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int RespCode
+        {
+            get
+            {
+                return this.RespCodeField;
+            }
+            set
+            {
+                this.RespCodeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string RespText
+        {
+            get
+            {
+                return this.RespTextField;
+            }
+            set
+            {
+                this.RespTextField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=2)]
+        public GiaSuBK.MD.GiaSuBKMessages.LocationList LocationLst
+        {
+            get
+            {
+                return this.LocationLstField;
+            }
+            set
+            {
+                this.LocationLstField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="LocationList", Namespace="http://cpc1hn.vn/LabManager/Message/v1", ItemName="Location")]
+    public class LocationList : System.Collections.Generic.List<string>
+    {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GSGetDistrictReq", Namespace="http://cpc1hn.vn/LabManager/Message/v1")]
+    public partial class GSGetDistrictReq : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string UserIDField;
+        
+        private string TokenField;
+        
+        private string CityField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string UserID
+        {
+            get
+            {
+                return this.UserIDField;
+            }
+            set
+            {
+                this.UserIDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=1)]
+        public string Token
+        {
+            get
+            {
+                return this.TokenField;
+            }
+            set
+            {
+                this.TokenField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=2)]
+        public string City
+        {
+            get
+            {
+                return this.CityField;
+            }
+            set
+            {
+                this.CityField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GSGetDistrictRes", Namespace="http://cpc1hn.vn/LabManager/Message/v1")]
+    public partial class GSGetDistrictRes : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private int RespCodeField;
+        
+        private string RespTextField;
+        
+        private GiaSuBK.MD.GiaSuBKMessages.LocationList LocationLstField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int RespCode
+        {
+            get
+            {
+                return this.RespCodeField;
+            }
+            set
+            {
+                this.RespCodeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string RespText
+        {
+            get
+            {
+                return this.RespTextField;
+            }
+            set
+            {
+                this.RespTextField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=2)]
+        public GiaSuBK.MD.GiaSuBKMessages.LocationList LocationLst
+        {
+            get
+            {
+                return this.LocationLstField;
+            }
+            set
+            {
+                this.LocationLstField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GSGetCommuneReq", Namespace="http://cpc1hn.vn/LabManager/Message/v1")]
+    public partial class GSGetCommuneReq : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string UserIDField;
+        
+        private string TokenField;
+        
+        private string CityField;
+        
+        private string DistrictField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string UserID
+        {
+            get
+            {
+                return this.UserIDField;
+            }
+            set
+            {
+                this.UserIDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=1)]
+        public string Token
+        {
+            get
+            {
+                return this.TokenField;
+            }
+            set
+            {
+                this.TokenField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=2)]
+        public string City
+        {
+            get
+            {
+                return this.CityField;
+            }
+            set
+            {
+                this.CityField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=3)]
+        public string District
+        {
+            get
+            {
+                return this.DistrictField;
+            }
+            set
+            {
+                this.DistrictField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GSGetCommuneRes", Namespace="http://cpc1hn.vn/LabManager/Message/v1")]
+    public partial class GSGetCommuneRes : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private int RespCodeField;
+        
+        private string RespTextField;
+        
+        private GiaSuBK.MD.GiaSuBKMessages.LocationList LocationLstField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int RespCode
+        {
+            get
+            {
+                return this.RespCodeField;
+            }
+            set
+            {
+                this.RespCodeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string RespText
+        {
+            get
+            {
+                return this.RespTextField;
+            }
+            set
+            {
+                this.RespTextField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=2)]
+        public GiaSuBK.MD.GiaSuBKMessages.LocationList LocationLst
+        {
+            get
+            {
+                return this.LocationLstField;
+            }
+            set
+            {
+                this.LocationLstField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="GSCreateParentInfoReq", Namespace="http://cpc1hn.vn/LabManager/Message/v1")]
     public partial class GSCreateParentInfoReq : object, System.Runtime.Serialization.IExtensibleDataObject
     {
